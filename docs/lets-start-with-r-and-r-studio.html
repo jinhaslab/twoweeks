@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Let’s Start with R and R studio | DsPubs with R tutor book</title>
+  <meta name="description" content="Chapter 2 Let’s Start with R and R studio | DsPubs with R tutor book" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Let’s Start with R and R studio | DsPubs with R tutor book" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Let’s Start with R and R studio | DsPubs with R tutor book" />
+  
+  
+  
+
+<meta name="author" content="jinha" />
+
+
+<meta name="date" content="2022-09-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">jinhaslab</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Let’s Start with R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud-and-colab"><i class="fa fa-check"></i><b>2.1</b> Rstudio Cloud, and colab</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1.1</b> Rstudio Cloud</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#colab"><i class="fa fa-check"></i><b>2.1.2</b> Colab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-window-system"><i class="fa fa-check"></i><b>2.2</b> R and R studio on Window system</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-install"><i class="fa fa-check"></i><b>2.2.1</b> R studio install</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-project"><i class="fa fa-check"></i><b>2.2.2</b> R studio project</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DsPubs with R tutor book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lets-start-with-r-and-r-studio" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Let’s Start with R and R studio<a href="lets-start-with-r-and-r-studio.html#lets-start-with-r-and-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rstudio-cloud-and-colab" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Rstudio Cloud, and colab<a href="lets-start-with-r-and-r-studio.html#rstudio-cloud-and-colab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rstudio-cloud" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Rstudio Cloud<a href="lets-start-with-r-and-r-studio.html#rstudio-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R studio cloud is fastest and easiest way using R and R studio. There are various options include free option. <br></p>
+<ul>
+<li>Rstudio cloud login
+<ul>
+<li>Go to <a href="https://rstudio.cloud/"> RStudio Cloud </a></li>
+<li>Sing up and Sing In</li>
+<li>New Project</li>
+<li>Setting and Start</li>
+</ul></li>
+</ul>
+</div>
+<div id="colab" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Colab<a href="lets-start-with-r-and-r-studio.html#colab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Colab is well-known web site for python and jupyter notebook user. There is useful options for using R in Colab. One is using <code>%%R</code> in jupyter notebook, or open Colab using alternative url address</p>
+<ol style="list-style-type: decimal">
+<li>Colab with %%R</li>
+</ol>
+<ul>
+<li>Go to Google <a href="https://colab.research.google.com/"> Colab </a></li>
+<li>Sign up and sign in</li>
+<li>File &amp;rarr New Notebook</li>
+<li>Code:
+<code>%load_ext rpy2.ipython</code></li>
+<li>using <code>%%R</code> function
+<code>%%R</code>
+<code>library(tidyverse)</code></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Colab <strong>without</strong> %%R</li>
+</ol>
+<ul>
+<li>Sign up and Sign in colab</li>
+<li>goto <a href="http://colab.to/r" class="uri">http://colab.to/r</a></li>
+<li>Using R without %%R
+<code>library(tidyverse)</code></li>
+</ul>
+<p>full tutorial video of Rstudio cloud and colab as below.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ckeifBJ_Fq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+<div id="r-and-r-studio-on-window-system" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> R and R studio on Window system<a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-window-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here, I explain how can you set up R and R studio in Window system. <br></p>
+<ol style="list-style-type: decimal">
+<li>search <strong>R cran</strong> in google.</li>
+</ol>
+<ul>
+<li>you can see below site</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Clinck Download and Install R</li>
+<li>Download R for Window</li>
+<li>Base → Install R for the first Time</li>
+<li><strong>Download R * for Windows</strong></li>
+</ol>
+<p><img src="images/rinstall.png" alt ="sorry~~" ></p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/E0_CwuCJs28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<div id="r-studio-install" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> R studio install<a href="lets-start-with-r-and-r-studio.html#r-studio-install" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R studio install really easy, just follow below video.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JgJnutbOkN0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Rstudio have various user friendly options. Below video suggest us some useful options.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xQODySsdm0Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="r-studio-project" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> R studio project<a href="lets-start-with-r-and-r-studio.html#r-studio-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R studio gives <strong>project</strong> option, <strong>project</strong> make default pathway to import export data and script. The Collaborate work will be easy when we share the project.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kvs-hBMjH4U" frameborder="0" alstudio projectlow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>I also suggest you commonly used basic directory. That is another rule to share our idea to co-worker.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/peMcQa1PYPA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Althoug we used window system, basic command such as copy and move are needed to facilitate our coding process.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ysVPHY9FbIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Yes, we are ready to coding R.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["testbook.pdf", "testbook.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
