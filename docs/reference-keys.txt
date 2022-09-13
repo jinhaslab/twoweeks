@@ -11,3 +11,11 @@ r-studio-기본-세팅
 r-studio-project
 r-기본-폴더와-copy
 r-studio-install
+gcp
+gcp-에-vm-만들기
+digital-ocean
+digital-ocean-cmd-terminal-winscp-putty
+기본-user-만들기
+r-and-rstudio-install
+shinylocal
+도메인-연결
