@@ -176,3 +176,7 @@ data-import
 relational-data
 strings-and-regular-expression
 date-and-times
+central-tendency-mean-median-mode
+tables-for-public-health-1
+데이터표-준비-1
+tables-for-public-health-2
