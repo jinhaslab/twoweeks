@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Data Wrangling- Reshaping | DsPubs with R tutor book</title>
-  <meta name="description" content="Chapter 9 Data Wrangling- Reshaping | DsPubs with R tutor book" />
+  <title>Chapter 10 Data Wrangling- Reshaping | DsPubs with R tutor book</title>
+  <meta name="description" content="Chapter 10 Data Wrangling- Reshaping | DsPubs with R tutor book" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Data Wrangling- Reshaping | DsPubs with R tutor book" />
+  <meta property="og:title" content="Chapter 10 Data Wrangling- Reshaping | DsPubs with R tutor book" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Data Wrangling- Reshaping | DsPubs with R tutor book" />
+  <meta name="twitter:title" content="Chapter 10 Data Wrangling- Reshaping | DsPubs with R tutor book" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="jinha" />
 
 
-<meta name="date" content="2022-09-14" />
+<meta name="date" content="2022-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">jinhaslab</a></li>
+<li><a href="https://dspubs.org/webapps">DsPubs</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -190,192 +190,203 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Visualization</b></span></li>
-<li class="chapter" data-level="5" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html"><i class="fa fa-check"></i><b>5</b> Tables for public health</a>
+<li class="chapter" data-level="5" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html"><i class="fa fa-check"></i><b>5</b> Tables for public health 1</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#데이터표-준비"><i class="fa fa-check"></i><b>5.1</b> 데이터표 준비</a></li>
-<li class="chapter" data-level="5.2" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#보건학에서-주로-사용하는-표"><i class="fa fa-check"></i><b>5.2</b> 보건학에서 주로 사용하는 표</a>
+<li class="chapter" data-level="5.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#데이터표-준비"><i class="fa fa-check"></i><b>5.1</b> 데이터표 준비</a></li>
+<li class="chapter" data-level="5.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#central-tendency-mean-median-mode"><i class="fa fa-check"></i><b>5.2</b> Central Tendency (mean, median, mode)</a></li>
+<li class="chapter" data-level="5.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-and-table-1"><i class="fa fa-check"></i><b>5.3</b> Group_by and Table 1</a></li>
+<li class="chapter" data-level="5.4" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1"><i class="fa fa-check"></i><b>5.4</b> Long File and Table 1</a></li>
+<li class="chapter" data-level="5.5" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#정리"><i class="fa fa-check"></i><b>5.5</b> 정리</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#표1-또는-기초-그래프"><i class="fa fa-check"></i><b>5.2.1</b> 표1, 또는 기초 그래프</a></li>
-<li class="chapter" data-level="5.2.2" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#종속변수를-중심으로한-표-1-만들기"><i class="fa fa-check"></i><b>5.2.2</b> 종속변수를 중심으로한 표 1 만들기</a></li>
-<li class="chapter" data-level="5.2.3" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#관심변수를-중심으로-한-표-2-만들기"><i class="fa fa-check"></i><b>5.2.3</b> 관심변수를 중심으로 한 표 2 만들기</a></li>
-<li class="chapter" data-level="5.2.4" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#상관관계를-위한-표-3-만들기"><i class="fa fa-check"></i><b>5.2.4</b> 상관관계를 위한 표 3 만들기</a></li>
-<li class="chapter" data-level="5.2.5" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#daniel-lüdeckes-work"><i class="fa fa-check"></i><b>5.2.5</b> Daniel Lüdecke’s work</a></li>
+<li class="chapter" data-level="5.5.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#과제"><i class="fa fa-check"></i><b>5.5.1</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="tables-for-public-health.html"><a href="tables-for-public-health.html#과제"><i class="fa fa-check"></i><b>5.3</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html"><i class="fa fa-check"></i><b>6</b> Basic plot with R</a>
+<li class="chapter" data-level="6" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html"><i class="fa fa-check"></i><b>6</b> Tables for public health 2</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#ggplot-basic"><i class="fa fa-check"></i><b>6.1</b> ggplot basic</a>
+<li class="chapter" data-level="6.1" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#데이터표-준비-1"><i class="fa fa-check"></i><b>6.1</b> 데이터표 준비</a></li>
+<li class="chapter" data-level="6.2" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#보건학에서-주로-사용하는-표"><i class="fa fa-check"></i><b>6.2</b> 보건학에서 주로 사용하는 표</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#그래프-틀"><i class="fa fa-check"></i><b>6.1.1</b> 그래프 틀</a></li>
-<li class="chapter" data-level="6.1.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#레이어"><i class="fa fa-check"></i><b>6.1.2</b> 레이어</a></li>
+<li class="chapter" data-level="6.2.1" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#표1-또는-기초-그래프"><i class="fa fa-check"></i><b>6.2.1</b> 표1, 또는 기초 그래프</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#종속변수를-중심으로한-표-1-만들기"><i class="fa fa-check"></i><b>6.2.2</b> 종속변수를 중심으로한 표 1 만들기</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#관심변수를-중심으로-한-표-2-만들기"><i class="fa fa-check"></i><b>6.2.3</b> 관심변수를 중심으로 한 표 2 만들기</a></li>
+<li class="chapter" data-level="6.2.4" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#상관관계를-위한-표-3-만들기"><i class="fa fa-check"></i><b>6.2.4</b> 상관관계를 위한 표 3 만들기</a></li>
+<li class="chapter" data-level="6.2.5" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#daniel-lüdeckes-work"><i class="fa fa-check"></i><b>6.2.5</b> Daniel Lüdecke’s work</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#visualization-example-with-covid19-data-group_by-and-mutate"><i class="fa fa-check"></i><b>6.2</b> visualization example with COVID19 data (group_by and mutate)</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#create-basic-variables"><i class="fa fa-check"></i><b>6.2.1</b> create basic variables</a></li>
-<li class="chapter" data-level="6.2.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#bar-and-histograph"><i class="fa fa-check"></i><b>6.2.2</b> bar and histograph</a></li>
-<li class="chapter" data-level="6.2.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#boxplot"><i class="fa fa-check"></i><b>6.2.3</b> Boxplot</a></li>
-<li class="chapter" data-level="6.2.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#scatter-plot"><i class="fa fa-check"></i><b>6.2.4</b> scatter plot</a></li>
-<li class="chapter" data-level="6.2.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#scatter-plot-of-summary-stat"><i class="fa fa-check"></i><b>6.2.5</b> scatter plot of summary stat</a></li>
-<li class="chapter" data-level="6.2.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#line-chart"><i class="fa fa-check"></i><b>6.2.6</b> line chart</a></li>
-<li class="chapter" data-level="6.2.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#home-work"><i class="fa fa-check"></i><b>6.2.7</b> home work</a></li>
+<li class="chapter" data-level="6.3" data-path="tables-for-public-health-2.html"><a href="tables-for-public-health-2.html#과제-1"><i class="fa fa-check"></i><b>6.3</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#diagram"><i class="fa fa-check"></i><b>6.3</b> Diagram</a></li>
-<li class="chapter" data-level="6.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#과제-1"><i class="fa fa-check"></i><b>6.4</b> 과제</a></li>
+<li class="chapter" data-level="7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html"><i class="fa fa-check"></i><b>7</b> Basic plot with R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#ggplot-basic"><i class="fa fa-check"></i><b>7.1</b> ggplot basic</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#그래프-틀"><i class="fa fa-check"></i><b>7.1.1</b> 그래프 틀</a></li>
+<li class="chapter" data-level="7.1.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#레이어"><i class="fa fa-check"></i><b>7.1.2</b> 레이어</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html"><i class="fa fa-check"></i><b>7</b> graphs for public health I</a>
+<li class="chapter" data-level="7.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#visualization-example-with-covid19-data-group_by-and-mutate"><i class="fa fa-check"></i><b>7.2</b> visualization example with COVID19 data (group_by and mutate)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#데이터-그림-준비"><i class="fa fa-check"></i><b>7.1</b> 데이터 그림 준비</a></li>
-<li class="chapter" data-level="7.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#실습-자료-시각화"><i class="fa fa-check"></i><b>7.2</b> 실습 자료 시각화</a></li>
-<li class="chapter" data-level="7.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#시각화-과제-1"><i class="fa fa-check"></i><b>7.3</b> 시각화 과제 1</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-1-그림-완성하기"><i class="fa fa-check"></i><b>7.3.1</b> 과제 1 그림 완성하기</a></li>
-<li class="chapter" data-level="7.3.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-2-동료의-지지가-미치는-영향을-그리시오"><i class="fa fa-check"></i><b>7.3.2</b> 과제 2 동료의 지지가 미치는 영향을 그리시오</a></li>
-<li class="chapter" data-level="7.3.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-3-자신의-데이터-실습"><i class="fa fa-check"></i><b>7.3.3</b> 과제 3 자신의 데이터 실습</a></li>
+<li class="chapter" data-level="7.2.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#create-basic-variables"><i class="fa fa-check"></i><b>7.2.1</b> create basic variables</a></li>
+<li class="chapter" data-level="7.2.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#bar-and-histograph"><i class="fa fa-check"></i><b>7.2.2</b> bar and histograph</a></li>
+<li class="chapter" data-level="7.2.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#boxplot"><i class="fa fa-check"></i><b>7.2.3</b> Boxplot</a></li>
+<li class="chapter" data-level="7.2.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#scatter-plot"><i class="fa fa-check"></i><b>7.2.4</b> scatter plot</a></li>
+<li class="chapter" data-level="7.2.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#scatter-plot-of-summary-stat"><i class="fa fa-check"></i><b>7.2.5</b> scatter plot of summary stat</a></li>
+<li class="chapter" data-level="7.2.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#line-chart"><i class="fa fa-check"></i><b>7.2.6</b> line chart</a></li>
+<li class="chapter" data-level="7.2.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#home-work"><i class="fa fa-check"></i><b>7.2.7</b> home work</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#상호-작용-영향-표현"><i class="fa fa-check"></i><b>7.4</b> 상호 작용 영향 표현</a></li>
-<li class="chapter" data-level="7.5" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#라벨-자료"><i class="fa fa-check"></i><b>7.5</b> 라벨 자료</a>
-<ul>
-<li class="chapter" data-level="7.5.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#라벨자료-그래프-실습"><i class="fa fa-check"></i><b>7.5.1</b> 라벨자료 그래프 실습</a></li>
+<li class="chapter" data-level="7.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#diagram"><i class="fa fa-check"></i><b>7.3</b> Diagram</a></li>
+<li class="chapter" data-level="7.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#과제-2"><i class="fa fa-check"></i><b>7.4</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#wave-form-data-visualization-example-for-public-health"><i class="fa fa-check"></i><b>7.6</b> wave form data visualization example for public health</a>
+<li class="chapter" data-level="8" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html"><i class="fa fa-check"></i><b>8</b> graphs for public health I</a>
 <ul>
-<li class="chapter" data-level="7.6.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#data-visualization-example-eeg-data"><i class="fa fa-check"></i><b>7.6.1</b> Data Visualization example (EEG data)</a></li>
-<li class="chapter" data-level="7.6.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#introduction-1"><i class="fa fa-check"></i><b>7.6.2</b> Introduction</a></li>
-<li class="chapter" data-level="7.6.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#dataset-and-data-step"><i class="fa fa-check"></i><b>7.6.3</b> Dataset and Data step</a></li>
-<li class="chapter" data-level="7.6.4" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#data-analysis"><i class="fa fa-check"></i><b>7.6.4</b> Data analysis</a></li>
-<li class="chapter" data-level="7.6.5" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#decision-tree-simple"><i class="fa fa-check"></i><b>7.6.5</b> Decision Tree simple</a></li>
+<li class="chapter" data-level="8.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#데이터-그림-준비"><i class="fa fa-check"></i><b>8.1</b> 데이터 그림 준비</a></li>
+<li class="chapter" data-level="8.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#실습-자료-시각화"><i class="fa fa-check"></i><b>8.2</b> 실습 자료 시각화</a></li>
+<li class="chapter" data-level="8.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#시각화-과제-1"><i class="fa fa-check"></i><b>8.3</b> 시각화 과제 1</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-1-그림-완성하기"><i class="fa fa-check"></i><b>8.3.1</b> 과제 1 그림 완성하기</a></li>
+<li class="chapter" data-level="8.3.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-2-동료의-지지가-미치는-영향을-그리시오"><i class="fa fa-check"></i><b>8.3.2</b> 과제 2 동료의 지지가 미치는 영향을 그리시오</a></li>
+<li class="chapter" data-level="8.3.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-3-자신의-데이터-실습"><i class="fa fa-check"></i><b>8.3.3</b> 과제 3 자신의 데이터 실습</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#상호-작용-영향-표현"><i class="fa fa-check"></i><b>8.4</b> 상호 작용 영향 표현</a></li>
+<li class="chapter" data-level="8.5" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#라벨-자료"><i class="fa fa-check"></i><b>8.5</b> 라벨 자료</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#라벨자료-그래프-실습"><i class="fa fa-check"></i><b>8.5.1</b> 라벨자료 그래프 실습</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#wave-form-data-visualization-example-for-public-health"><i class="fa fa-check"></i><b>8.6</b> wave form data visualization example for public health</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#data-visualization-example-eeg-data"><i class="fa fa-check"></i><b>8.6.1</b> Data Visualization example (EEG data)</a></li>
+<li class="chapter" data-level="8.6.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#introduction-1"><i class="fa fa-check"></i><b>8.6.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.6.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#dataset-and-data-step"><i class="fa fa-check"></i><b>8.6.3</b> Dataset and Data step</a></li>
+<li class="chapter" data-level="8.6.4" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#data-analysis"><i class="fa fa-check"></i><b>8.6.4</b> Data analysis</a></li>
+<li class="chapter" data-level="8.6.5" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#decision-tree-simple"><i class="fa fa-check"></i><b>8.6.5</b> Decision Tree simple</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Wrangle</b></span></li>
-<li class="chapter" data-level="8" data-path="data-transforms.html"><a href="data-transforms.html"><i class="fa fa-check"></i><b>8</b> data transforms</a>
+<li class="chapter" data-level="9" data-path="data-transforms.html"><a href="data-transforms.html"><i class="fa fa-check"></i><b>9</b> data transforms</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="data-transforms.html"><a href="data-transforms.html#준비-사항"><i class="fa fa-check"></i><b>8.1</b> 준비 사항</a></li>
-<li class="chapter" data-level="8.2" data-path="data-transforms.html"><a href="data-transforms.html#필터-filter-and-select"><i class="fa fa-check"></i><b>8.2</b> 필터 (filter and select)</a></li>
-<li class="chapter" data-level="8.3" data-path="data-transforms.html"><a href="data-transforms.html#변수-생성-mutate"><i class="fa fa-check"></i><b>8.3</b> 변수 생성 (mutate)</a></li>
-<li class="chapter" data-level="8.4" data-path="data-transforms.html"><a href="data-transforms.html#실습-과제"><i class="fa fa-check"></i><b>8.4</b> 실습 과제</a></li>
+<li class="chapter" data-level="9.1" data-path="data-transforms.html"><a href="data-transforms.html#준비-사항"><i class="fa fa-check"></i><b>9.1</b> 준비 사항</a></li>
+<li class="chapter" data-level="9.2" data-path="data-transforms.html"><a href="data-transforms.html#필터-filter-and-select"><i class="fa fa-check"></i><b>9.2</b> 필터 (filter and select)</a></li>
+<li class="chapter" data-level="9.3" data-path="data-transforms.html"><a href="data-transforms.html#변수-생성-mutate"><i class="fa fa-check"></i><b>9.3</b> 변수 생성 (mutate)</a></li>
+<li class="chapter" data-level="9.4" data-path="data-transforms.html"><a href="data-transforms.html#실습-과제"><i class="fa fa-check"></i><b>9.4</b> 실습 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling- Reshaping</a>
+<li class="chapter" data-level="10" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html"><i class="fa fa-check"></i><b>10</b> Data Wrangling- Reshaping</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#동영상"><i class="fa fa-check"></i><b>9.1</b> 동영상</a></li>
-<li class="chapter" data-level="9.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#문제-제기"><i class="fa fa-check"></i><b>9.2</b> 문제 제기</a></li>
-<li class="chapter" data-level="9.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#split"><i class="fa fa-check"></i><b>9.3</b> split</a></li>
-<li class="chapter" data-level="9.4" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#gather-pivot_longer"><i class="fa fa-check"></i><b>9.4</b> gather (pivot_longer)</a></li>
-<li class="chapter" data-level="9.5" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#spread-pivot_wider"><i class="fa fa-check"></i><b>9.5</b> spread (pivot_wider)</a></li>
-<li class="chapter" data-level="9.6" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#stringr"><i class="fa fa-check"></i><b>9.6</b> stringr</a>
+<li class="chapter" data-level="10.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#동영상"><i class="fa fa-check"></i><b>10.1</b> 동영상</a></li>
+<li class="chapter" data-level="10.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#문제-제기"><i class="fa fa-check"></i><b>10.2</b> 문제 제기</a></li>
+<li class="chapter" data-level="10.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#split"><i class="fa fa-check"></i><b>10.3</b> split</a></li>
+<li class="chapter" data-level="10.4" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#gather-pivot_longer"><i class="fa fa-check"></i><b>10.4</b> gather (pivot_longer)</a></li>
+<li class="chapter" data-level="10.5" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#spread-pivot_wider"><i class="fa fa-check"></i><b>10.5</b> spread (pivot_wider)</a></li>
+<li class="chapter" data-level="10.6" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#stringr"><i class="fa fa-check"></i><b>10.6</b> stringr</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#분진-노출자-찾기"><i class="fa fa-check"></i><b>9.6.1</b> 분진 노출자 찾기</a></li>
-<li class="chapter" data-level="9.6.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#특정-문자-변환"><i class="fa fa-check"></i><b>9.6.2</b> 특정 문자 변환</a></li>
-<li class="chapter" data-level="9.6.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#과제-2"><i class="fa fa-check"></i><b>9.6.3</b> 과제</a></li>
+<li class="chapter" data-level="10.6.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#분진-노출자-찾기"><i class="fa fa-check"></i><b>10.6.1</b> 분진 노출자 찾기</a></li>
+<li class="chapter" data-level="10.6.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#특정-문자-변환"><i class="fa fa-check"></i><b>10.6.2</b> 특정 문자 변환</a></li>
+<li class="chapter" data-level="10.6.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#과제-3"><i class="fa fa-check"></i><b>10.6.3</b> 과제</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>10</b> Web Scraping</a>
+<li class="chapter" data-level="11" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>11</b> Web Scraping</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="web-scraping.html"><a href="web-scraping.html#issue-of-covid19-in-korea"><i class="fa fa-check"></i><b>10.1</b> issue of COVID19 in Korea</a></li>
-<li class="chapter" data-level="10.2" data-path="web-scraping.html"><a href="web-scraping.html#homework"><i class="fa fa-check"></i><b>10.2</b> homework</a>
+<li class="chapter" data-level="11.1" data-path="web-scraping.html"><a href="web-scraping.html#issue-of-covid19-in-korea"><i class="fa fa-check"></i><b>11.1</b> issue of COVID19 in Korea</a></li>
+<li class="chapter" data-level="11.2" data-path="web-scraping.html"><a href="web-scraping.html#homework"><i class="fa fa-check"></i><b>11.2</b> homework</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="web-scraping.html"><a href="web-scraping.html#download-cumulative-covid19-death"><i class="fa fa-check"></i><b>10.2.1</b> download Cumulative covid19 death</a></li>
-<li class="chapter" data-level="10.2.2" data-path="web-scraping.html"><a href="web-scraping.html#uk-italy-france-spain-usa-canada"><i class="fa fa-check"></i><b>10.2.2</b> UK, Italy, France, Spain, USA, Canada</a></li>
+<li class="chapter" data-level="11.2.1" data-path="web-scraping.html"><a href="web-scraping.html#download-cumulative-covid19-death"><i class="fa fa-check"></i><b>11.2.1</b> download Cumulative covid19 death</a></li>
+<li class="chapter" data-level="11.2.2" data-path="web-scraping.html"><a href="web-scraping.html#uk-italy-france-spain-usa-canada"><i class="fa fa-check"></i><b>11.2.2</b> UK, Italy, France, Spain, USA, Canada</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="web-scraping.html"><a href="web-scraping.html#review-of-title-from-google-scholar"><i class="fa fa-check"></i><b>10.3</b> Review of title from google scholar</a>
+<li class="chapter" data-level="11.3" data-path="web-scraping.html"><a href="web-scraping.html#review-of-title-from-google-scholar"><i class="fa fa-check"></i><b>11.3</b> Review of title from google scholar</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="web-scraping.html"><a href="web-scraping.html#googl-scholar"><i class="fa fa-check"></i><b>10.3.1</b> googl scholar</a></li>
+<li class="chapter" data-level="11.3.1" data-path="web-scraping.html"><a href="web-scraping.html#googl-scholar"><i class="fa fa-check"></i><b>11.3.1</b> googl scholar</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2"><i class="fa fa-check"></i><b>10.4</b> home work 2</a></li>
-<li class="chapter" data-level="10.5" data-path="web-scraping.html"><a href="web-scraping.html#black-report-2"><i class="fa fa-check"></i><b>10.5</b> Black Report 2</a></li>
-<li class="chapter" data-level="10.6" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2-1"><i class="fa fa-check"></i><b>10.6</b> home work 2</a></li>
+<li class="chapter" data-level="11.4" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2"><i class="fa fa-check"></i><b>11.4</b> home work 2</a></li>
+<li class="chapter" data-level="11.5" data-path="web-scraping.html"><a href="web-scraping.html#black-report-2"><i class="fa fa-check"></i><b>11.5</b> Black Report 2</a></li>
+<li class="chapter" data-level="11.6" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2-1"><i class="fa fa-check"></i><b>11.6</b> home work 2</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html"><i class="fa fa-check"></i><b>11</b> WebScraping Example 3: PubMed and R with EndNote</a>
+<li class="chapter" data-level="12" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html"><i class="fa fa-check"></i><b>12</b> WebScraping Example 3: PubMed and R with EndNote</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pubmed-검색-방법"><i class="fa fa-check"></i><b>11.1</b> PubMed 검색 방법</a></li>
-<li class="chapter" data-level="11.2" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#r-에서-pubmed-query-사용"><i class="fa fa-check"></i><b>11.2</b> R 에서 PubMed Query 사용</a></li>
-<li class="chapter" data-level="11.3" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pdf-자동-보고서"><i class="fa fa-check"></i><b>11.3</b> PDF 자동 보고서</a></li>
-<li class="chapter" data-level="11.4" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#원문-pdf-찾기"><i class="fa fa-check"></i><b>11.4</b> 원문 PDF 찾기</a></li>
+<li class="chapter" data-level="12.1" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pubmed-검색-방법"><i class="fa fa-check"></i><b>12.1</b> PubMed 검색 방법</a></li>
+<li class="chapter" data-level="12.2" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#r-에서-pubmed-query-사용"><i class="fa fa-check"></i><b>12.2</b> R 에서 PubMed Query 사용</a></li>
+<li class="chapter" data-level="12.3" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pdf-자동-보고서"><i class="fa fa-check"></i><b>12.3</b> PDF 자동 보고서</a></li>
+<li class="chapter" data-level="12.4" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#원문-pdf-찾기"><i class="fa fa-check"></i><b>12.4</b> 원문 PDF 찾기</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="date-and-time-series.html"><a href="date-and-time-series.html"><i class="fa fa-check"></i><b>12</b> Date and time series</a>
+<li class="chapter" data-level="13" data-path="date-and-time-series.html"><a href="date-and-time-series.html"><i class="fa fa-check"></i><b>13</b> Date and time series</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create"><i class="fa fa-check"></i><b>12.1</b> Date create</a></li>
-<li class="chapter" data-level="12.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#tutor-heat-wave-and-death"><i class="fa fa-check"></i><b>12.2</b> Tutor: heat wave and death</a>
+<li class="chapter" data-level="13.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create"><i class="fa fa-check"></i><b>13.1</b> Date create</a></li>
+<li class="chapter" data-level="13.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#tutor-heat-wave-and-death"><i class="fa fa-check"></i><b>13.2</b> Tutor: heat wave and death</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create-1"><i class="fa fa-check"></i><b>12.2.1</b> date create</a></li>
+<li class="chapter" data-level="13.2.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create-1"><i class="fa fa-check"></i><b>13.2.1</b> date create</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work-1"><i class="fa fa-check"></i><b>12.3</b> home work</a>
+<li class="chapter" data-level="13.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work-1"><i class="fa fa-check"></i><b>13.3</b> home work</a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home0"><i class="fa fa-check"></i><b>12.3.1</b> home0</a></li>
-<li class="chapter" data-level="12.3.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work1"><i class="fa fa-check"></i><b>12.3.2</b> home work1</a></li>
-<li class="chapter" data-level="12.3.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work2"><i class="fa fa-check"></i><b>12.3.3</b> home work2</a></li>
-<li class="chapter" data-level="12.3.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work3"><i class="fa fa-check"></i><b>12.3.4</b> home work3</a></li>
+<li class="chapter" data-level="13.3.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home0"><i class="fa fa-check"></i><b>13.3.1</b> home0</a></li>
+<li class="chapter" data-level="13.3.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work1"><i class="fa fa-check"></i><b>13.3.2</b> home work1</a></li>
+<li class="chapter" data-level="13.3.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work2"><i class="fa fa-check"></i><b>13.3.3</b> home work2</a></li>
+<li class="chapter" data-level="13.3.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work3"><i class="fa fa-check"></i><b>13.3.4</b> home work3</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis"><i class="fa fa-check"></i><b>12.4</b> Time series data analysis</a>
+<li class="chapter" data-level="13.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis"><i class="fa fa-check"></i><b>13.4</b> Time series data analysis</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#outside-사망에-대해서"><i class="fa fa-check"></i><b>12.4.1</b> outside 사망에 대해서</a></li>
+<li class="chapter" data-level="13.4.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#outside-사망에-대해서"><i class="fa fa-check"></i><b>13.4.1</b> outside 사망에 대해서</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis-regression"><i class="fa fa-check"></i><b>12.5</b> Time series data analysis, regression</a></li>
-<li class="chapter" data-level="12.6" data-path="date-and-time-series.html"><a href="date-and-time-series.html#introduction-2"><i class="fa fa-check"></i><b>12.6</b> introduction</a></li>
-<li class="chapter" data-level="12.7" data-path="date-and-time-series.html"><a href="date-and-time-series.html#미세먼지와-심혈관사망"><i class="fa fa-check"></i><b>12.7</b> 미세먼지와 심혈관사망</a></li>
-<li class="chapter" data-level="12.8" data-path="date-and-time-series.html"><a href="date-and-time-series.html#방법-tutor"><i class="fa fa-check"></i><b>12.8</b> 방법 tutor</a></li>
+<li class="chapter" data-level="13.5" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis-regression"><i class="fa fa-check"></i><b>13.5</b> Time series data analysis, regression</a></li>
+<li class="chapter" data-level="13.6" data-path="date-and-time-series.html"><a href="date-and-time-series.html#introduction-2"><i class="fa fa-check"></i><b>13.6</b> introduction</a></li>
+<li class="chapter" data-level="13.7" data-path="date-and-time-series.html"><a href="date-and-time-series.html#미세먼지와-심혈관사망"><i class="fa fa-check"></i><b>13.7</b> 미세먼지와 심혈관사망</a></li>
+<li class="chapter" data-level="13.8" data-path="date-and-time-series.html"><a href="date-and-time-series.html#방법-tutor"><i class="fa fa-check"></i><b>13.8</b> 방법 tutor</a></li>
 </ul></li>
 <li class="part"><span><b>IV Repeat and Reproducibility</b></span></li>
-<li class="chapter" data-level="13" data-path="repeated-analysis.html"><a href="repeated-analysis.html"><i class="fa fa-check"></i><b>13</b> Repeated analysis</a>
+<li class="chapter" data-level="14" data-path="repeated-analysis.html"><a href="repeated-analysis.html"><i class="fa fa-check"></i><b>14</b> Repeated analysis</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#추출"><i class="fa fa-check"></i><b>13.1</b> 추출</a></li>
-<li class="chapter" data-level="13.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#파일-불러오기"><i class="fa fa-check"></i><b>13.2</b> 파일 불러오기</a>
+<li class="chapter" data-level="14.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#추출"><i class="fa fa-check"></i><b>14.1</b> 추출</a></li>
+<li class="chapter" data-level="14.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#파일-불러오기"><i class="fa fa-check"></i><b>14.2</b> 파일 불러오기</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-3"><i class="fa fa-check"></i><b>13.2.1</b> 과제</a></li>
+<li class="chapter" data-level="14.2.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-4"><i class="fa fa-check"></i><b>14.2.1</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#분석-반복하기-change-point-찾기"><i class="fa fa-check"></i><b>13.3</b> 분석 반복하기 (change point 찾기)</a>
+<li class="chapter" data-level="14.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#분석-반복하기-change-point-찾기"><i class="fa fa-check"></i><b>14.3</b> 분석 반복하기 (change point 찾기)</a>
 <ul>
-<li class="chapter" data-level="13.3.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#자료-생성"><i class="fa fa-check"></i><b>13.3.1</b> 자료 생성</a></li>
-<li class="chapter" data-level="13.3.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#가상의-threshold-값-수행해보기"><i class="fa fa-check"></i><b>13.3.2</b> 가상의 threshold 값 수행해보기</a></li>
-<li class="chapter" data-level="13.3.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-4"><i class="fa fa-check"></i><b>13.3.3</b> 과제</a></li>
+<li class="chapter" data-level="14.3.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#자료-생성"><i class="fa fa-check"></i><b>14.3.1</b> 자료 생성</a></li>
+<li class="chapter" data-level="14.3.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#가상의-threshold-값-수행해보기"><i class="fa fa-check"></i><b>14.3.2</b> 가상의 threshold 값 수행해보기</a></li>
+<li class="chapter" data-level="14.3.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-5"><i class="fa fa-check"></i><b>14.3.3</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="repeated-analysis.html"><a href="repeated-analysis.html#repeated-analysis-big-data"><i class="fa fa-check"></i><b>13.4</b> Repeated analysis (big data)</a>
+<li class="chapter" data-level="14.4" data-path="repeated-analysis.html"><a href="repeated-analysis.html#repeated-analysis-big-data"><i class="fa fa-check"></i><b>14.4</b> Repeated analysis (big data)</a>
 <ul>
-<li class="chapter" data-level="13.4.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-profile"><i class="fa fa-check"></i><b>13.4.1</b> Data profile</a></li>
-<li class="chapter" data-level="13.4.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-handling-start"><i class="fa fa-check"></i><b>13.4.2</b> data handling start</a></li>
+<li class="chapter" data-level="14.4.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-profile"><i class="fa fa-check"></i><b>14.4.1</b> Data profile</a></li>
+<li class="chapter" data-level="14.4.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-handling-start"><i class="fa fa-check"></i><b>14.4.2</b> data handling start</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Communication</b></span></li>
-<li class="chapter" data-level="14" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>14</b> R markdown</a>
+<li class="chapter" data-level="15" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>15</b> R markdown</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="r-markdown.html"><a href="r-markdown.html#설치"><i class="fa fa-check"></i><b>14.1</b> 설치</a></li>
-<li class="chapter" data-level="14.2" data-path="r-markdown.html"><a href="r-markdown.html#components"><i class="fa fa-check"></i><b>14.2</b> 3 components</a></li>
-<li class="chapter" data-level="14.3" data-path="r-markdown.html"><a href="r-markdown.html#simple-tutor"><i class="fa fa-check"></i><b>14.3</b> simple tutor</a></li>
-<li class="chapter" data-level="14.4" data-path="r-markdown.html"><a href="r-markdown.html#chunck-option"><i class="fa fa-check"></i><b>14.4</b> chunck option</a></li>
-<li class="chapter" data-level="14.5" data-path="r-markdown.html"><a href="r-markdown.html#table-만들기"><i class="fa fa-check"></i><b>14.5</b> Table 만들기</a></li>
-<li class="chapter" data-level="14.6" data-path="r-markdown.html"><a href="r-markdown.html#필독"><i class="fa fa-check"></i><b>14.6</b> 필독!</a></li>
-<li class="chapter" data-level="14.7" data-path="r-markdown.html"><a href="r-markdown.html#동영상-1"><i class="fa fa-check"></i><b>14.7</b> 동영상</a></li>
-<li class="chapter" data-level="14.8" data-path="r-markdown.html"><a href="r-markdown.html#과제-5"><i class="fa fa-check"></i><b>14.8</b> 과제</a></li>
+<li class="chapter" data-level="15.1" data-path="r-markdown.html"><a href="r-markdown.html#설치"><i class="fa fa-check"></i><b>15.1</b> 설치</a></li>
+<li class="chapter" data-level="15.2" data-path="r-markdown.html"><a href="r-markdown.html#components"><i class="fa fa-check"></i><b>15.2</b> 3 components</a></li>
+<li class="chapter" data-level="15.3" data-path="r-markdown.html"><a href="r-markdown.html#simple-tutor"><i class="fa fa-check"></i><b>15.3</b> simple tutor</a></li>
+<li class="chapter" data-level="15.4" data-path="r-markdown.html"><a href="r-markdown.html#chunck-option"><i class="fa fa-check"></i><b>15.4</b> chunck option</a></li>
+<li class="chapter" data-level="15.5" data-path="r-markdown.html"><a href="r-markdown.html#table-만들기"><i class="fa fa-check"></i><b>15.5</b> Table 만들기</a></li>
+<li class="chapter" data-level="15.6" data-path="r-markdown.html"><a href="r-markdown.html#필독"><i class="fa fa-check"></i><b>15.6</b> 필독!</a></li>
+<li class="chapter" data-level="15.7" data-path="r-markdown.html"><a href="r-markdown.html#동영상-1"><i class="fa fa-check"></i><b>15.7</b> 동영상</a></li>
+<li class="chapter" data-level="15.8" data-path="r-markdown.html"><a href="r-markdown.html#과제-6"><i class="fa fa-check"></i><b>15.8</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html"><i class="fa fa-check"></i><b>15</b> Rmarkdown and reporting</a>
+<li class="chapter" data-level="16" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html"><i class="fa fa-check"></i><b>16</b> Rmarkdown and reporting</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-word-office-down"><i class="fa fa-check"></i><b>15.1</b> Rmarkdown and Word (office down)</a></li>
-<li class="chapter" data-level="15.2" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-pdf"><i class="fa fa-check"></i><b>15.2</b> Rmarkdown and PDF</a></li>
+<li class="chapter" data-level="16.1" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-word-office-down"><i class="fa fa-check"></i><b>16.1</b> Rmarkdown and Word (office down)</a></li>
+<li class="chapter" data-level="16.2" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-pdf"><i class="fa fa-check"></i><b>16.2</b> Rmarkdown and PDF</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="google-maps-platform.html"><a href="google-maps-platform.html"><i class="fa fa-check"></i><b>16</b> Google Maps Platform</a>
+<li class="chapter" data-level="17" data-path="google-maps-platform.html"><a href="google-maps-platform.html"><i class="fa fa-check"></i><b>17</b> Google Maps Platform</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-tackeout"><i class="fa fa-check"></i><b>16.1</b> Google Tackeout</a></li>
-<li class="chapter" data-level="16.2" data-path="google-maps-platform.html"><a href="google-maps-platform.html#data-visualization"><i class="fa fa-check"></i><b>16.2</b> Data visualization</a></li>
-<li class="chapter" data-level="16.3" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-api"><i class="fa fa-check"></i><b>16.3</b> google API</a></li>
+<li class="chapter" data-level="17.1" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-tackeout"><i class="fa fa-check"></i><b>17.1</b> Google Tackeout</a></li>
+<li class="chapter" data-level="17.2" data-path="google-maps-platform.html"><a href="google-maps-platform.html#data-visualization"><i class="fa fa-check"></i><b>17.2</b> Data visualization</a></li>
+<li class="chapter" data-level="17.3" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-api"><i class="fa fa-check"></i><b>17.3</b> google API</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>17</b> Map using leaflet</a>
+<li class="chapter" data-level="18" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>18</b> Map using leaflet</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="leaflet.html"><a href="leaflet.html#leaflet-1"><i class="fa fa-check"></i><b>17.1</b> leaflet</a></li>
-<li class="chapter" data-level="17.2" data-path="leaflet.html"><a href="leaflet.html#위치와-시간표시"><i class="fa fa-check"></i><b>17.2</b> 위치와 시간표시</a></li>
+<li class="chapter" data-level="18.1" data-path="leaflet.html"><a href="leaflet.html#leaflet-1"><i class="fa fa-check"></i><b>18.1</b> leaflet</a></li>
+<li class="chapter" data-level="18.2" data-path="leaflet.html"><a href="leaflet.html#위치와-시간표시"><i class="fa fa-check"></i><b>18.2</b> 위치와 시간표시</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="shinyapps.html"><a href="shinyapps.html"><i class="fa fa-check"></i><b>18</b> shinyapps</a>
+<li class="chapter" data-level="19" data-path="shinyapps.html"><a href="shinyapps.html"><i class="fa fa-check"></i><b>19</b> shinyapps</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="shinyapps.html"><a href="shinyapps.html#설치-1"><i class="fa fa-check"></i><b>18.1</b> 설치</a></li>
-<li class="chapter" data-level="18.2" data-path="shinyapps.html"><a href="shinyapps.html#예제"><i class="fa fa-check"></i><b>18.2</b> 예제</a></li>
-<li class="chapter" data-level="18.3" data-path="shinyapps.html"><a href="shinyapps.html#예제-1-만들기"><i class="fa fa-check"></i><b>18.3</b> 예제 1 만들기</a>
+<li class="chapter" data-level="19.1" data-path="shinyapps.html"><a href="shinyapps.html#설치-1"><i class="fa fa-check"></i><b>19.1</b> 설치</a></li>
+<li class="chapter" data-level="19.2" data-path="shinyapps.html"><a href="shinyapps.html#예제"><i class="fa fa-check"></i><b>19.2</b> 예제</a></li>
+<li class="chapter" data-level="19.3" data-path="shinyapps.html"><a href="shinyapps.html#예제-1-만들기"><i class="fa fa-check"></i><b>19.3</b> 예제 1 만들기</a>
 <ul>
-<li class="chapter" data-level="18.3.1" data-path="shinyapps.html"><a href="shinyapps.html#구조"><i class="fa fa-check"></i><b>18.3.1</b> 구조</a></li>
-<li class="chapter" data-level="18.3.2" data-path="shinyapps.html"><a href="shinyapps.html#input-output"><i class="fa fa-check"></i><b>18.3.2</b> input, output</a></li>
-<li class="chapter" data-level="18.3.3" data-path="shinyapps.html"><a href="shinyapps.html#과제-6"><i class="fa fa-check"></i><b>18.3.3</b> 과제</a></li>
+<li class="chapter" data-level="19.3.1" data-path="shinyapps.html"><a href="shinyapps.html#구조"><i class="fa fa-check"></i><b>19.3.1</b> 구조</a></li>
+<li class="chapter" data-level="19.3.2" data-path="shinyapps.html"><a href="shinyapps.html#input-output"><i class="fa fa-check"></i><b>19.3.2</b> input, output</a></li>
+<li class="chapter" data-level="19.3.3" data-path="shinyapps.html"><a href="shinyapps.html#과제-7"><i class="fa fa-check"></i><b>19.3.3</b> 과제</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="shinyapps.html"><a href="shinyapps.html#deploy-shiny-app-local-server"><i class="fa fa-check"></i><b>18.4</b> deploy shiny app (local server)</a>
+<li class="chapter" data-level="19.4" data-path="shinyapps.html"><a href="shinyapps.html#deploy-shiny-app-local-server"><i class="fa fa-check"></i><b>19.4</b> deploy shiny app (local server)</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="shinyapps.html"><a href="shinyapps.html#과제-7"><i class="fa fa-check"></i><b>18.4.1</b> 과제</a></li>
+<li class="chapter" data-level="19.4.1" data-path="shinyapps.html"><a href="shinyapps.html#과제-8"><i class="fa fa-check"></i><b>19.4.1</b> 과제</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -398,8 +409,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling--reshaping" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Data Wrangling- Reshaping<a href="data-wrangling--reshaping.html#data-wrangling--reshaping" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data-wrangling--reshaping" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Data Wrangling- Reshaping<a href="data-wrangling--reshaping.html#data-wrangling--reshaping" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script>
   addClassKlippyTo("pre.r, pre.markdown");
   addKlippy('right', 'top', 'auto', '1', 'Click to copy', 'Done');
@@ -411,13 +422,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 우선 Stringr Cheat Sheet는</p>
 <p><embed src="images/strings.pdf" style="width:100.0%" />
 [Stringer Cheat Sheet download]:<a href="https://github.com/rstudio/cheatsheets/raw/master/strings.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/strings.pdf</a></p>
-<div id="동영상" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> 동영상<a href="data-wrangling--reshaping.html#동영상" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="동영상" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> 동영상<a href="data-wrangling--reshaping.html#동영상" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ecvW0P3uIN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
-<div id="문제-제기" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> 문제 제기<a href="data-wrangling--reshaping.html#문제-제기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="문제-제기" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> 문제 제기<a href="data-wrangling--reshaping.html#문제-제기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>아래와 같은 파일을 불러와 봅시다. 자료는 google classroom에 기타공지 Data Wrangling example에 있습니다.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-wrangling--reshaping.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="data-wrangling--reshaping.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -434,8 +445,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [6] &quot;일반검진,메틸알코올,포름알데히드,방사선&quot;</code></pre>
 <p>우선 한 변수 안에 여러 변수값(value)가 <code>,</code>로 구분되어 있는 것을 여러 변수 또는 여러 독립된 변수값으로 변형해 보겠습니다.</p>
 </div>
-<div id="split" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> split<a href="data-wrangling--reshaping.html#split" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="split" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> split<a href="data-wrangling--reshaping.html#split" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>split</code>를 사용하여 <code>,</code>로 이루어진 변수를 나누어 보겠습니다. <code>split</code>는 문자를 다룰 때 가장 많이 사용하는 명령문 중 하나입니다. 이번 시간에는 <code>tidyverse</code> 패키지와의 통일을 위해 <code>str_split</code>을 사용하겠습니다. fruits에 <code>사과와 딸기와 오렌지</code>라는 문장이 있고, 이때 <code>와</code>를 기준으로 단어를 나누어 보겠습니다.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-wrangling--reshaping.html#cb5-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb5-2"><a href="data-wrangling--reshaping.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;사과와 딸기와 오렌지 &quot;</span></span>
@@ -480,19 +491,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-2"><a href="data-wrangling--reshaping.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="data-wrangling--reshaping.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na_if</span>(., <span class="st">&quot;&quot;</span>)</span>
 <span id="cb9-4"><a href="data-wrangling--reshaping.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(<span class="fu">head</span>(exp.m[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]))</span></code></pre></div>
-<div id="htmlwidget-f13c7bd45e3bfd9cc94d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f13c7bd45e3bfd9cc94d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"],["소음","소음","산화철분진과흄함유제제","산화철분진과흄함유제제",null,"방사선"],["용접흄","용접흄","크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n      <th>V4<\/th>\n      <th>V5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7d70f50b9990b43dbf8c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7d70f50b9990b43dbf8c">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"],["소음","소음","산화철분진과흄함유제제","산화철분진과흄함유제제",null,"방사선"],["용접흄","용접흄","크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n      <th>V4<\/th>\n      <th>V5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>이렇게 만들어 진 파을 처음 파일과 합치도록 하겠습니다.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling--reshaping.html#cb10-1" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(exp1, exp.m) </span>
 <span id="cb10-2"><a href="data-wrangling--reshaping.html#cb10-2" aria-hidden="true" tabindex="-1"></a>exp3 <span class="ot">&lt;-</span> exp2 <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="data-wrangling--reshaping.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>exposure)</span>
 <span id="cb10-4"><a href="data-wrangling--reshaping.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="data-wrangling--reshaping.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(<span class="fu">head</span>(exp3[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]) )</span></code></pre></div>
-<div id="htmlwidget-ca2482128d96ef03e280" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ca2482128d96ef03e280">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],[48064,48065,62526,62527,174043,306072],["2008-03-21","2008-03-21","2008-07-02","2008-07-02","2011-12-22","2014-12-09"],[1,1,1,1,2,3],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vo<\/th>\n      <th>sdate<\/th>\n      <th>id<\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9a2c423ee973d339b85d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9a2c423ee973d339b85d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],[48064,48065,62526,62527,174043,306072],["2008-03-21","2008-03-21","2008-07-02","2008-07-02","2011-12-22","2014-12-09"],[1,1,1,1,2,3],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vo<\/th>\n      <th>sdate<\/th>\n      <th>id<\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="gather-pivot_longer" class="section level2 hasAnchor" number="9.4">
-<h2><span class="header-section-number">9.4</span> gather (pivot_longer)<a href="data-wrangling--reshaping.html#gather-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="gather-pivot_longer" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> gather (pivot_longer)<a href="data-wrangling--reshaping.html#gather-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>visiting occurrence</code>,<code>data</code>, <code>id</code>에 대해서 long form 데이터를 만들어 분석하기 쉽게 하도록 하겠습니다. 무언가 좀더 자주 보는 모양의 데이터가 되었습니다.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-wrangling--reshaping.html#cb11-1" aria-hidden="true" tabindex="-1"></a>exp4 <span class="ot">&lt;-</span> exp3 <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="data-wrangling--reshaping.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span><span class="fu">c</span>(vo, sdate, id), </span>
@@ -541,8 +552,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 48065 2008-03-21     1 용접흄                            
 ## # … with 14 more rows</code></pre>
 </div>
-<div id="spread-pivot_wider" class="section level2 hasAnchor" number="9.5">
-<h2><span class="header-section-number">9.5</span> spread (pivot_wider)<a href="data-wrangling--reshaping.html#spread-pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="spread-pivot_wider" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> spread (pivot_wider)<a href="data-wrangling--reshaping.html#spread-pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>이를 wide form으로 만들어 보겠습니다 .</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-wrangling--reshaping.html#cb17-1" aria-hidden="true" tabindex="-1"></a>exp5<span class="ot">&lt;-</span>exp4 <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="data-wrangling--reshaping.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">values =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
@@ -579,11 +590,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 2008-07-02     1                      1</code></pre>
 <p>저는 데이터 클리닝과 visualization에서는 주로 long form을 데이터 분석에서는 wide form을 사용하고 있습니다. 참고로 common data model을 만들때 long form 데이터를 사용하지 않고서는 표준화가 불가능하다고 할 수 도 있습니다.</p>
 </div>
-<div id="stringr" class="section level2 hasAnchor" number="9.6">
-<h2><span class="header-section-number">9.6</span> stringr<a href="data-wrangling--reshaping.html#stringr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="stringr" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> stringr<a href="data-wrangling--reshaping.html#stringr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>Stringr</code>부분은 강의한다기 보다는 필요한 시기에 cheat를 찾아서 실행해 본다가 맞는 것 같습니다. 다만 여기서 몇가지 실습을 통해 익히고, 앞서 이야기한 cheat를 사용해서 필요한 경우 사용하면 되겠습니다.</p>
-<div id="분진-노출자-찾기" class="section level3 hasAnchor" number="9.6.1">
-<h3><span class="header-section-number">9.6.1</span> 분진 노출자 찾기<a href="data-wrangling--reshaping.html#분진-노출자-찾기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="분진-노출자-찾기" class="section level3 hasAnchor" number="10.6.1">
+<h3><span class="header-section-number">10.6.1</span> 분진 노출자 찾기<a href="data-wrangling--reshaping.html#분진-노출자-찾기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>여러 분진에 노출되는 근로자를 찾아보고 싶습니다. 어떤 데이터에서 찾으면 좋을 까요? 이때 사용할 코드는 <code>str_detect</code>입니다. 구별을 위해 long 과 wide 파일을 만들겠습니다.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-wrangling--reshaping.html#cb21-1" aria-hidden="true" tabindex="-1"></a>long <span class="ot">&lt;-</span>exp4</span>
 <span id="cb21-2"><a href="data-wrangling--reshaping.html#cb21-2" aria-hidden="true" tabindex="-1"></a>wide <span class="ot">&lt;-</span>exp5</span></code></pre></div>
@@ -607,8 +618,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-4"><a href="data-wrangling--reshaping.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() </span></code></pre></div>
 <pre><code>## [1] &quot;산화철분진과흄함유제제&quot; &quot;기타광물성분진&quot;</code></pre>
 </div>
-<div id="특정-문자-변환" class="section level3 hasAnchor" number="9.6.2">
-<h3><span class="header-section-number">9.6.2</span> 특정 문자 변환<a href="data-wrangling--reshaping.html#특정-문자-변환" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="특정-문자-변환" class="section level3 hasAnchor" number="10.6.2">
+<h3><span class="header-section-number">10.6.2</span> 특정 문자 변환<a href="data-wrangling--reshaping.html#특정-문자-변환" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>찾아보니 <code>기타</code>라는 단어가 있어 혼란이 있네요, 그리고 <code>함유제제</code>와 <code>화합물</code>이라는 것은 필요 없는 단어라고 판단됩니다. 이를 찾아서 지워보겠습니다. str_replace_all을 이용합니다.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-wrangling--reshaping.html#cb30-1" aria-hidden="true" tabindex="-1"></a>long <span class="sc">%&gt;%</span></span>
 <span id="cb30-2"><a href="data-wrangling--reshaping.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">exposure2=</span><span class="fu">str_replace_all</span>(exposure, <span class="st">&quot;기타|함유제제|화합물|및그무기&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
@@ -624,8 +635,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 납(연)및그무기화합물         납(연)        
 ## 5 납.납화합물                  납.납</code></pre>
 </div>
-<div id="과제-2" class="section level3 hasAnchor" number="9.6.3">
-<h3><span class="header-section-number">9.6.3</span> 과제<a href="data-wrangling--reshaping.html#과제-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="과제-3" class="section level3 hasAnchor" number="10.6.3">
+<h3><span class="header-section-number">10.6.3</span> 과제<a href="data-wrangling--reshaping.html#과제-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R 코드를 제출하세요</p>
 <ol style="list-style-type: decimal">
 <li>“납”의 노출 종류는 몇가지 인가요? 힌트
