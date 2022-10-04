@@ -206,3 +206,17 @@ mutate
 summarise
 group_by
 merge-join
+데이터-준비
+분석-주제-선정
+근로환경조사와-recode
+근로환경조사와-recode-선택사항
+근로환경조사-기본-변수-생성
+근로환경조사-table-1-만들기
+htmltable-visulaization
+함수만들기
+변수-값-요약하기
+p-value-구하기.
+table-1-정리하기
+quiz
+quiz1
+quiz-2
