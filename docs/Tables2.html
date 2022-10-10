@@ -1,0 +1,4362 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Tables for public health 2 | DsPubs with R tutor book</title>
+  <meta name="description" content="Chapter 7 Tables for public health 2 | DsPubs with R tutor book" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Tables for public health 2 | DsPubs with R tutor book" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Tables for public health 2 | DsPubs with R tutor book" />
+  
+  
+  
+
+<meta name="author" content="jinha" />
+
+
+<meta name="date" content="2022-10-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tables-for-public-health-1.html"/>
+<link rel="next" href="tables-for-public-health-3.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://dspubs.org/webapps">DsPubs</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Let’s Start with R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud-and-colab"><i class="fa fa-check"></i><b>2.1</b> Rstudio Cloud, and colab</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1.1</b> Rstudio Cloud</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#colab"><i class="fa fa-check"></i><b>2.1.2</b> Colab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-window-system"><i class="fa fa-check"></i><b>2.2</b> R and R studio on Window system</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-install"><i class="fa fa-check"></i><b>2.2.1</b> R studio install</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-project"><i class="fa fa-check"></i><b>2.2.2</b> R studio project</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-ubuntus"><i class="fa fa-check"></i><b>2.3</b> R and R studio on Ubuntus</a></li>
+</ul></li>
+<li class="part"><span><b>I R</b></span></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#vector-matirx-list"><i class="fa fa-check"></i><b>3.1</b> vector matirx list</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="r-basics.html"><a href="r-basics.html#오브젝트-objects"><i class="fa fa-check"></i><b>3.1.1</b> 오브젝트 (objects)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-basics.html"><a href="r-basics.html#백터-vectors-팩터-factors"><i class="fa fa-check"></i><b>3.1.2</b> 백터 (Vectors), 팩터 (factors)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-basics.html"><a href="r-basics.html#매트릭스-matrix-데이터프래임-data-frame-리스트-list"><i class="fa fa-check"></i><b>3.1.3</b> 매트릭스 (Matrix), 데이터프래임 (data frame), 리스트 (list)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#데이터-생성-저장"><i class="fa fa-check"></i><b>3.2</b> 데이터 생성 저장</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#built-in-data-sets"><i class="fa fa-check"></i><b>3.2.1</b> built-in data sets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-program-basic.html"><a href="r-program-basic.html"><i class="fa fa-check"></i><b>4</b> R program basic</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-program-basic.html"><a href="r-program-basic.html#기초-연산"><i class="fa fa-check"></i><b>4.1</b> 기초 연산</a></li>
+<li class="chapter" data-level="4.2" data-path="r-program-basic.html"><a href="r-program-basic.html#조건부-연산"><i class="fa fa-check"></i><b>4.2</b> 조건부 연산</a></li>
+<li class="chapter" data-level="4.3" data-path="r-program-basic.html"><a href="r-program-basic.html#함수-만들기"><i class="fa fa-check"></i><b>4.3</b> 함수 만들기</a></li>
+<li class="chapter" data-level="4.4" data-path="r-program-basic.html"><a href="r-program-basic.html#반복문-vectorization-functionals"><i class="fa fa-check"></i><b>4.4</b> 반복문, vectorization, functionals</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="r-program-basic.html"><a href="r-program-basic.html#for-loop"><i class="fa fa-check"></i><b>4.4.1</b> for loop</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-program-basic.html"><a href="r-program-basic.html#vectorization-과-apply-구문"><i class="fa fa-check"></i><b>4.4.2</b> vectorization 과 apply 구문</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-program-basic.html"><a href="r-program-basic.html#home-work-and-summary-function"><i class="fa fa-check"></i><b>4.4.3</b> home work and summary function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#dplyr-tidyverse"><i class="fa fa-check"></i><b>5.1</b> dplyr (tidyverse)</a></li>
+<li class="chapter" data-level="5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#실습-데이터-준비"><i class="fa fa-check"></i><b>5.2</b> 실습 데이터 준비</a></li>
+<li class="chapter" data-level="5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#select"><i class="fa fa-check"></i><b>5.3</b> select</a></li>
+<li class="chapter" data-level="5.4" data-path="data-manipulation.html"><a href="data-manipulation.html#filter"><i class="fa fa-check"></i><b>5.4</b> filter</a></li>
+<li class="chapter" data-level="5.5" data-path="data-manipulation.html"><a href="data-manipulation.html#arrange"><i class="fa fa-check"></i><b>5.5</b> arrange</a></li>
+<li class="chapter" data-level="5.6" data-path="data-manipulation.html"><a href="data-manipulation.html#mutate"><i class="fa fa-check"></i><b>5.6</b> mutate</a></li>
+<li class="chapter" data-level="5.7" data-path="data-manipulation.html"><a href="data-manipulation.html#group_by"><i class="fa fa-check"></i><b>5.7</b> group_by</a></li>
+<li class="chapter" data-level="5.8" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-join"><i class="fa fa-check"></i><b>5.8</b> merge, join</a></li>
+</ul></li>
+<li class="part"><span><b>II Visualization</b></span></li>
+<li class="chapter" data-level="6" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html"><i class="fa fa-check"></i><b>6</b> Tables for public health 1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#데이터표-준비"><i class="fa fa-check"></i><b>6.1</b> 데이터표 준비</a></li>
+<li class="chapter" data-level="6.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#central-tendency-mean-median-mode"><i class="fa fa-check"></i><b>6.2</b> Central Tendency (mean, median, mode)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#하나씩-반복"><i class="fa fa-check"></i><b>6.2.1</b> 하나씩 반복</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-summary-and-table-1"><i class="fa fa-check"></i><b>6.2.2</b> Group_by summary and Table 1</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1"><i class="fa fa-check"></i><b>6.2.3</b> Long File and Table 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#count-and-distribution"><i class="fa fa-check"></i><b>6.3</b> Count and Distribution</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#하나씩-반복-1"><i class="fa fa-check"></i><b>6.3.1</b> 하나씩 반복</a></li>
+<li class="chapter" data-level="6.3.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-summary-and-table-1-1"><i class="fa fa-check"></i><b>6.3.2</b> Group_by summary and Table 1</a></li>
+<li class="chapter" data-level="6.3.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1-1"><i class="fa fa-check"></i><b>6.3.3</b> Long File and Table 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#정리-1"><i class="fa fa-check"></i><b>6.4</b> 정리 1</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#과제"><i class="fa fa-check"></i><b>6.4.1</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Tables2.html"><a href="Tables2.html"><i class="fa fa-check"></i><b>7</b> Tables for public health 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Tables2.html"><a href="Tables2.html#데이터-준비"><i class="fa fa-check"></i><b>7.1</b> 데이터 준비</a></li>
+<li class="chapter" data-level="7.2" data-path="Tables2.html"><a href="Tables2.html#분석-주제-선정"><i class="fa fa-check"></i><b>7.2</b> 분석 주제 선정</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Tables2.html"><a href="Tables2.html#근로환경조사와-recode-선택사항"><i class="fa fa-check"></i><b>7.2.1</b> 근로환경조사와 recode (선택사항)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="Tables2.html"><a href="Tables2.html#근로환경조사-기본-변수-생성"><i class="fa fa-check"></i><b>7.2.2</b> 근로환경조사 기본 변수 생성</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Tables2.html"><a href="Tables2.html#근로환경조사-table-1-만들기"><i class="fa fa-check"></i><b>7.3</b> 근로환경조사 Table 1 만들기</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Tables2.html"><a href="Tables2.html#변수-값-요약하기"><i class="fa fa-check"></i><b>7.3.1</b> 변수 값 요약하기</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Tables2.html"><a href="Tables2.html#p-value-구하기."><i class="fa fa-check"></i><b>7.3.2</b> P value 구하기.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Tables2.html"><a href="Tables2.html#table-1-정리하기"><i class="fa fa-check"></i><b>7.4</b> Table 1 정리하기</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Tables2.html"><a href="Tables2.html#htmltable-visulaization"><i class="fa fa-check"></i><b>7.4.1</b> htmlTable visulaization</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Tables2.html"><a href="Tables2.html#kwcsfunction"><i class="fa fa-check"></i><b>7.5</b> 함수만들기</a></li>
+<li class="chapter" data-level="7.6" data-path="Tables2.html"><a href="Tables2.html#quiz"><i class="fa fa-check"></i><b>7.6</b> Quiz</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="Tables2.html"><a href="Tables2.html#quiz1"><i class="fa fa-check"></i><b>7.6.1</b> Quiz1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="Tables2.html"><a href="Tables2.html#quiz-2"><i class="fa fa-check"></i><b>7.6.2</b> Quiz 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html"><i class="fa fa-check"></i><b>8</b> Tables for public health 3</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#데이터-준비-1"><i class="fa fa-check"></i><b>8.1</b> 데이터 준비</a></li>
+<li class="chapter" data-level="8.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#분석-주제-선정-1"><i class="fa fa-check"></i><b>8.2</b> 분석 주제 선정</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#근로환경조사-기본-변수-생성-선택"><i class="fa fa-check"></i><b>8.2.1</b> 근로환경조사 기본 변수 생성 (선택)</a></li>
+<li class="chapter" data-level="8.2.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#함수를-source-file-로-저장하기"><i class="fa fa-check"></i><b>8.2.2</b> 함수를 source file 로 저장하기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#logistic-regression-table"><i class="fa fa-check"></i><b>8.3</b> Logistic Regression Table</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱회귀분석-표-함수-1"><i class="fa fa-check"></i><b>8.3.1</b> 로지스틱회귀분석 표 함수 1</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱-회귀분석-표-2"><i class="fa fa-check"></i><b>8.3.2</b> 로지스틱 회귀분석 표 2</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱-회귀분석-3"><i class="fa fa-check"></i><b>8.3.3</b> 로지스틱 회귀분석 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html"><i class="fa fa-check"></i><b>9</b> Basic plot with R</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#ggplot-basic"><i class="fa fa-check"></i><b>9.1</b> ggplot basic</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#그래프-틀"><i class="fa fa-check"></i><b>9.1.1</b> 그래프 틀</a></li>
+<li class="chapter" data-level="9.1.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#레이어"><i class="fa fa-check"></i><b>9.1.2</b> 레이어</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#visualization-example-with-covid19-data-group_by-and-mutate"><i class="fa fa-check"></i><b>9.2</b> visualization example with COVID19 data (group_by and mutate)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#create-basic-variables"><i class="fa fa-check"></i><b>9.2.1</b> create basic variables</a></li>
+<li class="chapter" data-level="9.2.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#bar-and-histograph"><i class="fa fa-check"></i><b>9.2.2</b> bar and histograph</a></li>
+<li class="chapter" data-level="9.2.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#boxplot"><i class="fa fa-check"></i><b>9.2.3</b> Boxplot</a></li>
+<li class="chapter" data-level="9.2.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#scatter-plot"><i class="fa fa-check"></i><b>9.2.4</b> scatter plot</a></li>
+<li class="chapter" data-level="9.2.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#scatter-plot-of-summary-stat"><i class="fa fa-check"></i><b>9.2.5</b> scatter plot of summary stat</a></li>
+<li class="chapter" data-level="9.2.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#line-chart"><i class="fa fa-check"></i><b>9.2.6</b> line chart</a></li>
+<li class="chapter" data-level="9.2.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#home-work"><i class="fa fa-check"></i><b>9.2.7</b> home work</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#diagram"><i class="fa fa-check"></i><b>9.3</b> Diagram</a></li>
+<li class="chapter" data-level="9.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#과제-1"><i class="fa fa-check"></i><b>9.4</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html"><i class="fa fa-check"></i><b>10</b> graphs for public health I</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#데이터-그림-준비"><i class="fa fa-check"></i><b>10.1</b> 데이터 그림 준비</a></li>
+<li class="chapter" data-level="10.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#실습-자료-시각화"><i class="fa fa-check"></i><b>10.2</b> 실습 자료 시각화</a></li>
+<li class="chapter" data-level="10.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#시각화-과제-1"><i class="fa fa-check"></i><b>10.3</b> 시각화 과제 1</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-1-그림-완성하기"><i class="fa fa-check"></i><b>10.3.1</b> 과제 1 그림 완성하기</a></li>
+<li class="chapter" data-level="10.3.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-2-동료의-지지가-미치는-영향을-그리시오"><i class="fa fa-check"></i><b>10.3.2</b> 과제 2 동료의 지지가 미치는 영향을 그리시오</a></li>
+<li class="chapter" data-level="10.3.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#과제-3-자신의-데이터-실습"><i class="fa fa-check"></i><b>10.3.3</b> 과제 3 자신의 데이터 실습</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#상호-작용-영향-표현"><i class="fa fa-check"></i><b>10.4</b> 상호 작용 영향 표현</a></li>
+<li class="chapter" data-level="10.5" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#라벨-자료"><i class="fa fa-check"></i><b>10.5</b> 라벨 자료</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#라벨자료-그래프-실습"><i class="fa fa-check"></i><b>10.5.1</b> 라벨자료 그래프 실습</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#wave-form-data-visualization-example-for-public-health"><i class="fa fa-check"></i><b>10.6</b> wave form data visualization example for public health</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#data-visualization-example-eeg-data"><i class="fa fa-check"></i><b>10.6.1</b> Data Visualization example (EEG data)</a></li>
+<li class="chapter" data-level="10.6.2" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#introduction-1"><i class="fa fa-check"></i><b>10.6.2</b> Introduction</a></li>
+<li class="chapter" data-level="10.6.3" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#dataset-and-data-step"><i class="fa fa-check"></i><b>10.6.3</b> Dataset and Data step</a></li>
+<li class="chapter" data-level="10.6.4" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#data-analysis"><i class="fa fa-check"></i><b>10.6.4</b> Data analysis</a></li>
+<li class="chapter" data-level="10.6.5" data-path="graphs-for-public-health-i.html"><a href="graphs-for-public-health-i.html#decision-tree-simple"><i class="fa fa-check"></i><b>10.6.5</b> Decision Tree simple</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html"><i class="fa fa-check"></i><b>11</b> Data Wrangling- Reshaping</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#동영상"><i class="fa fa-check"></i><b>11.1</b> 동영상</a></li>
+<li class="chapter" data-level="11.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#문제-제기"><i class="fa fa-check"></i><b>11.2</b> 문제 제기</a></li>
+<li class="chapter" data-level="11.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#split"><i class="fa fa-check"></i><b>11.3</b> split</a></li>
+<li class="chapter" data-level="11.4" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#gather-pivot_longer"><i class="fa fa-check"></i><b>11.4</b> gather (pivot_longer)</a></li>
+<li class="chapter" data-level="11.5" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#spread-pivot_wider"><i class="fa fa-check"></i><b>11.5</b> spread (pivot_wider)</a></li>
+<li class="chapter" data-level="11.6" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#stringr"><i class="fa fa-check"></i><b>11.6</b> stringr</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#분진-노출자-찾기"><i class="fa fa-check"></i><b>11.6.1</b> 분진 노출자 찾기</a></li>
+<li class="chapter" data-level="11.6.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#특정-문자-변환"><i class="fa fa-check"></i><b>11.6.2</b> 특정 문자 변환</a></li>
+<li class="chapter" data-level="11.6.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#과제-2"><i class="fa fa-check"></i><b>11.6.3</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>12</b> Web Scraping</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="web-scraping.html"><a href="web-scraping.html#issue-of-covid19-in-korea"><i class="fa fa-check"></i><b>12.1</b> issue of COVID19 in Korea</a></li>
+<li class="chapter" data-level="12.2" data-path="web-scraping.html"><a href="web-scraping.html#homework"><i class="fa fa-check"></i><b>12.2</b> homework</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="web-scraping.html"><a href="web-scraping.html#download-cumulative-covid19-death"><i class="fa fa-check"></i><b>12.2.1</b> download Cumulative covid19 death</a></li>
+<li class="chapter" data-level="12.2.2" data-path="web-scraping.html"><a href="web-scraping.html#uk-italy-france-spain-usa-canada"><i class="fa fa-check"></i><b>12.2.2</b> UK, Italy, France, Spain, USA, Canada</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="web-scraping.html"><a href="web-scraping.html#review-of-title-from-google-scholar"><i class="fa fa-check"></i><b>12.3</b> Review of title from google scholar</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="web-scraping.html"><a href="web-scraping.html#googl-scholar"><i class="fa fa-check"></i><b>12.3.1</b> googl scholar</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2"><i class="fa fa-check"></i><b>12.4</b> home work 2</a></li>
+<li class="chapter" data-level="12.5" data-path="web-scraping.html"><a href="web-scraping.html#black-report-2"><i class="fa fa-check"></i><b>12.5</b> Black Report 2</a></li>
+<li class="chapter" data-level="12.6" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2-1"><i class="fa fa-check"></i><b>12.6</b> home work 2</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html"><i class="fa fa-check"></i><b>13</b> WebScraping Example 3: PubMed and R with EndNote</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pubmed-검색-방법"><i class="fa fa-check"></i><b>13.1</b> PubMed 검색 방법</a></li>
+<li class="chapter" data-level="13.2" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#r-에서-pubmed-query-사용"><i class="fa fa-check"></i><b>13.2</b> R 에서 PubMed Query 사용</a></li>
+<li class="chapter" data-level="13.3" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pdf-자동-보고서"><i class="fa fa-check"></i><b>13.3</b> PDF 자동 보고서</a></li>
+<li class="chapter" data-level="13.4" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#원문-pdf-찾기"><i class="fa fa-check"></i><b>13.4</b> 원문 PDF 찾기</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="date-and-time-series.html"><a href="date-and-time-series.html"><i class="fa fa-check"></i><b>14</b> Date and time series</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create"><i class="fa fa-check"></i><b>14.1</b> Date create</a></li>
+<li class="chapter" data-level="14.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#tutor-heat-wave-and-death"><i class="fa fa-check"></i><b>14.2</b> Tutor: heat wave and death</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create-1"><i class="fa fa-check"></i><b>14.2.1</b> date create</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work-1"><i class="fa fa-check"></i><b>14.3</b> home work</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home0"><i class="fa fa-check"></i><b>14.3.1</b> home0</a></li>
+<li class="chapter" data-level="14.3.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work1"><i class="fa fa-check"></i><b>14.3.2</b> home work1</a></li>
+<li class="chapter" data-level="14.3.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work2"><i class="fa fa-check"></i><b>14.3.3</b> home work2</a></li>
+<li class="chapter" data-level="14.3.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work3"><i class="fa fa-check"></i><b>14.3.4</b> home work3</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis"><i class="fa fa-check"></i><b>14.4</b> Time series data analysis</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#outside-사망에-대해서"><i class="fa fa-check"></i><b>14.4.1</b> outside 사망에 대해서</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis-regression"><i class="fa fa-check"></i><b>14.5</b> Time series data analysis, regression</a></li>
+<li class="chapter" data-level="14.6" data-path="date-and-time-series.html"><a href="date-and-time-series.html#introduction-2"><i class="fa fa-check"></i><b>14.6</b> introduction</a></li>
+<li class="chapter" data-level="14.7" data-path="date-and-time-series.html"><a href="date-and-time-series.html#미세먼지와-심혈관사망"><i class="fa fa-check"></i><b>14.7</b> 미세먼지와 심혈관사망</a></li>
+<li class="chapter" data-level="14.8" data-path="date-and-time-series.html"><a href="date-and-time-series.html#방법-tutor"><i class="fa fa-check"></i><b>14.8</b> 방법 tutor</a></li>
+</ul></li>
+<li class="part"><span><b>IV Repeat and Reproducibility</b></span></li>
+<li class="chapter" data-level="15" data-path="repeated-analysis.html"><a href="repeated-analysis.html"><i class="fa fa-check"></i><b>15</b> Repeated analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#추출"><i class="fa fa-check"></i><b>15.1</b> 추출</a></li>
+<li class="chapter" data-level="15.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#파일-불러오기"><i class="fa fa-check"></i><b>15.2</b> 파일 불러오기</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-3"><i class="fa fa-check"></i><b>15.2.1</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#분석-반복하기-change-point-찾기"><i class="fa fa-check"></i><b>15.3</b> 분석 반복하기 (change point 찾기)</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#자료-생성"><i class="fa fa-check"></i><b>15.3.1</b> 자료 생성</a></li>
+<li class="chapter" data-level="15.3.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#가상의-threshold-값-수행해보기"><i class="fa fa-check"></i><b>15.3.2</b> 가상의 threshold 값 수행해보기</a></li>
+<li class="chapter" data-level="15.3.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-4"><i class="fa fa-check"></i><b>15.3.3</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="repeated-analysis.html"><a href="repeated-analysis.html#repeated-analysis-big-data"><i class="fa fa-check"></i><b>15.4</b> Repeated analysis (big data)</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-profile"><i class="fa fa-check"></i><b>15.4.1</b> Data profile</a></li>
+<li class="chapter" data-level="15.4.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-handling-start"><i class="fa fa-check"></i><b>15.4.2</b> data handling start</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Communication</b></span></li>
+<li class="chapter" data-level="16" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>16</b> R markdown</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="r-markdown.html"><a href="r-markdown.html#설치"><i class="fa fa-check"></i><b>16.1</b> 설치</a></li>
+<li class="chapter" data-level="16.2" data-path="r-markdown.html"><a href="r-markdown.html#components"><i class="fa fa-check"></i><b>16.2</b> 3 components</a></li>
+<li class="chapter" data-level="16.3" data-path="r-markdown.html"><a href="r-markdown.html#simple-tutor"><i class="fa fa-check"></i><b>16.3</b> simple tutor</a></li>
+<li class="chapter" data-level="16.4" data-path="r-markdown.html"><a href="r-markdown.html#chunck-option"><i class="fa fa-check"></i><b>16.4</b> chunck option</a></li>
+<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#table-만들기"><i class="fa fa-check"></i><b>16.5</b> Table 만들기</a></li>
+<li class="chapter" data-level="16.6" data-path="r-markdown.html"><a href="r-markdown.html#필독"><i class="fa fa-check"></i><b>16.6</b> 필독!</a></li>
+<li class="chapter" data-level="16.7" data-path="r-markdown.html"><a href="r-markdown.html#동영상-1"><i class="fa fa-check"></i><b>16.7</b> 동영상</a></li>
+<li class="chapter" data-level="16.8" data-path="r-markdown.html"><a href="r-markdown.html#과제-5"><i class="fa fa-check"></i><b>16.8</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html"><i class="fa fa-check"></i><b>17</b> Rmarkdown and reporting</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-word-office-down"><i class="fa fa-check"></i><b>17.1</b> Rmarkdown and Word (office down)</a></li>
+<li class="chapter" data-level="17.2" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-pdf"><i class="fa fa-check"></i><b>17.2</b> Rmarkdown and PDF</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="google-maps-platform.html"><a href="google-maps-platform.html"><i class="fa fa-check"></i><b>18</b> Google Maps Platform</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-tackeout"><i class="fa fa-check"></i><b>18.1</b> Google Tackeout</a></li>
+<li class="chapter" data-level="18.2" data-path="google-maps-platform.html"><a href="google-maps-platform.html#data-visualization"><i class="fa fa-check"></i><b>18.2</b> Data visualization</a></li>
+<li class="chapter" data-level="18.3" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-api"><i class="fa fa-check"></i><b>18.3</b> google API</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>19</b> Map using leaflet</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="leaflet.html"><a href="leaflet.html#leaflet-1"><i class="fa fa-check"></i><b>19.1</b> leaflet</a></li>
+<li class="chapter" data-level="19.2" data-path="leaflet.html"><a href="leaflet.html#위치와-시간표시"><i class="fa fa-check"></i><b>19.2</b> 위치와 시간표시</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="shinyapps.html"><a href="shinyapps.html"><i class="fa fa-check"></i><b>20</b> shinyapps</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="shinyapps.html"><a href="shinyapps.html#설치-1"><i class="fa fa-check"></i><b>20.1</b> 설치</a></li>
+<li class="chapter" data-level="20.2" data-path="shinyapps.html"><a href="shinyapps.html#예제"><i class="fa fa-check"></i><b>20.2</b> 예제</a></li>
+<li class="chapter" data-level="20.3" data-path="shinyapps.html"><a href="shinyapps.html#예제-1-만들기"><i class="fa fa-check"></i><b>20.3</b> 예제 1 만들기</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="shinyapps.html"><a href="shinyapps.html#구조"><i class="fa fa-check"></i><b>20.3.1</b> 구조</a></li>
+<li class="chapter" data-level="20.3.2" data-path="shinyapps.html"><a href="shinyapps.html#input-output"><i class="fa fa-check"></i><b>20.3.2</b> input, output</a></li>
+<li class="chapter" data-level="20.3.3" data-path="shinyapps.html"><a href="shinyapps.html#과제-6"><i class="fa fa-check"></i><b>20.3.3</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="shinyapps.html"><a href="shinyapps.html#deploy-shiny-app-local-server"><i class="fa fa-check"></i><b>20.4</b> deploy shiny app (local server)</a>
+<ul>
+<li class="chapter" data-level="20.4.1" data-path="shinyapps.html"><a href="shinyapps.html#과제-7"><i class="fa fa-check"></i><b>20.4.1</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DsPubs with R tutor book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Tables2" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Tables for public health 2<a href="Tables2.html#Tables2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rIp8NNoiq24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<div id="데이터-준비" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> 데이터 준비<a href="Tables2.html#데이터-준비" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>데이터 표를 만드는 실습은 6차 근로환경조사 자료를 통해 실습할 것입니다.. 자료는 안전보건공단, 근로환경조사 원시자료 사이트 (<a href="http://kosha.or.kr/kosha/data/primitiveData.do" class="uri">http://kosha.or.kr/kosha/data/primitiveData.do</a>) 에서 신청할 수 있습니다..</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Tables2.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb1-2"><a href="Tables2.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;tidyverse&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb1-3"><a href="Tables2.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;htmlTable&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;htmlTable&quot;</span>)</span>
+<span id="cb1-4"><a href="Tables2.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;haven&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</span>
+<span id="cb1-5"><a href="Tables2.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;broom&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;broom&quot;</span>)</span></code></pre></div>
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Click to copy', 'Done');
+</script>
+<p>데이터를 불러오겠습니다. 안전보건공단 홈페이에서 자료를 다운 받는게 원칙입니다. 다만 실습을 빠르게 진행하기 위해서, dspubs.org 페이지에 있는 파일을 이용하겠습니다. <br>
+<a href="https://dspubs.org/webapps/forum/open_data/"> dspubs.org open_data </a>
+<br></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="Tables2.html#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/kwcs6th.sav&quot;</span></span>
+<span id="cb2-2"><a href="Tables2.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">&quot;data/kwcs6th.sav&quot;</span>)</span>
+<span id="cb2-3"><a href="Tables2.html#cb2-3" aria-hidden="true" tabindex="-1"></a>kwcs <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&quot;data/kwcs6th.sav&quot;</span>)</span></code></pre></div>
+</div>
+<div id="분석-주제-선정" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> 분석 주제 선정<a href="Tables2.html#분석-주제-선정" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>우선 수면 장애를 중심으로 연구를 하기로 했습니다. 이때 장시간 근무가 수면장애를 일으킬 수 있다는 가정을 했습니다. 기존 연구에서 유사한 내용이 있었기 때문입니다. 그 이유를 생각해보니, 오래 일하면 어떤 방식으로든 수면시간 자체가 줄어들 것으로 보였기 때문입니다. 우선 sleep disturbance, long working hours per week 이 정해졌습니다. 이후 연구방법론의 혼란변수 선정 방법이나, 연구자의 Domain knowledge에 따른 선정, 새로운 가설 개발 (originality) 위한 변수 선정등을 고려할 수 있습니다. 이러한 내용은 각각의 연구방법론 수업에서 학습하시기를 바랍니다. <br>
+여러 토론을 하다보니, 일을 마치고 집에 돌아온 후 해야할 일이 많은 경우 수면장애가 발생할 것 같은 느낌이 들었습니다. 이 것을 확인해 보고자 합니다. <br>
+  즉, 장시간근로와 일과 삶의 균형에 따른 수면장애 관련성을 연구해 보고 싶습니다.</p>
+<p><img src="images/wlbalance.PNG"></p>
+<p>  이제 data manipulation, long wide 변환을 통해 실습을 해보겠습니다.</p>
+<div id="근로환경조사와-recode-선택사항" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> 근로환경조사와 recode (선택사항)<a href="Tables2.html#근로환경조사와-recode-선택사항" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>번외로 분석을 빠르게 진행하기 위해 <code>recode</code>에 대한 복습을 해 보겠습니다. <code>recode</code>는 아주 단순한 변경에 사용되는데요, 근로환경조사는 이미 변수를 1, 2, 3, 4, 5 의 순서를 Likert 척도로 사용하고 있습니다.</p>
+<blockquote>
+<p>근로환경조사 Likert 척도</p>
+</blockquote>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>근로환경조사</th>
+<th>Likert 척도</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>얼마나 자주 그렇습니까(freq)?</td>
+<td>“4.Always”, <br> “3.Often”, “2.Sometimes”, “1.Rarely”, “0.Never”</td>
+</tr>
+<tr class="even">
+<td>얼마나 자주 그렇습니까(time)?</td>
+<td>“5.All of the time”, “4.Most of the time”, “3.More than half of the time”, “2.less than half of the time”, “1.Some of the time”, “0.At no time”</td>
+</tr>
+<tr class="odd">
+<td>얼마나 적당 합니까?</td>
+<td>“3.Very well”, “3.Well”, “2.Not very well”, “0.Not at all well”</td>
+</tr>
+</tbody>
+</table>
+<p>이것을 이용하면 매우 쉽게 정리할 수 있습니다. <br></p>
+<ul>
+<li>wwa4: 집안일 때문에 집중하기 어렵다가
+<ul>
+<li>1: 항상그렇다,</li>
+<li>2: 대부분그렇다.</li>
+<li>3: 가끔 그렇다</li>
+<li>4: 별로 그렇지 않다.</li>
+<li>5: 전혀 그렇지 않다
+로 되어 있습니다.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>recode</p>
+</blockquote>
+<p>아래의 함수 결과를 살펴보면, 숫자의 경우 순서에 따라 문자를 어사인하는 것을 볼 수 있습니다. 데이터가 정형화되어 정리되어 있는 경우, 그리고 숫자인경우, case_when 이나 ifelse보다 더 쉬운 방법입니다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Tables2.html#cb3-1" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb3-2"><a href="Tables2.html#cb3-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">=</span> <span class="fu">recode</span>(vars, <span class="st">`</span><span class="at">1</span><span class="st">`</span><span class="ot">=</span> <span class="st">&quot;a&quot;</span>, <span class="st">`</span><span class="at">2</span><span class="st">`</span><span class="ot">=</span> <span class="st">&quot;b&quot;</span>, <span class="st">`</span><span class="at">3</span><span class="st">`</span><span class="ot">=</span> <span class="st">&quot;c&quot;</span>, <span class="st">`</span><span class="at">4</span><span class="st">`</span><span class="ot">=</span> <span class="st">&quot;d&quot;</span>)</span>
+<span id="cb3-3"><a href="Tables2.html#cb3-3" aria-hidden="true" tabindex="-1"></a>r1</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;c&quot; &quot;c&quot; &quot;c&quot; &quot;b&quot; &quot;b&quot; &quot;b&quot; &quot;d&quot; &quot;d&quot; &quot;d&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Tables2.html#cb5-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">=</span> <span class="fu">recode</span>(vars, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>)</span>
+<span id="cb5-2"><a href="Tables2.html#cb5-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="sc">==</span> r2</span></code></pre></div>
+<pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<p>문자일 때는 어떨까요? 문자는 순서를 특정화 해주지 않았으므로 어렵습니다. 근로환경조사는 대부분 문자로 저장되어 있습니다.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="Tables2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>vars_char <span class="ot">=</span> <span class="fu">as.character</span>(vars)</span>
+<span id="cb7-2"><a href="Tables2.html#cb7-2" aria-hidden="true" tabindex="-1"></a>r3 <span class="ot">=</span> <span class="fu">recode</span>(vars_char, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>)</span>
+<span id="cb7-3"><a href="Tables2.html#cb7-3" aria-hidden="true" tabindex="-1"></a>r3_n <span class="ot">=</span> <span class="fu">recode</span>(<span class="fu">as.numeric</span>(vars_char), <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
+<p>이를 as.numeric을 통해 숫자로 변형시켜준 후 시행하면 잘 작동합니다.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="Tables2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>vars_char <span class="ot">=</span> <span class="fu">as.character</span>(vars)</span>
+<span id="cb8-2"><a href="Tables2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>r3_n <span class="ot">=</span> <span class="fu">recode</span>(<span class="fu">as.numeric</span>(vars_char), <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
+<p>이제 <code>kwcs</code> 에서 wwa1부터 wwa5까지를 가져와 역순으로 Likert 척도를 구해보겠습니다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Tables2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>wwas <span class="ot">=</span> kwcs <span class="sc">%&gt;%</span> <span class="fu">select</span>(TSEX, <span class="fu">contains</span>(<span class="st">&quot;wwa&quot;</span>))</span>
+<span id="cb9-2"><a href="Tables2.html#cb9-2" aria-hidden="true" tabindex="-1"></a>wwas <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 6
+##        TSEX                 wwa1                 wwa2       wwa3    wwa4    wwa5
+##   &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;  &lt;dbl+lbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
+## 1  2 [여성] 4 [별로 그렇지 않다] 5 [전혀 그렇지 않다] 5 [전혀 … 5 [전… 5 [전…
+## 2  2 [여성] 5 [전혀 그렇지 않다] 4 [별로 그렇지 않다] 5 [전혀 … 5 [전… 5 [전…
+## 3  2 [여성] 4 [별로 그렇지 않다] 3 [가끔 그렇다]      3 [가끔 … 4 [별… 4 [별…
+## 4  1 [남성] 4 [별로 그렇지 않다] 4 [별로 그렇지 않다] 4 [별로 … 5 [전… 5 [전…
+## 5  1 [남성] 3 [가끔 그렇다]      4 [별로 그렇지 않다] 4 [별로 … 4 [별… 4 [별…
+## 6  2 [여성] 4 [별로 그렇지 않다] 4 [별로 그렇지 않다] 4 [별로 … 4 [별… 4 [별…</code></pre>
+<p>Quizz1: wwa1 변수에서 1의 값을 갖는 것은 남녀 별로 각각 몇명일까요? (script 안에 count 를 이용해서 작성해 보세요)</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Tables2.html#cb11-1" aria-hidden="true" tabindex="-1"></a>wwas <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="Tables2.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TSEX) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="Tables2.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  [ script     ]</span></code></pre></div>
+<p>이제 recode를 이용해 변환해 보겠습니다.</p>
+<ul>
+<li>wwa 관련 변수를
+<ul>
+<li>1: 항상그렇다 → “4.Always”</li>
+<li>2: 대부분그렇다 → “3.Often”</li>
+<li>3: 가끔 그렇다 → “2.Sometimes”</li>
+<li>4: 별로 그렇지 않다 → “1.Rarely”</li>
+<li>5: 전혀 그렇지 않다 →“0.Never”
+로 변경해 보겠습니다. <br>
+첫번째는 case_when으로 두번째는 recode로 변경했습니다. 누가 더 쉬운가요?</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="Tables2.html#cb12-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">=</span> wwas <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="Tables2.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wwa1gp1 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-3"><a href="Tables2.html#cb12-3" aria-hidden="true" tabindex="-1"></a>    wwa1 <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;4.Always&quot;</span>,</span>
+<span id="cb12-4"><a href="Tables2.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    wwa1 <span class="sc">==</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">&quot;3.Often&quot;</span>, </span>
+<span id="cb12-5"><a href="Tables2.html#cb12-5" aria-hidden="true" tabindex="-1"></a>    wwa1 <span class="sc">==</span><span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;2.Sometimes&quot;</span>, </span>
+<span id="cb12-6"><a href="Tables2.html#cb12-6" aria-hidden="true" tabindex="-1"></a>    wwa1 <span class="sc">==</span><span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;1.Rarely&quot;</span>,</span>
+<span id="cb12-7"><a href="Tables2.html#cb12-7" aria-hidden="true" tabindex="-1"></a>    wwa1 <span class="sc">==</span><span class="dv">5</span> <span class="sc">~</span> <span class="st">&quot;0.Never&quot;</span> </span>
+<span id="cb12-8"><a href="Tables2.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="Tables2.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wwa1gp2 =</span> <span class="fu">recode</span>(<span class="fu">as.numeric</span>(wwa1), </span>
+<span id="cb12-10"><a href="Tables2.html#cb12-10" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;4.Always&quot;</span>,<span class="st">&quot;3.Often&quot;</span>,<span class="st">&quot;2.Sometimes&quot;</span>, <span class="st">&quot;1.Rarely&quot;</span>,<span class="st">&quot;0.Never&quot;</span> </span>
+<span id="cb12-11"><a href="Tables2.html#cb12-11" aria-hidden="true" tabindex="-1"></a>                          )) </span>
+<span id="cb12-12"><a href="Tables2.html#cb12-12" aria-hidden="true" tabindex="-1"></a>test <span class="sc">%&gt;%</span></span>
+<span id="cb12-13"><a href="Tables2.html#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff =</span> wwa1gp1 <span class="sc">==</span> wwa1gp2) <span class="sc">%&gt;%</span></span>
+<span id="cb12-14"><a href="Tables2.html#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(diff) <span class="sc">%&gt;%</span> <span class="fu">table</span>(.)</span></code></pre></div>
+<pre><code>## .
+##  TRUE 
+## 49268</code></pre>
+<p>코드가 길어지는 것은 누군가와 소통하는데 장벽이 될수 있습니다. 반복적인 것은 함수를 만들어 요약할 수 있습니다.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="Tables2.html#cb14-1" aria-hidden="true" tabindex="-1"></a>Likerts <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb14-2"><a href="Tables2.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recode</span>(<span class="fu">as.numeric</span>(x), </span>
+<span id="cb14-3"><a href="Tables2.html#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;4.Always&quot;</span>,<span class="st">&quot;3.Often&quot;</span>,<span class="st">&quot;2.Sometimes&quot;</span>, <span class="st">&quot;1.Rarely&quot;</span>,<span class="st">&quot;0.Never&quot;</span> </span>
+<span id="cb14-4"><a href="Tables2.html#cb14-4" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb14-5"><a href="Tables2.html#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-6"><a href="Tables2.html#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="Tables2.html#cb14-7" aria-hidden="true" tabindex="-1"></a>wwas <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a href="Tables2.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wwa1gp1 =</span> <span class="fu">recode</span>(<span class="fu">as.numeric</span>(wwa1), </span>
+<span id="cb14-9"><a href="Tables2.html#cb14-9" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;4.Always&quot;</span>,<span class="st">&quot;3.Often&quot;</span>,<span class="st">&quot;2.Sometimes&quot;</span>, <span class="st">&quot;1.Rarely&quot;</span>,<span class="st">&quot;0.Never&quot;</span> </span>
+<span id="cb14-10"><a href="Tables2.html#cb14-10" aria-hidden="true" tabindex="-1"></a>                          )) <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="Tables2.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wwa1gp2 =</span> <span class="fu">Likerts</span>(wwa1)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-12"><a href="Tables2.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff =</span> wwa1gp1 <span class="sc">==</span> wwa1gp2) <span class="sc">%&gt;%</span></span>
+<span id="cb14-13"><a href="Tables2.html#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(diff) <span class="sc">%&gt;%</span> <span class="fu">table</span>(.)</span></code></pre></div>
+<pre><code>## .
+##  TRUE 
+## 49268</code></pre>
+</div>
+<div id="근로환경조사-기본-변수-생성" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> 근로환경조사 기본 변수 생성<a href="Tables2.html#근로환경조사-기본-변수-생성" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>data manipulation에서 실습한 내용을 통해 변수를 실습을 위한 변수를 생성해 보겠습니다.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Tables2.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data manip function</span></span>
+<span id="cb16-2"><a href="Tables2.html#cb16-2" aria-hidden="true" tabindex="-1"></a>Likert5f <span class="ot">=</span> <span class="cf">function</span>(x){dplyr<span class="sc">::</span><span class="fu">recode</span>(<span class="fu">as.numeric</span>(x), </span>
+<span id="cb16-3"><a href="Tables2.html#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;4.Always&quot;</span>,<span class="st">&quot;3.Often&quot;</span>,<span class="st">&quot;2.Sometimes&quot;</span>, <span class="st">&quot;1.Rarely&quot;</span>,<span class="st">&quot;0.Never&quot;</span> )}</span>
+<span id="cb16-4"><a href="Tables2.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="Tables2.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data step start ----------</span></span>
+<span id="cb16-6"><a href="Tables2.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="Tables2.html#cb16-7" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> kwcs <span class="sc">%&gt;%</span></span>
+<span id="cb16-8"><a href="Tables2.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AGE <span class="sc">&lt;</span><span class="dv">70</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-9"><a href="Tables2.html#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AGE <span class="sc">&gt;</span><span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-10"><a href="Tables2.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sleep --------</span></span>
+<span id="cb16-11"><a href="Tables2.html#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sleep1)<span class="sc">&amp;!</span><span class="fu">is.na</span>(sleep2)<span class="sc">&amp;!</span><span class="fu">is.na</span>(sleep3)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-12"><a href="Tables2.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sleep1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
+<span id="cb16-13"><a href="Tables2.html#cb16-13" aria-hidden="true" tabindex="-1"></a>         sleep2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
+<span id="cb16-14"><a href="Tables2.html#cb16-14" aria-hidden="true" tabindex="-1"></a>         sleep3 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-15"><a href="Tables2.html#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep1in =</span> <span class="dv">5</span><span class="sc">-</span>sleep1, </span>
+<span id="cb16-16"><a href="Tables2.html#cb16-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">sleep2in =</span> <span class="dv">5</span><span class="sc">-</span>sleep2,</span>
+<span id="cb16-17"><a href="Tables2.html#cb16-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">sleep3in =</span> <span class="dv">5</span><span class="sc">-</span>sleep3</span>
+<span id="cb16-18"><a href="Tables2.html#cb16-18" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-19"><a href="Tables2.html#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleepgp =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-20"><a href="Tables2.html#cb16-20" aria-hidden="true" tabindex="-1"></a>    sleep1in <span class="sc">+</span> sleep2in<span class="sc">+</span> sleep3in <span class="sc">&gt;=</span><span class="dv">6</span> <span class="sc">~</span> <span class="st">&quot;1.sleep disturbance&quot;</span>, </span>
+<span id="cb16-21"><a href="Tables2.html#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;0.non distrubance&quot;</span></span>
+<span id="cb16-22"><a href="Tables2.html#cb16-22" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-23"><a href="Tables2.html#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># work live balances -------------</span></span>
+<span id="cb16-24"><a href="Tables2.html#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wbalance), <span class="sc">!</span><span class="fu">is.na</span>(wwa1), <span class="sc">!</span><span class="fu">is.na</span>(wwa2), <span class="sc">!</span><span class="fu">is.na</span>(wwa3), <span class="sc">!</span><span class="fu">is.na</span>(wwa4), <span class="sc">!</span><span class="fu">is.na</span>(wwa5)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-25"><a href="Tables2.html#cb16-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wbalance)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-26"><a href="Tables2.html#cb16-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wbalancegp =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-27"><a href="Tables2.html#cb16-27" aria-hidden="true" tabindex="-1"></a>    wbalance <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">&quot;0.balance&quot;</span>, </span>
+<span id="cb16-28"><a href="Tables2.html#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;1.non balance&quot;</span></span>
+<span id="cb16-29"><a href="Tables2.html#cb16-29" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-30"><a href="Tables2.html#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wwa1gp=</span><span class="fu">Likert5f</span>(wwa1), <span class="at">wwa2gp=</span><span class="fu">Likert5f</span>(wwa2),  <span class="at">wwa3gp=</span><span class="fu">Likert5f</span>(wwa3), </span>
+<span id="cb16-31"><a href="Tables2.html#cb16-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">wwa4gp=</span><span class="fu">Likert5f</span>(wwa4), <span class="at">wwa5gp=</span><span class="fu">Likert5f</span>(wwa5), </span>
+<span id="cb16-32"><a href="Tables2.html#cb16-32" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-33"><a href="Tables2.html#cb16-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># job and sex, agegp  ----------</span></span>
+<span id="cb16-34"><a href="Tables2.html#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(job1))<span class="sc">%&gt;%</span></span>
+<span id="cb16-35"><a href="Tables2.html#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(job1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-36"><a href="Tables2.html#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexgp =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-37"><a href="Tables2.html#cb16-37" aria-hidden="true" tabindex="-1"></a>    TSEX <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;Men&quot;</span>, </span>
+<span id="cb16-38"><a href="Tables2.html#cb16-38" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Women&quot;</span></span>
+<span id="cb16-39"><a href="Tables2.html#cb16-39" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-40"><a href="Tables2.html#cb16-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agegp =</span> <span class="fu">case_when</span>(AGE <span class="sc">&lt;</span><span class="dv">25</span> <span class="sc">~</span> <span class="st">&quot;&lt;25&quot;</span>, AGE <span class="sc">&lt;</span><span class="dv">30</span> <span class="sc">~</span> <span class="st">&quot;&lt;30&quot;</span>,  AGE <span class="sc">&lt;</span><span class="dv">35</span> <span class="sc">~</span> <span class="st">&quot;&lt;35&quot;</span>, </span>
+<span id="cb16-41"><a href="Tables2.html#cb16-41" aria-hidden="true" tabindex="-1"></a>    AGE <span class="sc">&lt;</span><span class="dv">40</span> <span class="sc">~</span> <span class="st">&quot;&lt;40&quot;</span>, AGE <span class="sc">&lt;</span><span class="dv">45</span> <span class="sc">~</span> <span class="st">&quot;&lt;45&quot;</span>, AGE <span class="sc">&lt;</span><span class="dv">50</span> <span class="sc">~</span> <span class="st">&quot;&lt;50&quot;</span>,AGE <span class="sc">&lt;</span><span class="dv">55</span> <span class="sc">~</span> <span class="st">&quot;&lt;55&quot;</span>, AGE <span class="sc">&lt;</span><span class="dv">60</span> <span class="sc">~</span> <span class="st">&quot;&lt;60&quot;</span>,</span>
+<span id="cb16-42"><a href="Tables2.html#cb16-42" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;\u226560&quot;</span> <span class="co"># 나머지는 모두 &gt;65 (\u2265는 크거나 같다는 symbol)</span></span>
+<span id="cb16-43"><a href="Tables2.html#cb16-43" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-44"><a href="Tables2.html#cb16-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(edu)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(edu <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-45"><a href="Tables2.html#cb16-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edugp =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-46"><a href="Tables2.html#cb16-46" aria-hidden="true" tabindex="-1"></a>    edu <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">~</span>    <span class="st">&quot;2.middle school or below&quot;</span>,</span>
+<span id="cb16-47"><a href="Tables2.html#cb16-47" aria-hidden="true" tabindex="-1"></a>    edu <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>  ) <span class="sc">~</span>    <span class="st">&quot;1.high school&quot;</span>,</span>
+<span id="cb16-48"><a href="Tables2.html#cb16-48" aria-hidden="true" tabindex="-1"></a>    edu <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>)   <span class="sc">~</span>  <span class="st">&quot;0.university or more&quot;</span></span>
+<span id="cb16-49"><a href="Tables2.html#cb16-49" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-50"><a href="Tables2.html#cb16-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">njob=</span><span class="fu">case_when</span>(</span>
+<span id="cb16-51"><a href="Tables2.html#cb16-51" aria-hidden="true" tabindex="-1"></a>    job1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="st">&quot;1.njob&quot;</span>, </span>
+<span id="cb16-52"><a href="Tables2.html#cb16-52" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;0.one-job&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-53"><a href="Tables2.html#cb16-53" aria-hidden="true" tabindex="-1"></a>  <span class="co"># pains back -----------</span></span>
+<span id="cb16-54"><a href="Tables2.html#cb16-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">backpain=</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-55"><a href="Tables2.html#cb16-55" aria-hidden="true" tabindex="-1"></a>    heal_prob1<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;pain&quot;</span>, </span>
+<span id="cb16-56"><a href="Tables2.html#cb16-56" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;no-pain&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-57"><a href="Tables2.html#cb16-57" aria-hidden="true" tabindex="-1"></a>  <span class="co"># emp_type,working hours, shiftwork, work life balance -------</span></span>
+<span id="cb16-58"><a href="Tables2.html#cb16-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(emp_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-59"><a href="Tables2.html#cb16-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(emp_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-60"><a href="Tables2.html#cb16-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">empgp =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-61"><a href="Tables2.html#cb16-61" aria-hidden="true" tabindex="-1"></a>    emp_type <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;2.own-account worker&quot;</span>, </span>
+<span id="cb16-62"><a href="Tables2.html#cb16-62" aria-hidden="true" tabindex="-1"></a>    emp_type <span class="sc">==</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">&quot;1.employer/self-employer&quot;</span>, </span>
+<span id="cb16-63"><a href="Tables2.html#cb16-63" aria-hidden="true" tabindex="-1"></a>    emp_type <span class="sc">==</span><span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;0.paid-worker&quot;</span>, </span>
+<span id="cb16-64"><a href="Tables2.html#cb16-64" aria-hidden="true" tabindex="-1"></a>    emp_type <span class="sc">==</span><span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;3.unpaind family work&quot;</span></span>
+<span id="cb16-65"><a href="Tables2.html#cb16-65" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-66"><a href="Tables2.html#cb16-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wtime_week)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-67"><a href="Tables2.html#cb16-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whgp=</span><span class="fu">case_when</span>(</span>
+<span id="cb16-68"><a href="Tables2.html#cb16-68" aria-hidden="true" tabindex="-1"></a>    wtime_week <span class="sc">&lt;</span> <span class="dv">35</span> <span class="sc">~</span> <span class="st">&quot;&lt;35&quot;</span>, </span>
+<span id="cb16-69"><a href="Tables2.html#cb16-69" aria-hidden="true" tabindex="-1"></a>    wtime_week <span class="sc">&lt;</span> <span class="dv">40</span> <span class="sc">~</span> <span class="st">&quot;&lt;40&quot;</span>, </span>
+<span id="cb16-70"><a href="Tables2.html#cb16-70" aria-hidden="true" tabindex="-1"></a>    wtime_week <span class="sc">&lt;</span> <span class="dv">52</span> <span class="sc">~</span> <span class="st">&quot;&lt;52&quot;</span>, </span>
+<span id="cb16-71"><a href="Tables2.html#cb16-71" aria-hidden="true" tabindex="-1"></a>    wtime_week <span class="sc">&lt;</span> <span class="dv">60</span> <span class="sc">~</span> <span class="st">&quot;&lt;60&quot;</span>, </span>
+<span id="cb16-72"><a href="Tables2.html#cb16-72" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;\u226560&quot;</span>, </span>
+<span id="cb16-73"><a href="Tables2.html#cb16-73" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-74"><a href="Tables2.html#cb16-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wtime_length5)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-75"><a href="Tables2.html#cb16-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wtime_length5 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-76"><a href="Tables2.html#cb16-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">shiftWork =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-77"><a href="Tables2.html#cb16-77" aria-hidden="true" tabindex="-1"></a>    wtime_length5 <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;1.shift work&quot;</span>, </span>
+<span id="cb16-78"><a href="Tables2.html#cb16-78" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;0.non shift work&quot;</span></span>
+<span id="cb16-79"><a href="Tables2.html#cb16-79" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-80"><a href="Tables2.html#cb16-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wtime_resilience)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-81"><a href="Tables2.html#cb16-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">shortReturn =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-82"><a href="Tables2.html#cb16-82" aria-hidden="true" tabindex="-1"></a>    wtime_resilience <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;1.short return&quot;</span>, </span>
+<span id="cb16-83"><a href="Tables2.html#cb16-83" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;0.non short return&quot;</span></span>
+<span id="cb16-84"><a href="Tables2.html#cb16-84" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb16-85"><a href="Tables2.html#cb16-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(satisfaction)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-86"><a href="Tables2.html#cb16-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(satisfaction <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-87"><a href="Tables2.html#cb16-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">satisInv =</span> <span class="dv">5</span><span class="sc">-</span>satisfaction) <span class="sc">%&gt;%</span></span>
+<span id="cb16-88"><a href="Tables2.html#cb16-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">shiftShort=</span><span class="fu">case_when</span>(</span>
+<span id="cb16-89"><a href="Tables2.html#cb16-89" aria-hidden="true" tabindex="-1"></a>    shiftWork <span class="sc">==</span> <span class="st">&quot;1.shift work&quot;</span> <span class="sc">&amp;</span> shortReturn <span class="sc">==</span> <span class="st">&quot;1.short return&quot;</span> <span class="sc">~</span> <span class="st">&quot;3.shift work with short return&quot;</span>, </span>
+<span id="cb16-90"><a href="Tables2.html#cb16-90" aria-hidden="true" tabindex="-1"></a>    shiftWork <span class="sc">==</span> <span class="st">&quot;1.shift work&quot;</span> <span class="sc">&amp;</span> shortReturn <span class="sc">!=</span> <span class="st">&quot;1.short return&quot;</span> <span class="sc">~</span> <span class="st">&quot;2.shift work&quot;</span>, </span>
+<span id="cb16-91"><a href="Tables2.html#cb16-91" aria-hidden="true" tabindex="-1"></a>    shiftWork <span class="sc">!=</span> <span class="st">&quot;1.shift work&quot;</span> <span class="sc">&amp;</span> shortReturn <span class="sc">==</span> <span class="st">&quot;1.short return&quot;</span> <span class="sc">~</span> <span class="st">&quot;1.day work with short return&quot;</span>, </span>
+<span id="cb16-92"><a href="Tables2.html#cb16-92" aria-hidden="true" tabindex="-1"></a>    shiftWork <span class="sc">!=</span> <span class="st">&quot;1.shift work&quot;</span> <span class="sc">&amp;</span> shortReturn <span class="sc">!=</span> <span class="st">&quot;1.short return&quot;</span> <span class="sc">~</span> <span class="st">&quot;0.day work&quot;</span>, </span>
+<span id="cb16-93"><a href="Tables2.html#cb16-93" aria-hidden="true" tabindex="-1"></a>  )) </span></code></pre></div>
+</div>
+</div>
+<div id="근로환경조사-table-1-만들기" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> 근로환경조사 Table 1 만들기<a href="Tables2.html#근로환경조사-table-1-만들기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>지금까지 작업을 통해 분석한 변수를 선정합니다. 이때 정리할 부분은 무엇으로 구분할지, 관심변수는 무엇인지 이중 명목변수와 연속변수는 무엇인지를 구분하는 것입니다.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Tables2.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Variables selection</span></span>
+<span id="cb17-2"><a href="Tables2.html#cb17-2" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
+<span id="cb17-3"><a href="Tables2.html#cb17-3" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb17-4"><a href="Tables2.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># interesting</span></span>
+<span id="cb17-5"><a href="Tables2.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#&quot;wbalancegp&quot;,</span></span>
+<span id="cb17-6"><a href="Tables2.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;wwa2gp&quot;</span>,<span class="st">&quot;wwa3gp&quot;</span>,<span class="st">&quot;wwa4gp&quot;</span>,<span class="st">&quot;wwa5gp&quot;</span>,</span>
+<span id="cb17-7"><a href="Tables2.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># confounder</span></span>
+<span id="cb17-8"><a href="Tables2.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#&quot;whgp&quot;, </span></span>
+<span id="cb17-9"><a href="Tables2.html#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;shortReturn&quot;</span>,<span class="co">#&quot;shiftWork&quot; , #&quot;njob&quot;, </span></span>
+<span id="cb17-10"><a href="Tables2.html#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># demograhpics</span></span>
+<span id="cb17-11"><a href="Tables2.html#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;sexgp&quot;</span>, <span class="co">#&quot;agegp&quot;, </span></span>
+<span id="cb17-12"><a href="Tables2.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span> <span class="co">#, &quot;backpain&quot; </span></span>
+<span id="cb17-13"><a href="Tables2.html#cb17-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-14"><a href="Tables2.html#cb17-14" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span></code></pre></div>
+<div id="변수-값-요약하기" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> 변수 값 요약하기<a href="Tables2.html#변수-값-요약하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>아래 코드가 뜻하는 것은 무엇일까요? 하나하나 살펴보아야 합니다. Table을 만들때 long file 형태로 만든 것입니다.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Tables2.html#cb18-1" aria-hidden="true" tabindex="-1"></a>catTab <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="Tables2.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, <span class="fu">all_of</span>(catVars)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="Tables2.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="Tables2.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>( variables, values) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="Tables2.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="sc">!!</span><span class="fu">sym</span>(stratas)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="Tables2.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n), </span>
+<span id="cb18-7"><a href="Tables2.html#cb18-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">smry=</span> <span class="fu">sprintf</span>(<span class="st">&quot;%.0f (%.1f%%)&quot;</span>, n, prob<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb18-8"><a href="Tables2.html#cb18-8" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb18-9"><a href="Tables2.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n, <span class="sc">-</span>prob) <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href="Tables2.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb18-11"><a href="Tables2.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>smry) </span></code></pre></div>
+<p>아래 코드가 뜻하는 것은 무엇일까요? 하나하나 살펴보아야 합니다. Table을 만들때 long file 형태로 만든 것입니다.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Tables2.html#cb19-1" aria-hidden="true" tabindex="-1"></a>conTab <span class="ot">=</span> </span>
+<span id="cb19-2"><a href="Tables2.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="Tables2.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, <span class="fu">all_of</span>(conVars)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="Tables2.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="Tables2.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>( <span class="sc">!!</span><span class="fu">sym</span>(stratas), variables) <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="Tables2.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg =</span> <span class="fu">mean</span>(values, <span class="at">na.rm =</span><span class="cn">TRUE</span>), </span>
+<span id="cb19-7"><a href="Tables2.html#cb19-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(values, <span class="at">na.rm =</span><span class="cn">TRUE</span>) </span>
+<span id="cb19-8"><a href="Tables2.html#cb19-8" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="Tables2.html#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">smry  =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%.1f\u00b1%.1f&quot;</span>, avg, std)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-10"><a href="Tables2.html#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, variables, smry)<span class="sc">%&gt;%</span></span>
+<span id="cb19-11"><a href="Tables2.html#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-12"><a href="Tables2.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>smry) <span class="sc">%&gt;%</span></span>
+<span id="cb19-13"><a href="Tables2.html#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">values =</span><span class="st">&quot;&quot;</span>) </span></code></pre></div>
+<p>명목변수 요약 표 <code>catTab</code>과 연속편수 요약표 <code>conTab</code>을 합쳐 보겠습니다. rbind는 종으로 합친다는 뜻입니다.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Tables2.html#cb20-1" aria-hidden="true" tabindex="-1"></a>tabDat <span class="ot">=</span> <span class="fu">rbind</span>(catTab, conTab)</span></code></pre></div>
+</div>
+<div id="p-value-구하기." class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> P value 구하기.<a href="Tables2.html#p-value-구하기." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>이제 P value를 구해보겠습니다. 명목변수는 카이검정, 연속변수는 T검정을 해보겠습니다.</p>
+<blockquote>
+<p>Chisq-Test</p>
+</blockquote>
+<p>Cross Table을 만든 다음, chisq.test() 명령을 통해 수행합니다.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Tables2.html#cb21-1" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), </span>
+<span id="cb21-2"><a href="Tables2.html#cb21-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">B =</span> <span class="fu">c</span>(<span class="dv">100</span>,  <span class="dv">300</span>))</span>
+<span id="cb21-3"><a href="Tables2.html#cb21-3" aria-hidden="true" tabindex="-1"></a>tab</span></code></pre></div>
+<pre><code>##      A   B
+## 1 1000 100
+## 2 2000 300</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Tables2.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tab)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  tab
+## X-squared = 10.821, df = 1, p-value = 0.001003</code></pre>
+<blockquote>
+<p>T.Test</p>
+</blockquote>
+<p>두 연속변수로 구성된 Data를 만들고 t.test() 명령을 통해 수행합니다.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Tables2.html#cb25-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">A=</span><span class="fu">rnorm</span>(<span class="dv">100</span>), </span>
+<span id="cb25-2"><a href="Tables2.html#cb25-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">B=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)<span class="sc">+</span><span class="fl">0.3</span>)</span>
+<span id="cb25-3"><a href="Tables2.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(tab)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  tab
+## t = 2.0316, df = 199, p-value = 0.04352
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  0.004273725 0.286674663
+## sample estimates:
+## mean of x 
+## 0.1454742</code></pre>
+<p>이것을 이용해서 카이검정과 T검정을 수행해보겠습니다. <br>
+가장 정확하면서 쉬운 방식은 반복하는 것입니다. 우리가 이미 변수 값을 long file을 통해 정리하는 것을 실습하였기 때문에, 이 방식도 long file을 이용하겠습니다. <br></p>
+<p>이때 중요한 개념임 <code>map</code>, <code>nest</code>, <code>tidy</code>가 나옵니다. <br></p>
+<blockquote>
+<p>map, nest, tidy</p>
+</blockquote>
+<p>각 백터 값에 대해서 함수를 실행한다.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Tables2.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="Tables2.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="cf">function</span>(x){x<span class="sc">^</span><span class="dv">2</span>})</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 4
+## 
+## [[3]]
+## [1] 9
+## 
+## [[4]]
+## [1] 16
+## 
+## [[5]]
+## [1] 25</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Tables2.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">a=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">b=</span><span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="Tables2.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(sum)</span></code></pre></div>
+<pre><code>## $a
+## [1] 15
+## 
+## $b
+## [1] 40</code></pre>
+<p>이번에는 좀 복잡한 것을 해보겠습니다 아래와 같이 두 집단에 대해서 size와 power를 각 20명에게 측정했다고 가정합시다. 그리고 size와 power를 동시에 측정하고 측정 순서대로 데이터를 정리한 것입니다. 이후 G1과 G2의 Size와 Power에 대해 T.test를 수행하겠습니다.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="Tables2.html#cb31-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">=</span> <span class="fu">tibble</span>(</span>
+<span id="cb31-2"><a href="Tables2.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variables=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Size&quot;</span>,<span class="st">&quot;Power&quot;</span>), <span class="at">each=</span><span class="dv">20</span>), </span>
+<span id="cb31-3"><a href="Tables2.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">G1=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="fu">rnorm</span>(<span class="dv">20</span>)), </span>
+<span id="cb31-4"><a href="Tables2.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">G2=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>)<span class="sc">-</span><span class="fl">0.3</span>, <span class="fu">rnorm</span>(<span class="dv">20</span>)<span class="sc">+</span><span class="fl">0.3</span>), </span>
+<span id="cb31-5"><a href="Tables2.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>일반적 방식은 아래와 같습니다. 이것을 반복하면 되는 것입니다.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="Tables2.html#cb32-1" aria-hidden="true" tabindex="-1"></a>test <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Variables<span class="sc">==</span><span class="st">&quot;Size&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="Tables2.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Variables) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="Tables2.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(.)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  .
+## t = -2.2151, df = 39, p-value = 0.03266
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  -0.60725982 -0.02757379
+## sample estimates:
+##  mean of x 
+## -0.3174168</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="Tables2.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(test[test<span class="sc">$</span>Variables<span class="sc">==</span><span class="st">&quot;Size&quot;</span>, ]<span class="sc">$</span>G1, </span>
+<span id="cb34-2"><a href="Tables2.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  test[test<span class="sc">$</span>Variables<span class="sc">==</span><span class="st">&quot;Size&quot;</span>, ]<span class="sc">$</span>G2)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  test[test$Variables == &quot;Size&quot;, ]$G1 and test[test$Variables == &quot;Size&quot;, ]$G2
+## t = 1.4619, df = 37.859, p-value = 0.152
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.1589836  0.9849506
+## sample estimates:
+##  mean of x  mean of y 
+## -0.1109251 -0.5239085</code></pre>
+<p>이에 이것을 반복 수행하기 위해, data를 slice 하여 하나의 list로 만드는과정을 하겠습니다. nest의 과정입니다. 이후 각 데이터에 map을 이용해서 반복 수행을 하겠습니다. 그리고 그 값을 정리하여 unnest하는 과정이 필요합니다. 필요한 값인 p. value만 남겨 정리합니다.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="Tables2.html#cb36-1" aria-hidden="true" tabindex="-1"></a>test1 <span class="ot">=</span> test <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="Tables2.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">dat =</span> <span class="sc">-</span>Variables) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="Tables2.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fit=</span><span class="fu">map</span>(dat, <span class="sc">~</span><span class="fu">t.test</span>(.x)), </span>
+<span id="cb36-4"><a href="Tables2.html#cb36-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">tidied=</span><span class="fu">map</span>(fit, tidy)) </span>
+<span id="cb36-5"><a href="Tables2.html#cb36-5" aria-hidden="true" tabindex="-1"></a>test1 <span class="sc">%&gt;%</span> <span class="fu">unnest</span>(tidied) <span class="sc">%&gt;%</span></span>
+<span id="cb36-6"><a href="Tables2.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variables, p.value)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   Variables p.value
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 Size       0.0327
+## 2 Power      0.224</code></pre>
+<p>지금까지 사용한 것을 가지고, 명목변수에서는 Chisq-Test, 연속변수에서 t.test 를 수행하여 정리하겠습니다.</p>
+<blockquote>
+<p>명목변수, chisq.test</p>
+</blockquote>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="Tables2.html#cb38-1" aria-hidden="true" tabindex="-1"></a>catPvalue <span class="ot">=</span> </span>
+<span id="cb38-2"><a href="Tables2.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="Tables2.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, catVars) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="Tables2.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb38-5"><a href="Tables2.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variables, values) <span class="sc">%&gt;%</span></span>
+<span id="cb38-6"><a href="Tables2.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="sc">!!</span><span class="fu">sym</span>(stratas)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="Tables2.html#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>n) <span class="sc">%&gt;%</span></span>
+<span id="cb38-8"><a href="Tables2.html#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb38-9"><a href="Tables2.html#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>values) <span class="sc">%&gt;%</span></span>
+<span id="cb38-10"><a href="Tables2.html#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">dat =</span> <span class="sc">-</span>variables) <span class="sc">%&gt;%</span></span>
+<span id="cb38-11"><a href="Tables2.html#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb38-12"><a href="Tables2.html#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fit =</span> <span class="fu">map</span>(dat, </span>
+<span id="cb38-13"><a href="Tables2.html#cb38-13" aria-hidden="true" tabindex="-1"></a>              <span class="sc">~</span><span class="fu">chisq.test</span>(.x)), </span>
+<span id="cb38-14"><a href="Tables2.html#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">tidied =</span> <span class="fu">map</span>(fit, tidy)</span>
+<span id="cb38-15"><a href="Tables2.html#cb38-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb38-16"><a href="Tables2.html#cb38-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidied) <span class="sc">%&gt;%</span></span>
+<span id="cb38-17"><a href="Tables2.html#cb38-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variables, p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb38-18"><a href="Tables2.html#cb38-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value =</span> <span class="fu">ifelse</span>(p.value <span class="sc">&lt;</span><span class="fl">0.001</span>, <span class="st">&quot;&lt;0.001&quot;</span>, <span class="fu">sprintf</span>(<span class="st">&quot;%.3f&quot;</span>, p.value)))</span></code></pre></div>
+<blockquote>
+<p>연속변수, t.test</p>
+</blockquote>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="Tables2.html#cb39-1" aria-hidden="true" tabindex="-1"></a>conPvalue<span class="ot">=</span>dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="Tables2.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, conVars) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="Tables2.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="Tables2.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>( variables, values) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="Tables2.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="sc">!!</span><span class="fu">sym</span>(stratas)) <span class="sc">%&gt;%</span></span>
+<span id="cb39-6"><a href="Tables2.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>n) <span class="sc">%&gt;%</span></span>
+<span id="cb39-7"><a href="Tables2.html#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb39-8"><a href="Tables2.html#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>values) <span class="sc">%&gt;%</span></span>
+<span id="cb39-9"><a href="Tables2.html#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">dat =</span> <span class="sc">-</span>variables) <span class="sc">%&gt;%</span></span>
+<span id="cb39-10"><a href="Tables2.html#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb39-11"><a href="Tables2.html#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fit =</span> <span class="fu">map</span>(dat, </span>
+<span id="cb39-12"><a href="Tables2.html#cb39-12" aria-hidden="true" tabindex="-1"></a>              <span class="sc">~</span><span class="fu">t.test</span>(.x)), </span>
+<span id="cb39-13"><a href="Tables2.html#cb39-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">tidied=</span><span class="fu">map</span>(fit, tidy)</span>
+<span id="cb39-14"><a href="Tables2.html#cb39-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb39-15"><a href="Tables2.html#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidied) <span class="sc">%&gt;%</span></span>
+<span id="cb39-16"><a href="Tables2.html#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variables, p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb39-17"><a href="Tables2.html#cb39-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value =</span> <span class="fu">ifelse</span>(p.value <span class="sc">&lt;</span><span class="fl">0.001</span>, <span class="st">&quot;&lt;0.001&quot;</span>, <span class="fu">sprintf</span>(<span class="st">&quot;%.3f&quot;</span>, p.value)))</span></code></pre></div>
+<blockquote>
+<p>P.valeu 합치기</p>
+</blockquote>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="Tables2.html#cb40-1" aria-hidden="true" tabindex="-1"></a>tabPvalue <span class="ot">=</span> <span class="fu">rbind</span>(catPvalue, conPvalue)</span></code></pre></div>
+<blockquote>
+<p>표가 어떤 순서대로 표현될지에 대한 순서를 정합니다.</p>
+</blockquote>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="Tables2.html#cb41-1" aria-hidden="true" tabindex="-1"></a>varOrder <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">&quot;variables&quot;</span><span class="ot">=</span><span class="fu">c</span>(catVars, conVars)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="Tables2.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">row_number</span>())</span>
+<span id="cb41-3"><a href="Tables2.html#cb41-3" aria-hidden="true" tabindex="-1"></a>varOrder</span></code></pre></div>
+<pre><code>## # A tibble: 11 × 2
+##    variables    order
+##    &lt;chr&gt;        &lt;int&gt;
+##  1 wwa1gp           1
+##  2 wwa2gp           2
+##  3 wwa3gp           3
+##  4 wwa4gp           4
+##  5 wwa5gp           5
+##  6 shortReturn      6
+##  7 sexgp            7
+##  8 edugp            8
+##  9 empgp            9
+## 10 AGE             10
+## 11 satisfaction    11</code></pre>
+</div>
+</div>
+<div id="table-1-정리하기" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Table 1 정리하기<a href="Tables2.html#table-1-정리하기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>이제 변수값 요약과, p.value를 합치고, 순서에 맞게 정리하겠습니다.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="Tables2.html#cb43-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> tabDat <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="Tables2.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(tabPvalue, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;variables&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="Tables2.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(varOrder, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;variables&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="Tables2.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(order, values) <span class="sc">%&gt;%</span></span>
+<span id="cb43-5"><a href="Tables2.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variables) <span class="sc">%&gt;%</span></span>
+<span id="cb43-6"><a href="Tables2.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ranks =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb43-7"><a href="Tables2.html#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value   =</span> <span class="fu">ifelse</span>(ranks<span class="sc">==</span><span class="fu">min</span>(ranks), p.value,   <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-8"><a href="Tables2.html#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variables =</span> <span class="fu">ifelse</span>(ranks<span class="sc">==</span><span class="fu">min</span>(ranks), variables, <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-9"><a href="Tables2.html#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb43-10"><a href="Tables2.html#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>order, <span class="sc">-</span>ranks)<span class="sc">%&gt;%</span></span>
+<span id="cb43-11"><a href="Tables2.html#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">values =</span> <span class="fu">str_replace</span>(values, <span class="st">&quot;[:digit:]</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<p>이것을 htmlTable로 나타내면 다음과 같습니다.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="Tables2.html#cb44-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> <span class="fu">htmlTable</span>()</span></code></pre></div>
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<th style="border-bottom: 1px solid grey; border-top: 2px solid grey;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+variables
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+values
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+0.non distrubance
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+1.sleep disturbance
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">
+1
+</td>
+<td style="text-align: center;">
+wwa1gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;">
+12222 (94.7%)
+</td>
+<td style="text-align: center;">
+684 (5.3%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+2
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;">
+12316 (94.5%)
+</td>
+<td style="text-align: center;">
+714 (5.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+3
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;">
+9112 (90.3%)
+</td>
+<td style="text-align: center;">
+981 (9.7%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+4
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;">
+3456 (82.8%)
+</td>
+<td style="text-align: center;">
+717 (17.2%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+5
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;">
+634 (70.0%)
+</td>
+<td style="text-align: center;">
+272 (30.0%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+6
+</td>
+<td style="text-align: center;">
+wwa2gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;">
+12432 (95.4%)
+</td>
+<td style="text-align: center;">
+597 (4.6%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+7
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;">
+13682 (94.1%)
+</td>
+<td style="text-align: center;">
+863 (5.9%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+8
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;">
+8882 (89.2%)
+</td>
+<td style="text-align: center;">
+1072 (10.8%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+9
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;">
+2460 (79.4%)
+</td>
+<td style="text-align: center;">
+638 (20.6%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+10
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;">
+284 (58.9%)
+</td>
+<td style="text-align: center;">
+198 (41.1%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: center;">
+wwa3gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;">
+13472 (95.2%)
+</td>
+<td style="text-align: center;">
+682 (4.8%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+12
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;">
+13938 (93.1%)
+</td>
+<td style="text-align: center;">
+1040 (6.9%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+13
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;">
+7749 (89.9%)
+</td>
+<td style="text-align: center;">
+868 (10.1%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+14
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;">
+2314 (79.5%)
+</td>
+<td style="text-align: center;">
+597 (20.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+15
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;">
+267 (59.6%)
+</td>
+<td style="text-align: center;">
+181 (40.4%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+16
+</td>
+<td style="text-align: center;">
+wwa4gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;">
+18708 (94.1%)
+</td>
+<td style="text-align: center;">
+1169 (5.9%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+17
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;">
+14799 (91.6%)
+</td>
+<td style="text-align: center;">
+1362 (8.4%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+18
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;">
+3348 (85.0%)
+</td>
+<td style="text-align: center;">
+592 (15.0%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+19
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;">
+805 (80.7%)
+</td>
+<td style="text-align: center;">
+193 (19.3%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+20
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;">
+80 (60.6%)
+</td>
+<td style="text-align: center;">
+52 (39.4%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+21
+</td>
+<td style="text-align: center;">
+wwa5gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;">
+19061 (93.9%)
+</td>
+<td style="text-align: center;">
+1245 (6.1%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+22
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;">
+14770 (91.6%)
+</td>
+<td style="text-align: center;">
+1349 (8.4%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+23
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;">
+3180 (85.3%)
+</td>
+<td style="text-align: center;">
+550 (14.7%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+24
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;">
+682 (79.8%)
+</td>
+<td style="text-align: center;">
+173 (20.2%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+25
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;">
+47 (48.0%)
+</td>
+<td style="text-align: center;">
+51 (52.0%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+26
+</td>
+<td style="text-align: center;">
+shortReturn
+</td>
+<td style="text-align: center;">
+non short return
+</td>
+<td style="text-align: center;">
+36183 (92.5%)
+</td>
+<td style="text-align: center;">
+2927 (7.5%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+27
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+short return
+</td>
+<td style="text-align: center;">
+1557 (77.9%)
+</td>
+<td style="text-align: center;">
+441 (22.1%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+28
+</td>
+<td style="text-align: center;">
+sexgp
+</td>
+<td style="text-align: center;">
+Men
+</td>
+<td style="text-align: center;">
+17892 (93.1%)
+</td>
+<td style="text-align: center;">
+1327 (6.9%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+29
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Women
+</td>
+<td style="text-align: center;">
+19848 (90.7%)
+</td>
+<td style="text-align: center;">
+2041 (9.3%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+30
+</td>
+<td style="text-align: center;">
+edugp
+</td>
+<td style="text-align: center;">
+university or more
+</td>
+<td style="text-align: center;">
+19597 (92.9%)
+</td>
+<td style="text-align: center;">
+1502 (7.1%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+31
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+high school
+</td>
+<td style="text-align: center;">
+14943 (91.9%)
+</td>
+<td style="text-align: center;">
+1318 (8.1%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+32
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+middle school or below
+</td>
+<td style="text-align: center;">
+3200 (85.4%)
+</td>
+<td style="text-align: center;">
+548 (14.6%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+33
+</td>
+<td style="text-align: center;">
+empgp
+</td>
+<td style="text-align: center;">
+paid-worker
+</td>
+<td style="text-align: center;">
+25786 (92.4%)
+</td>
+<td style="text-align: center;">
+2122 (7.6%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+34
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+employer/self-employer
+</td>
+<td style="text-align: center;">
+2539 (91.7%)
+</td>
+<td style="text-align: center;">
+229 (8.3%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+35
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+own-account worker
+</td>
+<td style="text-align: center;">
+8359 (90.5%)
+</td>
+<td style="text-align: center;">
+880 (9.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+36
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+unpaind family work
+</td>
+<td style="text-align: center;">
+1056 (88.5%)
+</td>
+<td style="text-align: center;">
+137 (11.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+37
+</td>
+<td style="text-align: center;">
+AGE
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+46.8±12.4
+</td>
+<td style="text-align: center;">
+49.7±11.9
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: left;">
+38
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+satisfaction
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.1±0.5
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.4±0.6
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+0.192
+</td>
+</tr>
+</tbody>
+</table>
+<div id="htmltable-visulaization" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> htmlTable visulaization<a href="Tables2.html#htmltable-visulaization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>테이블이 너무 길기 때문에, wwa2, wwa3, wwa4, wwa5, 는 제외하고 표를 만들겠습니다.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="Tables2.html#cb45-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">=</span> tab1 <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">25</span>))</span>
+<span id="cb45-2"><a href="Tables2.html#cb45-2" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a href="Tables2.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">rownames&lt;-</span><span class="st">`</span>(<span class="cn">NULL</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="Tables2.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(<span class="at">rnames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+variables
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+values
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+0.non distrubance
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+1.sleep disturbance
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">
+wwa1gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;">
+12222 (94.7%)
+</td>
+<td style="text-align: center;">
+684 (5.3%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;">
+12316 (94.5%)
+</td>
+<td style="text-align: center;">
+714 (5.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;">
+9112 (90.3%)
+</td>
+<td style="text-align: center;">
+981 (9.7%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;">
+3456 (82.8%)
+</td>
+<td style="text-align: center;">
+717 (17.2%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;">
+634 (70.0%)
+</td>
+<td style="text-align: center;">
+272 (30.0%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+shortReturn
+</td>
+<td style="text-align: center;">
+non short return
+</td>
+<td style="text-align: center;">
+36183 (92.5%)
+</td>
+<td style="text-align: center;">
+2927 (7.5%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+short return
+</td>
+<td style="text-align: center;">
+1557 (77.9%)
+</td>
+<td style="text-align: center;">
+441 (22.1%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+sexgp
+</td>
+<td style="text-align: center;">
+Men
+</td>
+<td style="text-align: center;">
+17892 (93.1%)
+</td>
+<td style="text-align: center;">
+1327 (6.9%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Women
+</td>
+<td style="text-align: center;">
+19848 (90.7%)
+</td>
+<td style="text-align: center;">
+2041 (9.3%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+edugp
+</td>
+<td style="text-align: center;">
+university or more
+</td>
+<td style="text-align: center;">
+19597 (92.9%)
+</td>
+<td style="text-align: center;">
+1502 (7.1%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+high school
+</td>
+<td style="text-align: center;">
+14943 (91.9%)
+</td>
+<td style="text-align: center;">
+1318 (8.1%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+middle school or below
+</td>
+<td style="text-align: center;">
+3200 (85.4%)
+</td>
+<td style="text-align: center;">
+548 (14.6%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+empgp
+</td>
+<td style="text-align: center;">
+paid-worker
+</td>
+<td style="text-align: center;">
+25786 (92.4%)
+</td>
+<td style="text-align: center;">
+2122 (7.6%)
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+employer/self-employer
+</td>
+<td style="text-align: center;">
+2539 (91.7%)
+</td>
+<td style="text-align: center;">
+229 (8.3%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+own-account worker
+</td>
+<td style="text-align: center;">
+8359 (90.5%)
+</td>
+<td style="text-align: center;">
+880 (9.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+unpaind family work
+</td>
+<td style="text-align: center;">
+1056 (88.5%)
+</td>
+<td style="text-align: center;">
+137 (11.5%)
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+AGE
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+46.8±12.4
+</td>
+<td style="text-align: center;">
+49.7±11.9
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+satisfaction
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.1±0.5
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.4±0.6
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+0.192
+</td>
+</tr>
+</tbody>
+</table>
+<p>변수 이름을 변경하요 보기 좋게 변환시키고, cgroup을 이용하여 colum 부분을 조정합니다. Caption과 Footer를 작성하여 마무리 합니다.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="Tables2.html#cb46-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="Tables2.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;Disturbance&quot;</span>, <span class="st">&quot;P value&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="Tables2.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(</span>
+<span id="cb46-4"><a href="Tables2.html#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cgroup =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>,  <span class="st">&quot;Sleep disturbance&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
+<span id="cb46-5"><a href="Tables2.html#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.cgroup =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
+<span id="cb46-6"><a href="Tables2.html#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tfoot =</span> <span class="st">&quot;P value calculated by Chisq-Test and T-Test&quot;</span>, </span>
+<span id="cb46-7"><a href="Tables2.html#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rnames =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb46-8"><a href="Tables2.html#cb46-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Basic Characteristics according to Sleep disturbance&quot;</span></span>
+<span id="cb46-9"><a href="Tables2.html#cb46-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<td colspan="7" style="text-align: left;">
+Basic Characteristics according to Sleep disturbance
+</td>
+</tr>
+<tr>
+<th colspan="2" style="font-weight: 900; border-top: 2px solid grey; text-align: center;">
+</th>
+<th style="border-bottom: none; border-top: 2px solid grey;" colspan="1">
+ 
+</th>
+<th colspan="2" style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+Sleep disturbance
+</th>
+<th style="border-bottom: none; border-top: 2px solid grey;" colspan="1">
+ 
+</th>
+<th colspan="1" style="font-weight: 900; border-top: 2px solid grey; text-align: center;">
+</th>
+</tr>
+<tr>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;" colspan="1">
+ 
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+None
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+Disturbance
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;" colspan="1">
+ 
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+P value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">
+wwa1gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+12222 (94.7%)
+</td>
+<td style="text-align: center;">
+684 (5.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+12316 (94.5%)
+</td>
+<td style="text-align: center;">
+714 (5.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+9112 (90.3%)
+</td>
+<td style="text-align: center;">
+981 (9.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3456 (82.8%)
+</td>
+<td style="text-align: center;">
+717 (17.2%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+634 (70.0%)
+</td>
+<td style="text-align: center;">
+272 (30.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+shortReturn
+</td>
+<td style="text-align: center;">
+non short return
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+36183 (92.5%)
+</td>
+<td style="text-align: center;">
+2927 (7.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+short return
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1557 (77.9%)
+</td>
+<td style="text-align: center;">
+441 (22.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+sexgp
+</td>
+<td style="text-align: center;">
+Men
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+17892 (93.1%)
+</td>
+<td style="text-align: center;">
+1327 (6.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Women
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+19848 (90.7%)
+</td>
+<td style="text-align: center;">
+2041 (9.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+edugp
+</td>
+<td style="text-align: center;">
+university or more
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+19597 (92.9%)
+</td>
+<td style="text-align: center;">
+1502 (7.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+high school
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+14943 (91.9%)
+</td>
+<td style="text-align: center;">
+1318 (8.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+middle school or below
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3200 (85.4%)
+</td>
+<td style="text-align: center;">
+548 (14.6%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+empgp
+</td>
+<td style="text-align: center;">
+paid-worker
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+25786 (92.4%)
+</td>
+<td style="text-align: center;">
+2122 (7.6%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+employer/self-employer
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2539 (91.7%)
+</td>
+<td style="text-align: center;">
+229 (8.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+own-account worker
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+8359 (90.5%)
+</td>
+<td style="text-align: center;">
+880 (9.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+unpaind family work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1056 (88.5%)
+</td>
+<td style="text-align: center;">
+137 (11.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+AGE
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+46.8±12.4
+</td>
+<td style="text-align: center;">
+49.7±11.9
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+satisfaction
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;" colspan="1">
+ 
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.1±0.5
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.4±0.6
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;" colspan="1">
+ 
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+0.192
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="7">
+P value calculated by Chisq-Test and T-Test
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div id="kwcsfunction" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> 함수만들기<a href="Tables2.html#kwcsfunction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>지금가지 했던 일련의 과정을 함수로 정리하겠습니다.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="Tables2.html#cb47-1" aria-hidden="true" tabindex="-1"></a>kwcsTabf <span class="ot">=</span> <span class="cf">function</span>(dat1, stratas, catVars, conVars){</span>
+<span id="cb47-2"><a href="Tables2.html#cb47-2" aria-hidden="true" tabindex="-1"></a>varOrder <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">&quot;variables&quot;</span><span class="ot">=</span><span class="fu">c</span>(catVars, conVars)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="Tables2.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">row_number</span>())</span>
+<span id="cb47-4"><a href="Tables2.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb47-5"><a href="Tables2.html#cb47-5" aria-hidden="true" tabindex="-1"></a>catTab <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb47-6"><a href="Tables2.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, <span class="fu">all_of</span>(catVars)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-7"><a href="Tables2.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb47-8"><a href="Tables2.html#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>( variables, values) <span class="sc">%&gt;%</span></span>
+<span id="cb47-9"><a href="Tables2.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="sc">!!</span><span class="fu">sym</span>(stratas)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-10"><a href="Tables2.html#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n), </span>
+<span id="cb47-11"><a href="Tables2.html#cb47-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">smry=</span> <span class="fu">sprintf</span>(<span class="st">&quot;%.0f (%.1f%%)&quot;</span>, n, prob<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb47-12"><a href="Tables2.html#cb47-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb47-13"><a href="Tables2.html#cb47-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n, <span class="sc">-</span>prob) <span class="sc">%&gt;%</span></span>
+<span id="cb47-14"><a href="Tables2.html#cb47-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb47-15"><a href="Tables2.html#cb47-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>smry) </span>
+<span id="cb47-16"><a href="Tables2.html#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="Tables2.html#cb47-17" aria-hidden="true" tabindex="-1"></a>conTab <span class="ot">=</span> </span>
+<span id="cb47-18"><a href="Tables2.html#cb47-18" aria-hidden="true" tabindex="-1"></a>  dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb47-19"><a href="Tables2.html#cb47-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, <span class="fu">all_of</span>(conVars)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-20"><a href="Tables2.html#cb47-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb47-21"><a href="Tables2.html#cb47-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>( <span class="sc">!!</span><span class="fu">sym</span>(stratas), variables) <span class="sc">%&gt;%</span></span>
+<span id="cb47-22"><a href="Tables2.html#cb47-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg =</span> <span class="fu">mean</span>(values, <span class="at">na.rm =</span><span class="cn">TRUE</span>), </span>
+<span id="cb47-23"><a href="Tables2.html#cb47-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(values, <span class="at">na.rm =</span><span class="cn">TRUE</span>) </span>
+<span id="cb47-24"><a href="Tables2.html#cb47-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb47-25"><a href="Tables2.html#cb47-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">smry  =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%.1f\u00b1%.1f&quot;</span>, avg, std)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-26"><a href="Tables2.html#cb47-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, variables, smry)<span class="sc">%&gt;%</span></span>
+<span id="cb47-27"><a href="Tables2.html#cb47-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb47-28"><a href="Tables2.html#cb47-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>smry) <span class="sc">%&gt;%</span></span>
+<span id="cb47-29"><a href="Tables2.html#cb47-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">values =</span><span class="st">&quot;&quot;</span>) </span>
+<span id="cb47-30"><a href="Tables2.html#cb47-30" aria-hidden="true" tabindex="-1"></a>tabDat <span class="ot">=</span> <span class="fu">rbind</span>(catTab, conTab)</span>
+<span id="cb47-31"><a href="Tables2.html#cb47-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-32"><a href="Tables2.html#cb47-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-33"><a href="Tables2.html#cb47-33" aria-hidden="true" tabindex="-1"></a>catPvalue <span class="ot">=</span> </span>
+<span id="cb47-34"><a href="Tables2.html#cb47-34" aria-hidden="true" tabindex="-1"></a>  dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb47-35"><a href="Tables2.html#cb47-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, catVars) <span class="sc">%&gt;%</span></span>
+<span id="cb47-36"><a href="Tables2.html#cb47-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb47-37"><a href="Tables2.html#cb47-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variables, values) <span class="sc">%&gt;%</span></span>
+<span id="cb47-38"><a href="Tables2.html#cb47-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="sc">!!</span><span class="fu">sym</span>(stratas)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-39"><a href="Tables2.html#cb47-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>n) <span class="sc">%&gt;%</span></span>
+<span id="cb47-40"><a href="Tables2.html#cb47-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb47-41"><a href="Tables2.html#cb47-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>values) <span class="sc">%&gt;%</span></span>
+<span id="cb47-42"><a href="Tables2.html#cb47-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">dat =</span> <span class="sc">-</span>variables) <span class="sc">%&gt;%</span></span>
+<span id="cb47-43"><a href="Tables2.html#cb47-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb47-44"><a href="Tables2.html#cb47-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">fit =</span> <span class="fu">map</span>(dat, </span>
+<span id="cb47-45"><a href="Tables2.html#cb47-45" aria-hidden="true" tabindex="-1"></a>              <span class="sc">~</span><span class="fu">chisq.test</span>(.x)), </span>
+<span id="cb47-46"><a href="Tables2.html#cb47-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">tidied =</span> <span class="fu">map</span>(fit, tidy)</span>
+<span id="cb47-47"><a href="Tables2.html#cb47-47" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb47-48"><a href="Tables2.html#cb47-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidied) <span class="sc">%&gt;%</span></span>
+<span id="cb47-49"><a href="Tables2.html#cb47-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variables, p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb47-50"><a href="Tables2.html#cb47-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value =</span> <span class="fu">ifelse</span>(p.value <span class="sc">&lt;</span><span class="fl">0.001</span>, <span class="st">&quot;&lt;0.001&quot;</span>, <span class="fu">sprintf</span>(<span class="st">&quot;%.3f&quot;</span>, p.value)))</span>
+<span id="cb47-51"><a href="Tables2.html#cb47-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-52"><a href="Tables2.html#cb47-52" aria-hidden="true" tabindex="-1"></a>conPvalue<span class="ot">=</span>dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb47-53"><a href="Tables2.html#cb47-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stratas, conVars) <span class="sc">%&gt;%</span></span>
+<span id="cb47-54"><a href="Tables2.html#cb47-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(stratas), <span class="at">names_to =</span> <span class="st">&quot;variables&quot;</span>, <span class="at">values_to =</span><span class="st">&quot;values&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb47-55"><a href="Tables2.html#cb47-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>( variables, values) <span class="sc">%&gt;%</span></span>
+<span id="cb47-56"><a href="Tables2.html#cb47-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="sc">!!</span><span class="fu">sym</span>(stratas)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-57"><a href="Tables2.html#cb47-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> stratas, <span class="at">values_from =</span>n) <span class="sc">%&gt;%</span></span>
+<span id="cb47-58"><a href="Tables2.html#cb47-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb47-59"><a href="Tables2.html#cb47-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>values) <span class="sc">%&gt;%</span></span>
+<span id="cb47-60"><a href="Tables2.html#cb47-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">dat =</span> <span class="sc">-</span>variables) <span class="sc">%&gt;%</span></span>
+<span id="cb47-61"><a href="Tables2.html#cb47-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb47-62"><a href="Tables2.html#cb47-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">fit =</span> <span class="fu">map</span>(dat, </span>
+<span id="cb47-63"><a href="Tables2.html#cb47-63" aria-hidden="true" tabindex="-1"></a>              <span class="sc">~</span><span class="fu">t.test</span>(.x)), </span>
+<span id="cb47-64"><a href="Tables2.html#cb47-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">tidied=</span><span class="fu">map</span>(fit, tidy)</span>
+<span id="cb47-65"><a href="Tables2.html#cb47-65" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb47-66"><a href="Tables2.html#cb47-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidied) <span class="sc">%&gt;%</span></span>
+<span id="cb47-67"><a href="Tables2.html#cb47-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variables, p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb47-68"><a href="Tables2.html#cb47-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value =</span> <span class="fu">ifelse</span>(p.value <span class="sc">&lt;</span><span class="fl">0.001</span>, <span class="st">&quot;&lt;0.001&quot;</span>, <span class="fu">sprintf</span>(<span class="st">&quot;%.3f&quot;</span>, p.value)))</span>
+<span id="cb47-69"><a href="Tables2.html#cb47-69" aria-hidden="true" tabindex="-1"></a>tabPvalue <span class="ot">=</span> <span class="fu">rbind</span>(catPvalue, conPvalue)</span>
+<span id="cb47-70"><a href="Tables2.html#cb47-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-71"><a href="Tables2.html#cb47-71" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> tabDat <span class="sc">%&gt;%</span></span>
+<span id="cb47-72"><a href="Tables2.html#cb47-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(tabPvalue, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;variables&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-73"><a href="Tables2.html#cb47-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(varOrder, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;variables&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-74"><a href="Tables2.html#cb47-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(order, values) <span class="sc">%&gt;%</span></span>
+<span id="cb47-75"><a href="Tables2.html#cb47-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variables) <span class="sc">%&gt;%</span></span>
+<span id="cb47-76"><a href="Tables2.html#cb47-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ranks =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb47-77"><a href="Tables2.html#cb47-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value   =</span> <span class="fu">ifelse</span>(ranks<span class="sc">==</span><span class="fu">min</span>(ranks), p.value,   <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-78"><a href="Tables2.html#cb47-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variables =</span> <span class="fu">ifelse</span>(ranks<span class="sc">==</span><span class="fu">min</span>(ranks), variables, <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-79"><a href="Tables2.html#cb47-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb47-80"><a href="Tables2.html#cb47-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>order, <span class="sc">-</span>ranks)<span class="sc">%&gt;%</span></span>
+<span id="cb47-81"><a href="Tables2.html#cb47-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">values =</span> <span class="fu">str_replace</span>(values, <span class="st">&quot;[:digit:]</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb47-82"><a href="Tables2.html#cb47-82" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(tab1)</span>
+<span id="cb47-83"><a href="Tables2.html#cb47-83" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>층화변수, 명목변수, 연속변수를 구성하여 함수를 실행해 보겠습니다.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="Tables2.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Variables selection</span></span>
+<span id="cb48-2"><a href="Tables2.html#cb48-2" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
+<span id="cb48-3"><a href="Tables2.html#cb48-3" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb48-4"><a href="Tables2.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># interesting</span></span>
+<span id="cb48-5"><a href="Tables2.html#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#&quot;wbalancegp&quot;,</span></span>
+<span id="cb48-6"><a href="Tables2.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;wwa2gp&quot;</span>,<span class="st">&quot;wwa3gp&quot;</span>,<span class="st">&quot;wwa4gp&quot;</span>,<span class="st">&quot;wwa5gp&quot;</span>,</span>
+<span id="cb48-7"><a href="Tables2.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># confounder</span></span>
+<span id="cb48-8"><a href="Tables2.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#&quot;whgp&quot;, </span></span>
+<span id="cb48-9"><a href="Tables2.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , <span class="st">&quot;njob&quot;</span>, </span>
+<span id="cb48-10"><a href="Tables2.html#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># demograhpics</span></span>
+<span id="cb48-11"><a href="Tables2.html#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;sexgp&quot;</span>, <span class="st">&quot;agegp&quot;</span>, </span>
+<span id="cb48-12"><a href="Tables2.html#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span> <span class="co">#, backpain&quot; </span></span>
+<span id="cb48-13"><a href="Tables2.html#cb48-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-14"><a href="Tables2.html#cb48-14" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span>
+<span id="cb48-15"><a href="Tables2.html#cb48-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-16"><a href="Tables2.html#cb48-16" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">kwcsTabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span>
+<span id="cb48-17"><a href="Tables2.html#cb48-17" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb48-18"><a href="Tables2.html#cb48-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;Disturbance&quot;</span>, <span class="st">&quot;P value&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb48-19"><a href="Tables2.html#cb48-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(</span>
+<span id="cb48-20"><a href="Tables2.html#cb48-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">cgroup =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>,  <span class="st">&quot;Sleep disturbance&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
+<span id="cb48-21"><a href="Tables2.html#cb48-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.cgroup =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
+<span id="cb48-22"><a href="Tables2.html#cb48-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">tfoot =</span> <span class="st">&quot;P value calculated by Chisq-Test and T-Test&quot;</span>, </span>
+<span id="cb48-23"><a href="Tables2.html#cb48-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">rnames =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb48-24"><a href="Tables2.html#cb48-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Basic Characteristics according to Sleep disturbance&quot;</span></span>
+<span id="cb48-25"><a href="Tables2.html#cb48-25" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<td colspan="7" style="text-align: left;">
+Basic Characteristics according to Sleep disturbance
+</td>
+</tr>
+<tr>
+<th colspan="2" style="font-weight: 900; border-top: 2px solid grey; text-align: center;">
+</th>
+<th style="border-bottom: none; border-top: 2px solid grey;" colspan="1">
+ 
+</th>
+<th colspan="2" style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+Sleep disturbance
+</th>
+<th style="border-bottom: none; border-top: 2px solid grey;" colspan="1">
+ 
+</th>
+<th colspan="1" style="font-weight: 900; border-top: 2px solid grey; text-align: center;">
+</th>
+</tr>
+<tr>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;" colspan="1">
+ 
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+None
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+Disturbance
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;" colspan="1">
+ 
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+P value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">
+wwa1gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+12222 (94.7%)
+</td>
+<td style="text-align: center;">
+684 (5.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+12316 (94.5%)
+</td>
+<td style="text-align: center;">
+714 (5.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+9112 (90.3%)
+</td>
+<td style="text-align: center;">
+981 (9.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3456 (82.8%)
+</td>
+<td style="text-align: center;">
+717 (17.2%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+634 (70.0%)
+</td>
+<td style="text-align: center;">
+272 (30.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+wwa2gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+12432 (95.4%)
+</td>
+<td style="text-align: center;">
+597 (4.6%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+13682 (94.1%)
+</td>
+<td style="text-align: center;">
+863 (5.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+8882 (89.2%)
+</td>
+<td style="text-align: center;">
+1072 (10.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2460 (79.4%)
+</td>
+<td style="text-align: center;">
+638 (20.6%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+284 (58.9%)
+</td>
+<td style="text-align: center;">
+198 (41.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+wwa3gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+13472 (95.2%)
+</td>
+<td style="text-align: center;">
+682 (4.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+13938 (93.1%)
+</td>
+<td style="text-align: center;">
+1040 (6.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+7749 (89.9%)
+</td>
+<td style="text-align: center;">
+868 (10.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2314 (79.5%)
+</td>
+<td style="text-align: center;">
+597 (20.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+267 (59.6%)
+</td>
+<td style="text-align: center;">
+181 (40.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+wwa4gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+18708 (94.1%)
+</td>
+<td style="text-align: center;">
+1169 (5.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+14799 (91.6%)
+</td>
+<td style="text-align: center;">
+1362 (8.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3348 (85.0%)
+</td>
+<td style="text-align: center;">
+592 (15.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+805 (80.7%)
+</td>
+<td style="text-align: center;">
+193 (19.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+80 (60.6%)
+</td>
+<td style="text-align: center;">
+52 (39.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+wwa5gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+19061 (93.9%)
+</td>
+<td style="text-align: center;">
+1245 (6.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+14770 (91.6%)
+</td>
+<td style="text-align: center;">
+1349 (8.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3180 (85.3%)
+</td>
+<td style="text-align: center;">
+550 (14.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+682 (79.8%)
+</td>
+<td style="text-align: center;">
+173 (20.2%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+47 (48.0%)
+</td>
+<td style="text-align: center;">
+51 (52.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+shortReturn
+</td>
+<td style="text-align: center;">
+non short return
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+36183 (92.5%)
+</td>
+<td style="text-align: center;">
+2927 (7.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+short return
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1557 (77.9%)
+</td>
+<td style="text-align: center;">
+441 (22.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+shiftWork
+</td>
+<td style="text-align: center;">
+non shift work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+35056 (91.9%)
+</td>
+<td style="text-align: center;">
+3073 (8.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+shift work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2684 (90.1%)
+</td>
+<td style="text-align: center;">
+295 (9.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+njob
+</td>
+<td style="text-align: center;">
+one-job
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+37471 (91.9%)
+</td>
+<td style="text-align: center;">
+3317 (8.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+njob
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+269 (84.1%)
+</td>
+<td style="text-align: center;">
+51 (15.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+sexgp
+</td>
+<td style="text-align: center;">
+Men
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+17892 (93.1%)
+</td>
+<td style="text-align: center;">
+1327 (6.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Women
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+19848 (90.7%)
+</td>
+<td style="text-align: center;">
+2041 (9.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+agegp
+</td>
+<td style="text-align: center;">
+&lt;25
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1359 (96.6%)
+</td>
+<td style="text-align: center;">
+48 (3.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;30
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2697 (94.3%)
+</td>
+<td style="text-align: center;">
+163 (5.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;35
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3308 (93.6%)
+</td>
+<td style="text-align: center;">
+225 (6.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;40
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3995 (92.3%)
+</td>
+<td style="text-align: center;">
+334 (7.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;45
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+4414 (92.2%)
+</td>
+<td style="text-align: center;">
+372 (7.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;50
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+4934 (92.7%)
+</td>
+<td style="text-align: center;">
+388 (7.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;55
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+5300 (91.9%)
+</td>
+<td style="text-align: center;">
+465 (8.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+&lt;60
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+5099 (90.0%)
+</td>
+<td style="text-align: center;">
+566 (10.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+≥60
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+6634 (89.2%)
+</td>
+<td style="text-align: center;">
+807 (10.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+edugp
+</td>
+<td style="text-align: center;">
+university or more
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+19597 (92.9%)
+</td>
+<td style="text-align: center;">
+1502 (7.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+high school
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+14943 (91.9%)
+</td>
+<td style="text-align: center;">
+1318 (8.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+middle school or below
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+3200 (85.4%)
+</td>
+<td style="text-align: center;">
+548 (14.6%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+empgp
+</td>
+<td style="text-align: center;">
+paid-worker
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+25786 (92.4%)
+</td>
+<td style="text-align: center;">
+2122 (7.6%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+employer/self-employer
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2539 (91.7%)
+</td>
+<td style="text-align: center;">
+229 (8.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+own-account worker
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+8359 (90.5%)
+</td>
+<td style="text-align: center;">
+880 (9.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+unpaind family work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1056 (88.5%)
+</td>
+<td style="text-align: center;">
+137 (11.5%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+AGE
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+46.8±12.4
+</td>
+<td style="text-align: center;">
+49.7±11.9
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+satisfaction
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;" colspan="1">
+ 
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.1±0.5
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+2.4±0.6
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;" colspan="1">
+ 
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+0.192
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="7">
+P value calculated by Chisq-Test and T-Test
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div id="quiz" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Quiz<a href="Tables2.html#quiz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quiz1" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Quiz1<a href="Tables2.html#quiz1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Quiz.1 아래의 표와 같은 결과가 나타나도록, sleepgp 대신 요통을 중심으로 표를 만들어 보세요. R script를 업로드 해주세요.</p>
+</blockquote>
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<td colspan="7" style="text-align: left;">
+Basic Characteristics according to Back Pain
+</td>
+</tr>
+<tr>
+<th colspan="2" style="font-weight: 900; border-top: 2px solid grey; text-align: center;">
+</th>
+<th style="border-bottom: none; border-top: 2px solid grey;" colspan="1">
+ 
+</th>
+<th colspan="2" style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+Back PAin
+</th>
+<th style="border-bottom: none; border-top: 2px solid grey;" colspan="1">
+ 
+</th>
+<th colspan="1" style="font-weight: 900; border-top: 2px solid grey; text-align: center;">
+</th>
+</tr>
+<tr>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;" colspan="1">
+ 
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+No
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+Pain
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;" colspan="1">
+ 
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; text-align: center;">
+P value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">
+wwa4gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+14966 (75.3%)
+</td>
+<td style="text-align: center;">
+4911 (24.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+11430 (70.7%)
+</td>
+<td style="text-align: center;">
+4731 (29.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2435 (61.8%)
+</td>
+<td style="text-align: center;">
+1505 (38.2%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+565 (56.6%)
+</td>
+<td style="text-align: center;">
+433 (43.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+70 (53.0%)
+</td>
+<td style="text-align: center;">
+62 (47.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+wwa5gp
+</td>
+<td style="text-align: center;">
+Never
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+15248 (75.1%)
+</td>
+<td style="text-align: center;">
+5058 (24.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Rarely
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+11436 (70.9%)
+</td>
+<td style="text-align: center;">
+4683 (29.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Sometimes
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2246 (60.2%)
+</td>
+<td style="text-align: center;">
+1484 (39.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Often
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+489 (57.2%)
+</td>
+<td style="text-align: center;">
+366 (42.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Always
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+47 (48.0%)
+</td>
+<td style="text-align: center;">
+51 (52.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+shortReturn
+</td>
+<td style="text-align: center;">
+non short return
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+28389 (72.6%)
+</td>
+<td style="text-align: center;">
+10721 (27.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+short return
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1077 (53.9%)
+</td>
+<td style="text-align: center;">
+921 (46.1%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+shiftWork
+</td>
+<td style="text-align: center;">
+non shift work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+27320 (71.7%)
+</td>
+<td style="text-align: center;">
+10809 (28.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+0.668
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+shift work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+2146 (72.0%)
+</td>
+<td style="text-align: center;">
+833 (28.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+sexgp
+</td>
+<td style="text-align: center;">
+Men
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+14348 (74.7%)
+</td>
+<td style="text-align: center;">
+4871 (25.3%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+Women
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+15118 (69.1%)
+</td>
+<td style="text-align: center;">
+6771 (30.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+edugp
+</td>
+<td style="text-align: center;">
+university or more
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+16953 (80.3%)
+</td>
+<td style="text-align: center;">
+4146 (19.7%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+high school
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+10835 (66.6%)
+</td>
+<td style="text-align: center;">
+5426 (33.4%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+middle school or below
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1678 (44.8%)
+</td>
+<td style="text-align: center;">
+2070 (55.2%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+empgp
+</td>
+<td style="text-align: center;">
+paid-worker
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+20969 (75.1%)
+</td>
+<td style="text-align: center;">
+6939 (24.9%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+employer/self-employer
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+1961 (70.8%)
+</td>
+<td style="text-align: center;">
+807 (29.2%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+own-account worker
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+5927 (64.2%)
+</td>
+<td style="text-align: center;">
+3312 (35.8%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+unpaind family work
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+609 (51.0%)
+</td>
+<td style="text-align: center;">
+584 (49.0%)
+</td>
+<td style="text-align: center;" colspan="1">
+ 
+</td>
+<td style="text-align: center;">
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+AGE
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;" colspan="1">
+ 
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+45.2±12.3
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+51.5±11.4
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;" colspan="1">
+ 
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+&lt;0.001
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="7">
+P value calculated by Chisq-Test and T-Test
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div id="quiz-2" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Quiz 2<a href="Tables2.html#quiz-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Quiz2 성별을 나누어서 분석하고자 합니다. 남성에서만 분석한 결과, 여성에서만 분석한 결과를 캡쳐해서 png 파일로 올려 주세요.</p>
+</blockquote>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="Tables2.html#cb49-1" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
+<span id="cb49-2"><a href="Tables2.html#cb49-2" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb49-3"><a href="Tables2.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wwa4gp&quot;</span>,<span class="st">&quot;wwa5gp&quot;</span>,</span>
+<span id="cb49-4"><a href="Tables2.html#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , </span>
+<span id="cb49-5"><a href="Tables2.html#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span> </span>
+<span id="cb49-6"><a href="Tables2.html#cb49-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb49-7"><a href="Tables2.html#cb49-7" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>)</span>
+<span id="cb49-8"><a href="Tables2.html#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dat1 중 남성에서만, 여성에서만 분석한 표 1, 2를 capture해서 올려 주세요.  </span></span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tables-for-public-health-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tables-for-public-health-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["testbook.pdf", "testbook.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
