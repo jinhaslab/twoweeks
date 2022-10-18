@@ -23,7 +23,7 @@
 <meta name="author" content="jinha" />
 
 
-<meta name="date" content="2022-10-17" />
+<meta name="date" content="2022-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -454,7 +454,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="install-package-from-github" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> install package from github<a href="tables-for-public-health-summary.html#install-package-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>tidyvere and htmlTable, and broom</code> are frequently used in data manipulation. and the <code>devtools</code> will used to install package from “github”. <br>
-<code>install_github</code> wil be used for install package from github, as below.</p>
+<code>install_github</code> wil be used for install package from github, as below.
+you can download source file</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tables-for-public-health-summary.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
 <span id="cb1-2"><a href="tables-for-public-health-summary.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#basic requirment</span></span>
 <span id="cb1-3"><a href="tables-for-public-health-summary.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;tidyverse&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
@@ -462,8 +463,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="tables-for-public-health-summary.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;broom&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;broom&quot;</span>)</span>
 <span id="cb1-6"><a href="tables-for-public-health-summary.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># packages from github</span></span>
 <span id="cb1-7"><a href="tables-for-public-health-summary.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb1-8"><a href="tables-for-public-health-summary.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;jinhaslab/tabf&quot;</span>)</span>
-<span id="cb1-9"><a href="tables-for-public-health-summary.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabf)</span></code></pre></div>
+<span id="cb1-8"><a href="tables-for-public-health-summary.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-9"><a href="tables-for-public-health-summary.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#install_github(&quot;jinhaslab/tabf&quot;)</span></span>
+<span id="cb1-10"><a href="tables-for-public-health-summary.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#library(tabf)</span></span>
+<span id="cb1-11"><a href="tables-for-public-health-summary.html#cb1-11" aria-hidden="true" tabindex="-1"></a>tabf <span class="ot">&lt;-</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/tabf.R&quot;</span></span>
+<span id="cb1-12"><a href="tables-for-public-health-summary.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(tabf, <span class="st">&quot;source/tabf.R&quot;</span>)</span>
+<span id="cb1-13"><a href="tables-for-public-health-summary.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;source/tabf.R&quot;</span>)</span></code></pre></div>
 </div>
 <div id="data-import-and-manipulation" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> data import and manipulation<a href="tables-for-public-health-summary.html#data-import-and-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -481,8 +486,20 @@ The way of loading rds data is through the <code>readRDS(pathway)</code>.</p>
 <span id="cb3-2"><a href="tables-for-public-health-summary.html#cb3-2" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , <span class="st">&quot;njob&quot;</span>, <span class="st">&quot;sexgp&quot;</span>,  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span>)</span>
 <span id="cb3-3"><a href="tables-for-public-health-summary.html#cb3-3" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span></code></pre></div>
 <p>The function of <code>tabf()</code> create cross table by <code>htmlTable()</code>. <code>tabf()</code> function needs data1 as data to be used for table, stratas as group variables in the head, catVars as categorical variables, conVars = continues variables.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tables-for-public-health-summary.html#cb4-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">tabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span>
-<span id="cb4-2"><a href="tables-for-public-health-summary.html#cb4-2" aria-hidden="true" tabindex="-1"></a>tab1</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tables-for-public-health-summary.html#cb4-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">tabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span></code></pre></div>
+<pre><code>## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(stratas)` instead of `stratas` to silence this message.
+## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.
+## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(catVars)` instead of `catVars` to silence this message.
+## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.
+## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(conVars)` instead of `conVars` to silence this message.
+## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tables-for-public-health-summary.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1</span></code></pre></div>
 <pre><code>## # A tibble: 22 × 5
 ##    variables     values           `0.non distrubance` 1.sleep disturba…¹ p.value
 ##    &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;  
@@ -498,15 +515,15 @@ The way of loading rds data is through the <code>readRDS(pathway)</code>.</p>
 ## 10 &quot;njob&quot;        one-job          37471 (91.9%)       3317 (8.1%)        &quot;&lt;0.00…
 ## # … with 12 more rows, and abbreviated variable name ¹​`1.sleep disturbance`</code></pre>
 <p>That’s it. Anyway, we can further modify the table 1, using options of htmlTable().</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tables-for-public-health-summary.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="tables-for-public-health-summary.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;Disturbance&quot;</span>, <span class="st">&quot;P value&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="tables-for-public-health-summary.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(</span>
-<span id="cb6-4"><a href="tables-for-public-health-summary.html#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cgroup =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>,  <span class="st">&quot;Sleep disturbance&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
-<span id="cb6-5"><a href="tables-for-public-health-summary.html#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.cgroup =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
-<span id="cb6-6"><a href="tables-for-public-health-summary.html#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tfoot =</span> <span class="st">&quot;P value calculated by Chisq-Test and T-Test&quot;</span>, </span>
-<span id="cb6-7"><a href="tables-for-public-health-summary.html#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rnames =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb6-8"><a href="tables-for-public-health-summary.html#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Basic Characteristics according to Sleep disturbance&quot;</span></span>
-<span id="cb6-9"><a href="tables-for-public-health-summary.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tables-for-public-health-summary.html#cb8-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="tables-for-public-health-summary.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;Disturbance&quot;</span>, <span class="st">&quot;P value&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="tables-for-public-health-summary.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(</span>
+<span id="cb8-4"><a href="tables-for-public-health-summary.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cgroup =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>,  <span class="st">&quot;Sleep disturbance&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
+<span id="cb8-5"><a href="tables-for-public-health-summary.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.cgroup =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
+<span id="cb8-6"><a href="tables-for-public-health-summary.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tfoot =</span> <span class="st">&quot;P value calculated by Chisq-Test and T-Test&quot;</span>, </span>
+<span id="cb8-7"><a href="tables-for-public-health-summary.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rnames =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-8"><a href="tables-for-public-health-summary.html#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Basic Characteristics according to Sleep disturbance&quot;</span></span>
+<span id="cb8-9"><a href="tables-for-public-health-summary.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
 <thead>
 <tr>
@@ -1043,17 +1060,17 @@ P value calculated by Chisq-Test and T-Test
 <div id="logistic-regression-model-and-table-3" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> logistic regression model and table 3<a href="tables-for-public-health-summary.html#logistic-regression-model-and-table-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are 3 kind of models, model II and III are include more confounding variables. So, the table generally review the 3 kind of models in same table. Those 3 kind of model will be printed at once.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tables-for-public-health-summary.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="tables-for-public-health-summary.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span>  </span>
-<span id="cb7-3"><a href="tables-for-public-health-summary.html#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp)</span>
-<span id="cb7-4"><a href="tables-for-public-health-summary.html#cb7-4" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a href="tables-for-public-health-summary.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
-<span id="cb7-6"><a href="tables-for-public-health-summary.html#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction)</span>
-<span id="cb7-7"><a href="tables-for-public-health-summary.html#cb7-7" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb7-8"><a href="tables-for-public-health-summary.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
-<span id="cb7-9"><a href="tables-for-public-health-summary.html#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction <span class="sc">+</span> shiftWork <span class="sc">+</span> njob)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tables-for-public-health-summary.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="tables-for-public-health-summary.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span>  </span>
+<span id="cb9-3"><a href="tables-for-public-health-summary.html#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp)</span>
+<span id="cb9-4"><a href="tables-for-public-health-summary.html#cb9-4" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="tables-for-public-health-summary.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
+<span id="cb9-6"><a href="tables-for-public-health-summary.html#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction)</span>
+<span id="cb9-7"><a href="tables-for-public-health-summary.html#cb9-7" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="tables-for-public-health-summary.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
+<span id="cb9-9"><a href="tables-for-public-health-summary.html#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction <span class="sc">+</span> shiftWork <span class="sc">+</span> njob)</span></code></pre></div>
 <p>before we start to table draw, we review summmry of models. The model result is suitable to draw table.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tables-for-public-health-summary.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tables-for-public-health-summary.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = sleepgp == &quot;1.sleep disturbance&quot; ~ wwa1gp, family = &quot;binomial&quot;, 
@@ -1081,7 +1098,7 @@ P value calculated by Chisq-Test and T-Test
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>The table will be draw using <code>oddsf()</code>, and you can modify that tabel. oddsf() return data frame, so we can edit that using data manipulation.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tables-for-public-health-summary.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsf</span>(mod1, mod2, mod3) <span class="sc">%&gt;%</span> <span class="fu">htmlTable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tables-for-public-health-summary.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsf</span>(mod1, mod2, mod3) <span class="sc">%&gt;%</span> <span class="fu">htmlTable</span>()</span></code></pre></div>
 <table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
 <thead>
 <tr>
@@ -1356,7 +1373,7 @@ njob
 </tbody>
 </table>
 <p>You also use my default form of Table using by <code>oddsTabf()</code>, that return html so it is very easy to copy and paste to words.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tables-for-public-health-summary.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsTabf</span>(mod1, mod2, mod3)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-for-public-health-summary.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsTabf</span>(mod1, mod2, mod3)</span></code></pre></div>
 <p><img src="images/logisticTable1.png"></p>
 </div>
 <div id="quiz-1" class="section level2 hasAnchor" number="9.5">
@@ -1365,9 +1382,9 @@ njob
 <div id="install-and-load-library-tabf" class="section level3 hasAnchor" number="9.5.1">
 <h3><span class="header-section-number">9.5.1</span> install and load library tabf<a href="tables-for-public-health-summary.html#install-and-load-library-tabf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>jinha upload r function into github. the repository name is <code>tabf</code> and the username <code>jinhaslab</code> in github. please install and load library tabf. What is correct <code>pathway</code> in following code?</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tables-for-public-health-summary.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb12-2"><a href="tables-for-public-health-summary.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;pathway&quot;</span>)</span>
-<span id="cb12-3"><a href="tables-for-public-health-summary.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabf)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tables-for-public-health-summary.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb14-2"><a href="tables-for-public-health-summary.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;pathway&quot;</span>)</span>
+<span id="cb14-3"><a href="tables-for-public-health-summary.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabf)</span></code></pre></div>
 </div>
 <div id="data-manipulation-1" class="section level3 hasAnchor" number="9.5.2">
 <h3><span class="header-section-number">9.5.2</span> data manipulation<a href="tables-for-public-health-summary.html#data-manipulation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1379,20 +1396,20 @@ njob
 </ol>
 </blockquote>
 <p><code>wcomback</code> is our main interesting variables. how many kind of values are there? how many people has <code>NA</code> value in dat1?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-for-public-health-summary.html#cb13-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">count</span>(wcomback)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tables-for-public-health-summary.html#cb15-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">count</span>(wcomback)</span></code></pre></div>
 <p>exclude particpant who has <code>NA</code> value in dat1, and save that data into dat2.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tables-for-public-health-summary.html#cb14-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="tables-for-public-health-summary.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">&quot;your code 1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tables-for-public-health-summary.html#cb16-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="tables-for-public-health-summary.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">&quot;your code 1&quot;</span>)</span></code></pre></div>
 <p>hint: is.na()</p>
 </div>
 <div id="value-mutate-and-check" class="section level4 hasAnchor" number="9.5.2.2">
 <h4><span class="header-section-number">9.5.2.2</span> value mutate and check<a href="tables-for-public-health-summary.html#value-mutate-and-check" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>wcomback</code> has value of Daily, Several times a week, Several times a month, Less often, Never. create <code>oncallgp</code> as <code>3.more than several time a week</code>, <code>2.several times a month</code>, <code>1.less often</code>, <code>0.never</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tables-for-public-health-summary.html#cb15-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="tables-for-public-health-summary.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">&quot;your code 1&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="tables-for-public-health-summary.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">oncallgp =</span> <span class="fu">case_when</span>(</span>
-<span id="cb15-4"><a href="tables-for-public-health-summary.html#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;your code 2&quot;</span></span>
-<span id="cb15-5"><a href="tables-for-public-health-summary.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tables-for-public-health-summary.html#cb17-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="tables-for-public-health-summary.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">&quot;your code 1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="tables-for-public-health-summary.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">oncallgp =</span> <span class="fu">case_when</span>(</span>
+<span id="cb17-4"><a href="tables-for-public-health-summary.html#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;your code 2&quot;</span></span>
+<span id="cb17-5"><a href="tables-for-public-health-summary.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
 </div>
 <div id="cross-table-simple" class="section level4 hasAnchor" number="9.5.2.3">
 <h4><span class="header-section-number">9.5.2.3</span> cross table simple<a href="tables-for-public-health-summary.html#cross-table-simple" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1487,12 +1504,12 @@ prob
 </tbody>
 </table>
 <p>To create that table, please fill the your code 3 (two lines) as below.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tables-for-public-health-summary.html#cb16-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="tables-for-public-health-summary.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(oncallgp) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="tables-for-public-health-summary.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sleepgp) <span class="sc">%&gt;%</span></span>
-<span id="cb16-4"><a href="tables-for-public-health-summary.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">your code 3-1</span><span class="st">`</span> <span class="sc">%&gt;%</span></span>
-<span id="cb16-5"><a href="tables-for-public-health-summary.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">your code 3-2</span><span class="st">`</span></span>
-<span id="cb16-6"><a href="tables-for-public-health-summary.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tables-for-public-health-summary.html#cb18-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="tables-for-public-health-summary.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(oncallgp) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="tables-for-public-health-summary.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sleepgp) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="tables-for-public-health-summary.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">your code 3-1</span><span class="st">`</span> <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="tables-for-public-health-summary.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">your code 3-2</span><span class="st">`</span></span>
+<span id="cb18-6"><a href="tables-for-public-health-summary.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>()</span></code></pre></div>
 </div>
 <div id="cross-table-using-tabf" class="section level4 hasAnchor" number="9.5.2.4">
 <h4><span class="header-section-number">9.5.2.4</span> cross table using tabf<a href="tables-for-public-health-summary.html#cross-table-using-tabf" class="anchor-section" aria-label="Anchor link to header"></a></h4>
