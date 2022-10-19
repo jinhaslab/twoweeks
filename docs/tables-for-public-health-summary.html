@@ -23,7 +23,7 @@
 <meta name="author" content="jinha" />
 
 
-<meta name="date" content="2022-10-18" />
+<meta name="date" content="2022-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -464,42 +464,38 @@ you can download source file</p>
 <span id="cb1-6"><a href="tables-for-public-health-summary.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># packages from github</span></span>
 <span id="cb1-7"><a href="tables-for-public-health-summary.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
 <span id="cb1-8"><a href="tables-for-public-health-summary.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb1-9"><a href="tables-for-public-health-summary.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#install_github(&quot;jinhaslab/tabf&quot;, force = TRUE)</span></span>
-<span id="cb1-10"><a href="tables-for-public-health-summary.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#library(tabf)</span></span>
-<span id="cb1-11"><a href="tables-for-public-health-summary.html#cb1-11" aria-hidden="true" tabindex="-1"></a>tabf <span class="ot">&lt;-</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/tabf.R&quot;</span></span>
-<span id="cb1-12"><a href="tables-for-public-health-summary.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(tabf, <span class="st">&quot;source/tabf.R&quot;</span>)</span>
-<span id="cb1-13"><a href="tables-for-public-health-summary.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;source/tabf.R&quot;</span>)</span></code></pre></div>
+<span id="cb1-9"><a href="tables-for-public-health-summary.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;jinhaslab/tabf&quot;</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## * checking for file ‘/tmp/RtmpFABoVv/remotes1855f569e1e9f3/jinhaslab-tabf-78b4a80/DESCRIPTION’ ... OK
+## * preparing ‘tabf’:
+## * checking DESCRIPTION meta-information ... OK
+## * checking for LF line-endings in source and make files and shell scripts
+## * checking for empty or unneeded directories
+## * building ‘tabf_0.0.0.9000.tar.gz’</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tables-for-public-health-summary.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabf)</span>
+<span id="cb3-2"><a href="tables-for-public-health-summary.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="tables-for-public-health-summary.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="tables-for-public-health-summary.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#tabf &lt;- &quot;https://dspubs.org/webapps/forum/open_data/tabf.R&quot;</span></span>
+<span id="cb3-5"><a href="tables-for-public-health-summary.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#download.file(tabf, &quot;source/tabf.R&quot;)</span></span>
+<span id="cb3-6"><a href="tables-for-public-health-summary.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#source(&quot;source/tabf.R&quot;)</span></span></code></pre></div>
 </div>
 <div id="data-import-and-manipulation" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> data import and manipulation<a href="tables-for-public-health-summary.html#data-import-and-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data locate in <a href="https://dspubs.org/webapps/forum/open_data/"> dspubs.org’s open data </a>. <code>kwcsData1.rds</code> will be used. I made folder name of <code>data</code> and saved the dowload file into <code>data</code> directory. <br>
 The way of loading rds data is through the <code>readRDS(pathway)</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tables-for-public-health-summary.html#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/kwcsData1.rds&quot;</span></span>
-<span id="cb2-2"><a href="tables-for-public-health-summary.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">&quot;data/kwcsData1.rds&quot;</span>)</span>
-<span id="cb2-3"><a href="tables-for-public-health-summary.html#cb2-3" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/kwcsData1.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tables-for-public-health-summary.html#cb4-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/kwcsData1.rds&quot;</span></span>
+<span id="cb4-2"><a href="tables-for-public-health-summary.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">&quot;data/kwcsData1.rds&quot;</span>)</span>
+<span id="cb4-3"><a href="tables-for-public-health-summary.html#cb4-3" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/kwcsData1.rds&quot;</span>)</span></code></pre></div>
 <p>The step of data manipulation is most import task, the chapter <strong>Data Manipulation</strong> should be reviewed prior to follow this chapter.</p>
 </div>
 <div id="select-variables-and-table-1" class="section level2 hasAnchor" number="9.3">
 <h2><span class="header-section-number">9.3</span> select variables, and table 1<a href="tables-for-public-health-summary.html#select-variables-and-table-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can select variable after data manipulation, we created sleepgp, shortReturn, njob, sexgp, edugp, empgp in chapter of <code>Data manipulation and Tables for pulblic health 1</code>. Then, those selected variables will categorized into stratas, catVars, conVars.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tables-for-public-health-summary.html#cb3-1" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
-<span id="cb3-2"><a href="tables-for-public-health-summary.html#cb3-2" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , <span class="st">&quot;njob&quot;</span>, <span class="st">&quot;sexgp&quot;</span>,  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span>)</span>
-<span id="cb3-3"><a href="tables-for-public-health-summary.html#cb3-3" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tables-for-public-health-summary.html#cb5-1" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
+<span id="cb5-2"><a href="tables-for-public-health-summary.html#cb5-2" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , <span class="st">&quot;njob&quot;</span>, <span class="st">&quot;sexgp&quot;</span>,  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span>)</span>
+<span id="cb5-3"><a href="tables-for-public-health-summary.html#cb5-3" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span></code></pre></div>
 <p>The function of <code>tabf()</code> create cross table by <code>htmlTable()</code>. <code>tabf()</code> function needs data1 as data to be used for table, stratas as group variables in the head, catVars as categorical variables, conVars = continues variables.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tables-for-public-health-summary.html#cb4-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">tabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span></code></pre></div>
-<pre><code>## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(stratas)` instead of `stratas` to silence this message.
-## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
-## This message is displayed once per session.
-## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(catVars)` instead of `catVars` to silence this message.
-## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
-## This message is displayed once per session.
-## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(conVars)` instead of `conVars` to silence this message.
-## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
-## This message is displayed once per session.</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tables-for-public-health-summary.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tables-for-public-health-summary.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">tabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span>
+<span id="cb6-2"><a href="tables-for-public-health-summary.html#cb6-2" aria-hidden="true" tabindex="-1"></a>tab1</span></code></pre></div>
 <pre><code>## # A tibble: 22 × 5
 ##    variables     values           `0.non distrubance` 1.sleep disturba…¹ p.value
 ##    &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;  
