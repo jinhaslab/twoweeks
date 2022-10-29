@@ -221,3 +221,9 @@ cross-tabl-using-tabf
 cross-table-using-tabf
 logistic-regression-model
 source-files
+axis
+layer-geom_x
+summary
+visualzation-example-1
+quiz-3
+divide-the-data-into-training-and-test-by-73.
