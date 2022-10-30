@@ -23,7 +23,7 @@
 <meta name="author" content="jinha" />
 
 
-<meta name="date" content="2022-10-28" />
+<meta name="date" content="2022-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -275,10 +275,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#layer-geom_x"><i class="fa fa-check"></i><b>10.1.2</b> layer, geom_x()</a></li>
 <li class="chapter" data-level="10.1.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_point"><i class="fa fa-check"></i><b>10.1.3</b> geom_point()</a></li>
 <li class="chapter" data-level="10.1.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_smooth"><i class="fa fa-check"></i><b>10.1.4</b> geom_smooth()</a></li>
-<li class="chapter" data-level="10.1.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_bar"><i class="fa fa-check"></i><b>10.1.5</b> geom_bar()</a></li>
-<li class="chapter" data-level="10.1.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_density-geom_histogram"><i class="fa fa-check"></i><b>10.1.6</b> geom_density() , geom_histogram()</a></li>
-<li class="chapter" data-level="10.1.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_boxplot"><i class="fa fa-check"></i><b>10.1.7</b> geom_boxplot()</a></li>
-<li class="chapter" data-level="10.1.8" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#d-plot"><i class="fa fa-check"></i><b>10.1.8</b> 3d plot</a></li>
+<li class="chapter" data-level="10.1.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#faceting"><i class="fa fa-check"></i><b>10.1.5</b> faceting</a></li>
+<li class="chapter" data-level="10.1.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_bar"><i class="fa fa-check"></i><b>10.1.6</b> geom_bar()</a></li>
+<li class="chapter" data-level="10.1.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_density-geom_histogram"><i class="fa fa-check"></i><b>10.1.7</b> geom_density() , geom_histogram()</a></li>
+<li class="chapter" data-level="10.1.8" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_boxplot"><i class="fa fa-check"></i><b>10.1.8</b> geom_boxplot()</a></li>
+<li class="chapter" data-level="10.1.9" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#d-plot"><i class="fa fa-check"></i><b>10.1.9</b> 3d plot</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#visualzation-example-1"><i class="fa fa-check"></i><b>10.2</b> Visualzation example 1</a>
 <ul>
@@ -557,7 +558,7 @@ How about it? A little bit better. This time, we will add a trend line geom_smoo
 <span id="cb7-7"><a href="basic-plot-with-r.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb7-8"><a href="basic-plot-with-r.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() </span></code></pre></div>
 <p><img src="testbook_files/figure-html/layer%20point%203-1.png" width="672" /></p>
-<p>선형 추세성을 추가하고, 5차방정식 추세선도 추가해 보겠습니다 .</p>
+<p>The following code demonstrated example of adding a linear trend line as well as polynomial line.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basic-plot-with-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="basic-plot-with-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, </span>
 <span id="cb8-3"><a href="basic-plot-with-r.html#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
@@ -565,10 +566,12 @@ How about it? A little bit better. This time, we will add a trend line geom_smoo
 <span id="cb8-5"><a href="basic-plot-with-r.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sepal width&quot;</span>) <span class="sc">+</span></span>
 <span id="cb8-6"><a href="basic-plot-with-r.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot; Type of iris according to sepal lenght and width&quot;</span>) <span class="sc">+</span></span>
 <span id="cb8-7"><a href="basic-plot-with-r.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb8-8"><a href="basic-plot-with-r.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">5</span>), <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="basic-plot-with-r.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">5</span>), <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># how abou se = TRUE</span></span>
 <span id="cb8-9"><a href="basic-plot-with-r.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">2</span>)  </span></code></pre></div>
-<p><img src="testbook_files/figure-html/layer%20point%204-1.png" width="672" />
-### faceting</p>
+<p><img src="testbook_files/figure-html/layer%20point%204-1.png" width="672" /></p>
+</div>
+<div id="faceting" class="section level3 hasAnchor" number="10.1.5">
+<h3><span class="header-section-number">10.1.5</span> faceting<a href="basic-plot-with-r.html#faceting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Drawing on one screen has advantages, but also has complexities. In this case, faceting is used. facet_wrap()</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basic-plot-with-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="basic-plot-with-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, </span>
@@ -582,9 +585,9 @@ How about it? A little bit better. This time, we will add a trend line geom_smoo
 <span id="cb9-10"><a href="basic-plot-with-r.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Species<span class="sc">~</span>.)</span></code></pre></div>
 <p><img src="testbook_files/figure-html/layer%20point%205-1.png" width="672" /></p>
 </div>
-<div id="geom_bar" class="section level3 hasAnchor" number="10.1.5">
-<h3><span class="header-section-number">10.1.5</span> geom_bar()<a href="basic-plot-with-r.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s draw the number of stars of the iris flower.</p>
+<div id="geom_bar" class="section level3 hasAnchor" number="10.1.6">
+<h3><span class="header-section-number">10.1.6</span> geom_bar()<a href="basic-plot-with-r.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To make a barplot of counts, we will use <code>geom_bar()</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basic-plot-with-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="basic-plot-with-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species,  </span>
 <span id="cb10-3"><a href="basic-plot-with-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
@@ -593,7 +596,7 @@ How about it? A little bit better. This time, we will add a trend line geom_smoo
 <span id="cb10-6"><a href="basic-plot-with-r.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Number of iris according to its types.&quot;</span>) <span class="sc">+</span></span>
 <span id="cb10-7"><a href="basic-plot-with-r.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_bar%201-1.png" width="672" />
-Let’s draw the number of stars of the iris flower. Let’s draw the number of things with Sepal.Width equal to or greater than 3. We will use <code>filter(Sepal.Width &gt; 3)</code>.</p>
+Let’s draw the count number of iris with Sepal.Width equal to or greater than 3. We will use <code>filter(Sepal.Width &gt; 3)</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basic-plot-with-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="basic-plot-with-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sepal.Width <span class="sc">&gt;</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-3"><a href="basic-plot-with-r.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species,  </span>
@@ -603,7 +606,7 @@ Let’s draw the number of stars of the iris flower. Let’s draw the number of 
 <span id="cb11-7"><a href="basic-plot-with-r.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Number of iris according to its types.&quot;</span>) <span class="sc">+</span></span>
 <span id="cb11-8"><a href="basic-plot-with-r.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_bar%202%20-1.png" width="672" /></p>
-<p>Let’t try to draw polar coordinate using by coord_polar()</p>
+<p><code>coord_polar</code> is polar coordinate system for pie chart.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basic-plot-with-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="basic-plot-with-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sepal.Width <span class="sc">&gt;</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="basic-plot-with-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species,  </span>
@@ -615,9 +618,9 @@ Let’s draw the number of stars of the iris flower. Let’s draw the number of 
 <span id="cb12-9"><a href="basic-plot-with-r.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span><span class="dv">1</span>) <span class="sc">+</span> <span class="fu">coord_polar</span>()</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_bar%204-1.png" width="672" /></p>
 </div>
-<div id="geom_density-geom_histogram" class="section level3 hasAnchor" number="10.1.6">
-<h3><span class="header-section-number">10.1.6</span> geom_density() , geom_histogram()<a href="basic-plot-with-r.html#geom_density-geom_histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s plot the distribution of sepal length I drew histogram and density.</p>
+<div id="geom_density-geom_histogram" class="section level3 hasAnchor" number="10.1.7">
+<h3><span class="header-section-number">10.1.7</span> geom_density() , geom_histogram()<a href="basic-plot-with-r.html#geom_density-geom_histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s plot the distribution of sepal length. I drew histogram and density.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic-plot-with-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb13-2"><a href="basic-plot-with-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span> </span>
 <span id="cb13-3"><a href="basic-plot-with-r.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Sepal Length of Iris&quot;</span>) <span class="sc">+</span> </span>
@@ -626,7 +629,7 @@ Let’s draw the number of stars of the iris flower. Let’s draw the number of 
 <span id="cb13-6"><a href="basic-plot-with-r.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..))<span class="sc">+</span></span>
 <span id="cb13-7"><a href="basic-plot-with-r.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_density%201-1.png" width="672" /></p>
-<p>I see heterogeneity. You can’t see it. Let’s put <code>fill = Species</code> inside aes() to distinguish them. virginica has broad leaves. How is it different from the previous code of color = Species?</p>
+<p>I see heterogeneity. Can you see it. Let’s put <code>fill = Species</code> inside aes() to distinguish them. virginica has broad leaves. How is it different from the previous code of color = Species?</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basic-plot-with-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="basic-plot-with-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
 <span id="cb14-3"><a href="basic-plot-with-r.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;sepal length of iris&quot;</span>) <span class="sc">+</span> </span>
@@ -636,7 +639,7 @@ Let’s draw the number of stars of the iris flower. Let’s draw the number of 
 <span id="cb14-7"><a href="basic-plot-with-r.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">stat=</span><span class="st">&quot;density&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb14-8"><a href="basic-plot-with-r.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_density%202-1.png" width="672" />
-Of course, you can try faceting. Is faceting good in this case? Is it good not to have it? It may be different for each researcher purpose.</p>
+Of course, you can try faceting. Is faceting good in this case? Is it good not to have it? It may be depend on your purpose.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basic-plot-with-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="basic-plot-with-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
 <span id="cb15-3"><a href="basic-plot-with-r.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;sepal length of iris&quot;</span>) <span class="sc">+</span> </span>
@@ -648,8 +651,8 @@ Of course, you can try faceting. Is faceting good in this case? Is it good not t
 <span id="cb15-9"><a href="basic-plot-with-r.html#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Species<span class="sc">~</span>.)</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_density%203-1.png" width="672" /></p>
 </div>
-<div id="geom_boxplot" class="section level3 hasAnchor" number="10.1.7">
-<h3><span class="header-section-number">10.1.7</span> geom_boxplot()<a href="basic-plot-with-r.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="geom_boxplot" class="section level3 hasAnchor" number="10.1.8">
+<h3><span class="header-section-number">10.1.8</span> geom_boxplot()<a href="basic-plot-with-r.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s draw a boxplot of the sepal width distribution for each iris flower.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basic-plot-with-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="basic-plot-with-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Width, </span>
@@ -657,32 +660,34 @@ Of course, you can try faceting. Is faceting good in this case? Is it good not t
 <span id="cb16-4"><a href="basic-plot-with-r.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="testbook_files/figure-html/geom_boxplot%201-1.png" width="672" /></p>
 </div>
-<div id="d-plot" class="section level3 hasAnchor" number="10.1.8">
-<h3><span class="header-section-number">10.1.8</span> 3d plot<a href="basic-plot-with-r.html#d-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In this practice, it seems that the types can be distinguished according to the width and length of the sepals. plot_ly is better than ggplot in interactive part and 3d part. Let’s do it.</p>
+<div id="d-plot" class="section level3 hasAnchor" number="10.1.9">
+<h3><span class="header-section-number">10.1.9</span> 3d plot<a href="basic-plot-with-r.html#d-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this practice, it seems that the types of iris can be distinguished according to the width and length of the sepals. plot_ly is better than ggplot in interactive part and 3d part. Let’s do it.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basic-plot-with-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
 <span id="cb17-2"><a href="basic-plot-with-r.html#cb17-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
 <span id="cb17-3"><a href="basic-plot-with-r.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>( </span>
 <span id="cb17-4"><a href="basic-plot-with-r.html#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>Sepal.Length, <span class="at">y =</span> <span class="sc">~</span>Petal.Length, <span class="at">z =</span> <span class="sc">~</span>Petal.Width,  </span>
 <span id="cb17-5"><a href="basic-plot-with-r.html#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="sc">~</span>Species,  <span class="co"># Color separation by Species. </span></span>
 <span id="cb17-6"><a href="basic-plot-with-r.html#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">&quot;scatter3d&quot;</span>,   <span class="co"># 3d plot</span></span>
-<span id="cb17-7"><a href="basic-plot-with-r.html#cb17-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb17-7"><a href="basic-plot-with-r.html#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">alpha =</span> <span class="fl">0.8</span></span>
 <span id="cb17-8"><a href="basic-plot-with-r.html#cb17-8" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">%&gt;%</span>  </span>
 <span id="cb17-9"><a href="basic-plot-with-r.html#cb17-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">layout</span>(</span>
 <span id="cb17-10"><a href="basic-plot-with-r.html#cb17-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;Sepal Length&#39;</span>), </span>
 <span id="cb17-11"><a href="basic-plot-with-r.html#cb17-11" aria-hidden="true" tabindex="-1"></a>                            <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;Petal Length&#39;</span>),</span>
 <span id="cb17-12"><a href="basic-plot-with-r.html#cb17-12" aria-hidden="true" tabindex="-1"></a>                            <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;Petal Width&#39;</span>)))</span></code></pre></div>
-<div id="htmlwidget-feb4d8708898d3a1de64" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-feb4d8708898d3a1de64">{"x":{"visdat":{"23d313167c039":["function () ","plotlyVisDat"]},"cur_data":"23d313167c039","attrs":{"23d313167c039":{"x":{},"y":{},"z":{},"color":{},"alpha":0.8,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Sepal Length"},"yaxis":{"title":"Petal Length"},"zaxis":{"title":"Petal Width"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"y":[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4],"z":[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2],"type":"scatter3d","mode":"markers","name":"setosa","marker":{"color":"rgba(102,194,165,0.8)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,0.8)"},"error_y":{"color":"rgba(102,194,165,0.8)"},"error_x":{"color":"rgba(102,194,165,0.8)"},"line":{"color":"rgba(102,194,165,0.8)"},"frame":null},{"x":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"y":[4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1],"z":[1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3],"type":"scatter3d","mode":"markers","name":"versicolor","marker":{"color":"rgba(252,141,98,0.8)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,0.8)"},"error_y":{"color":"rgba(252,141,98,0.8)"},"error_x":{"color":"rgba(252,141,98,0.8)"},"line":{"color":"rgba(252,141,98,0.8)"},"frame":null},{"x":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"y":[6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],"z":[2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],"type":"scatter3d","mode":"markers","name":"virginica","marker":{"color":"rgba(141,160,203,0.8)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,0.8)"},"error_y":{"color":"rgba(141,160,203,0.8)"},"error_x":{"color":"rgba(141,160,203,0.8)"},"line":{"color":"rgba(141,160,203,0.8)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9d12ad710e9075eeaf0b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9d12ad710e9075eeaf0b">{"x":{"visdat":{"2f17256d4f4cf":["function () ","plotlyVisDat"]},"cur_data":"2f17256d4f4cf","attrs":{"2f17256d4f4cf":{"x":{},"y":{},"z":{},"color":{},"alpha":0.8,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Sepal Length"},"yaxis":{"title":"Petal Length"},"zaxis":{"title":"Petal Width"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"y":[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4],"z":[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2],"type":"scatter3d","mode":"markers","name":"setosa","marker":{"color":"rgba(102,194,165,0.8)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,0.8)"},"error_y":{"color":"rgba(102,194,165,0.8)"},"error_x":{"color":"rgba(102,194,165,0.8)"},"line":{"color":"rgba(102,194,165,0.8)"},"frame":null},{"x":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"y":[4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1],"z":[1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3],"type":"scatter3d","mode":"markers","name":"versicolor","marker":{"color":"rgba(252,141,98,0.8)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,0.8)"},"error_y":{"color":"rgba(252,141,98,0.8)"},"error_x":{"color":"rgba(252,141,98,0.8)"},"line":{"color":"rgba(252,141,98,0.8)"},"frame":null},{"x":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"y":[6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],"z":[2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],"type":"scatter3d","mode":"markers","name":"virginica","marker":{"color":"rgba(141,160,203,0.8)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,0.8)"},"error_y":{"color":"rgba(141,160,203,0.8)"},"error_x":{"color":"rgba(141,160,203,0.8)"},"line":{"color":"rgba(141,160,203,0.8)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="visualzation-example-1" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Visualzation example 1<a href="basic-plot-with-r.html#visualzation-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="simple-machine-learning-decision-tree" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> simple machine learning decision tree<a href="basic-plot-with-r.html#simple-machine-learning-decision-tree" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>do you think that it is possible to make a decision tree depending on the length and width of the iris? Now that we’ve come this far, let’s just take a look at the flow using simple example.</p>
+<p>Do you think that it is possible to make a decision tree depending on the length and width of the iris? Now that we’ve come this far, let’s just take a look at the flow using simple example.
+Approximately, decision trees are machine learning methods used for <strong>classification</strong>. The models aim to predict the value of Y by learning simple decision steps. There are importance weight to make each step of decision. So, it can be visualize bar chart.</p>
 <div id="divide-the-data-into-training-and-test-by-73." class="section level4 hasAnchor" number="10.2.1.1">
 <h4><span class="header-section-number">10.2.1.1</span> Divide the data into training and test by 7:3.<a href="basic-plot-with-r.html#divide-the-data-into-training-and-test-by-73." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>I will prepare two data set, one is for training, the other is for testing. The proportion of training set is 70% from original data.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basic-plot-with-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;caret&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
 <span id="cb18-2"><a href="basic-plot-with-r.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret) <span class="co"># </span></span>
 <span id="cb18-3"><a href="basic-plot-with-r.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
@@ -697,17 +702,17 @@ Of course, you can try faceting. Is faceting good in this case? Is it good not t
 </div>
 <div id="fold-cross-validation" class="section level4 hasAnchor" number="10.2.1.2">
 <h4><span class="header-section-number">10.2.1.2</span> 10 fold cross validation<a href="basic-plot-with-r.html#fold-cross-validation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>10 fold cross validation cross validation</p>
+<p>Cross-validation is a resampling method for limited data set. I will use 10 fold cross validation.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basic-plot-with-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="co"># cross validation</span></span>
 <span id="cb19-2"><a href="basic-plot-with-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">number =</span> <span class="dv">10</span>    ) <span class="co"># 10 times</span></span></code></pre></div>
 </div>
-<div id="machine-learning-모델" class="section level4 hasAnchor" number="10.2.1.3">
-<h4><span class="header-section-number">10.2.1.3</span> machine learning 모델<a href="basic-plot-with-r.html#machine-learning-모델" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>check accuracy and model performance.</p>
+<div id="machine-learning-model" class="section level4 hasAnchor" number="10.2.1.3">
+<h4><span class="header-section-number">10.2.1.3</span> machine learning model<a href="basic-plot-with-r.html#machine-learning-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>check accuracy and model performance using confusion matrix. What is average accuracy for model performance.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basic-plot-with-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2020</span>)</span>
 <span id="cb20-2"><a href="basic-plot-with-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a>DTFit1 <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">data =</span> train_data, <span class="co">#</span></span>
 <span id="cb20-3"><a href="basic-plot-with-r.html#cb20-3" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb20-4"><a href="basic-plot-with-r.html#cb20-4" aria-hidden="true" tabindex="-1"></a>                Species <span class="sc">~</span> ., <span class="co"># .</span></span>
+<span id="cb20-4"><a href="basic-plot-with-r.html#cb20-4" aria-hidden="true" tabindex="-1"></a>                Species <span class="sc">~</span> ., <span class="co"># . means all remain variable</span></span>
 <span id="cb20-5"><a href="basic-plot-with-r.html#cb20-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&#39;rpart&#39;</span>, <span class="co"># https://topepo.github.io/caret/available-models.html </span></span>
 <span id="cb20-6"><a href="basic-plot-with-r.html#cb20-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">trControl =</span> fitControl) <span class="co">#  cross validation</span></span>
 <span id="cb20-7"><a href="basic-plot-with-r.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">confusionMatrix</span>(DTFit1) <span class="co"># </span></span></code></pre></div>
@@ -722,7 +727,7 @@ Of course, you can try faceting. Is faceting good in this case? Is it good not t
 ##   virginica     0.0        1.9      31.4
 ##                             
 ##  Accuracy (average) : 0.9619</code></pre>
-<p>Our goal is visualization, what kind of plot are needed? The basic bar plot is greate.</p>
+<p>Our goal is visualization, what kind of plot are needed? The basic bar plot is great choice.</p>
 </div>
 <div id="barplot-for-importance" class="section level4 hasAnchor" number="10.2.1.4">
 <h4><span class="header-section-number">10.2.1.4</span> barplot for importance<a href="basic-plot-with-r.html#barplot-for-importance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -732,13 +737,16 @@ Of course, you can try faceting. Is faceting good in this case? Is it good not t
 <span id="cb22-3"><a href="basic-plot-with-r.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Overall)) <span class="sc">+</span> </span>
 <span id="cb22-4"><a href="basic-plot-with-r.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb22-5"><a href="basic-plot-with-r.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Importance&quot;</span>) </span></code></pre></div>
-<p><img src="testbook_files/figure-html/imp%20bar%20plot-1.png" width="672" />
-#### decision tree ploting</p>
-<p>rpat package gives us nice plot for decision tree. It can be used for data explorer</p>
+<p><img src="testbook_files/figure-html/imp%20bar%20plot-1.png" width="672" /></p>
+<p>What is most important feature for classification of iris. Petal? Sepal?</p>
+<p><code>rpart</code> package gives us nice plot for decision tree. It can be used for data explorer</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basic-plot-with-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
 <span id="cb23-2"><a href="basic-plot-with-r.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rattle)</span>
 <span id="cb23-3"><a href="basic-plot-with-r.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fancyRpartPlot</span>(DTFit1<span class="sc">$</span>finalModel)</span></code></pre></div>
-<p><img src="testbook_files/figure-html/dt%20tree%20flow%20chart-1.png" width="672" /></p>
+<p><img src="testbook_files/figure-html/dt%20tree%201234-1.png" width="672" /></p>
+<p>To check this classification steps, we also use 3d plot, as we discussed.</p>
+<div id="htmlwidget-b6bddbec3bac6dc6f83d" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b6bddbec3bac6dc6f83d">{"x":{"visdat":{"2f17239479048":["function () ","plotlyVisDat"]},"cur_data":"2f17239479048","attrs":{"2f17239479048":{"x":{},"y":{},"z":{},"color":{},"alpha":0.8,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Sepal Length"},"yaxis":{"title":"Petal Length"},"zaxis":{"title":"Petal Width"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"y":[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4],"z":[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2],"type":"scatter3d","mode":"markers","name":"setosa","marker":{"color":"rgba(102,194,165,0.8)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,0.8)"},"error_y":{"color":"rgba(102,194,165,0.8)"},"error_x":{"color":"rgba(102,194,165,0.8)"},"line":{"color":"rgba(102,194,165,0.8)"},"frame":null},{"x":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"y":[4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1],"z":[1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3],"type":"scatter3d","mode":"markers","name":"versicolor","marker":{"color":"rgba(252,141,98,0.8)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,0.8)"},"error_y":{"color":"rgba(252,141,98,0.8)"},"error_x":{"color":"rgba(252,141,98,0.8)"},"line":{"color":"rgba(252,141,98,0.8)"},"frame":null},{"x":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"y":[6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],"z":[2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],"type":"scatter3d","mode":"markers","name":"virginica","marker":{"color":"rgba(141,160,203,0.8)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,0.8)"},"error_y":{"color":"rgba(141,160,203,0.8)"},"error_x":{"color":"rgba(141,160,203,0.8)"},"line":{"color":"rgba(141,160,203,0.8)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
