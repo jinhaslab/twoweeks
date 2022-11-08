@@ -1,8 +1,12 @@
-usethis
-devtools
-Table1
-ggplot2
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
 tidyverse
+ggplot2
 tibble
 tidyr
 readr
@@ -11,7 +15,8 @@ dplyr
 stringr
 forcats
 htmlTable
-haven
 broom
-DT
+ggthemes
+usethis
+devtools
 tabf

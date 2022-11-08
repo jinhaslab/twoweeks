@@ -23,7 +23,7 @@
 <meta name="author" content="jinha" />
 
 
-<meta name="date" content="2022-11-07" />
+<meta name="date" content="2022-11-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -284,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="11.1" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#t-test-and-chisq-test-visualization"><i class="fa fa-check"></i><b>11.1</b> T-test and Chisq-test Visualization</a></li>
 <li class="chapter" data-level="11.2" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#odds-ratio-and-95-confidence-interval"><i class="fa fa-check"></i><b>11.2</b> Odds ratio and 95% confidence interval</a></li>
-<li class="chapter" data-level="11.3" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#Labeled"><i class="fa fa-check"></i><b>11.3</b> Labelled Data</a>
+<li class="chapter" data-level="11.3" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#Labeled"><i class="fa fa-check"></i><b>11.3</b> Multilevel and Labelled Data</a>
 <ul>
 <li class="chapter" data-level="11.3.1" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#introduction-1"><i class="fa fa-check"></i><b>11.3.1</b> introduction</a></li>
 <li class="chapter" data-level="11.3.2" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#data-analysis-start"><i class="fa fa-check"></i><b>11.3.2</b> Data analysis start</a></li>
@@ -1192,7 +1192,7 @@ The bar chart is one of the best option for distribution visualization.</p>
 <p><img src="testbook_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="Labeled" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Labelled Data<a href="statistical-plot-with-ggplot2.html#Labeled" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">11.3</span> Multilevel and Labelled Data<a href="statistical-plot-with-ggplot2.html#Labeled" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="introduction-1" class="section level3 hasAnchor" number="11.3.1">
 <h3><span class="header-section-number">11.3.1</span> introduction<a href="statistical-plot-with-ggplot2.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In current data, We will used covid19 data from 16 countries. The group is country level and the interesting relationship is regarded on individual economic activity and psychological symptoms. In this chapter, we will discuss about how can visualization multi-level data (The original data are own to Laura, PH.D.)</p>
@@ -1210,10 +1210,7 @@ The bar chart is one of the best option for distribution visualization.</p>
 <span id="cb21-8"><a href="statistical-plot-with-ggplot2.html#cb21-8" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/covid_agu1.csv&quot;</span></span>
 <span id="cb21-9"><a href="statistical-plot-with-ggplot2.html#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url3, <span class="st">&quot;data/covid_agu1.csv&quot;</span>)</span>
 <span id="cb21-10"><a href="statistical-plot-with-ggplot2.html#cb21-10" aria-hidden="true" tabindex="-1"></a>agu1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;data/covid_agu1.csv&#39;</span>)</span></code></pre></div>
-<p>Data manipulation for creating and reshaping variables.</p>
-<blockquote>
-<p>create basic matrix for visualization (NA as zero)</p>
-</blockquote>
+<p>Data manipulation for creating and reshaping variables. We will exam the assoicaton between human development index and covid related outcomes.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="statistical-plot-with-ggplot2.html#cb22-1" aria-hidden="true" tabindex="-1"></a>mm4 <span class="ot">&lt;-</span> mm3 <span class="sc">%&gt;%</span></span>
 <span id="cb22-2"><a href="statistical-plot-with-ggplot2.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">agegp3 =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;=</span><span class="dv">40</span>, <span class="st">&#39;≤40&#39;</span>, <span class="st">&#39;&gt;40&#39;</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb22-3"><a href="statistical-plot-with-ggplot2.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">agegp3 =</span> <span class="fu">factor</span>(agegp3, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&#39;≤40&#39;</span>, <span class="st">&#39;&gt;40&#39;</span>))) <span class="sc">%&gt;%</span></span>
@@ -1234,7 +1231,7 @@ The bar chart is one of the best option for distribution visualization.</p>
 <h3><span class="header-section-number">11.3.2</span> Data analysis start<a href="statistical-plot-with-ggplot2.html#data-analysis-start" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="job-loss-due-to-covid19-psychological-aggravation-according-to-gender" class="section level4 hasAnchor" number="11.3.2.1">
 <h4><span class="header-section-number">11.3.2.1</span> job loss due to COVID19, psychological aggravation according to Gender<a href="statistical-plot-with-ggplot2.html#job-loss-due-to-covid19-psychological-aggravation-according-to-gender" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Explore data using basic static for job loss prevalence across country and genders.</p>
+<p>Explore data using basic static for job loss prevalence across country and genders. the pyschological aggravation due to covid-19 are also plotted according to same logic.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="statistical-plot-with-ggplot2.html#cb23-1" aria-hidden="true" tabindex="-1"></a>fig1 <span class="ot">&lt;-</span> mm4 <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="statistical-plot-with-ggplot2.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country_c, gender) <span class="sc">%&gt;%</span></span>
 <span id="cb23-3"><a href="statistical-plot-with-ggplot2.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(EcLossAllgp) <span class="sc">%&gt;%</span></span>
@@ -1264,7 +1261,7 @@ The bar chart is one of the best option for distribution visualization.</p>
 <span id="cb23-27"><a href="statistical-plot-with-ggplot2.html#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
 <span id="cb23-28"><a href="statistical-plot-with-ggplot2.html#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>))<span class="sc">+</span></span>
 <span id="cb23-29"><a href="statistical-plot-with-ggplot2.html#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">92</span>, .<span class="dv">1</span>))</span></code></pre></div>
-<p>Save total figure</p>
+<p>Save total figure of fig1 and fig2. <code>arrageGrob</code> make two figures into the one figure.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="statistical-plot-with-ggplot2.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">arrangeGrob</span>(fig1, fig2, <span class="at">ncol =</span> <span class="dv">1</span>), <span class="at">file =</span><span class="st">&#39;results/covid/figtotal.png&#39;</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span><span class="dv">14</span>)</span>
 <span id="cb24-2"><a href="statistical-plot-with-ggplot2.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">arrangeGrob</span>(fig1, fig2, <span class="at">ncol =</span> <span class="dv">1</span>), <span class="at">file =</span><span class="st">&#39;results/covid/tiff/figtotal.tiff&#39;</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span><span class="dv">14</span>)</span></code></pre></div>
 <p><img src="results/covid/figtotal.png" width="1500" /></p>
@@ -1317,20 +1314,24 @@ The bar chart is one of the best option for distribution visualization.</p>
 </div>
 <div id="job-loss-psychological-aggravation-according-to-education-level" class="section level3 hasAnchor" number="11.3.3">
 <h3><span class="header-section-number">11.3.3</span> job loss, psychological aggravation according to Education level<a href="statistical-plot-with-ggplot2.html#job-loss-psychological-aggravation-according-to-education-level" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Quzi 1</p>
+</blockquote>
+<p>Let’s fill the <code>{ num }</code> to draw following figure.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="statistical-plot-with-ggplot2.html#cb27-1" aria-hidden="true" tabindex="-1"></a>fig5 <span class="ot">&lt;-</span> mm4<span class="fl">.0</span> <span class="sc">%&gt;%</span></span>
 <span id="cb27-2"><a href="statistical-plot-with-ggplot2.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(edugp, country_c, gender) <span class="sc">%&gt;%</span></span>
 <span id="cb27-3"><a href="statistical-plot-with-ggplot2.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(EcLossAllgp ) <span class="sc">%&gt;%</span></span>
 <span id="cb27-4"><a href="statistical-plot-with-ggplot2.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
 <span id="cb27-5"><a href="statistical-plot-with-ggplot2.html#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(EcLossAllgp  <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-6"><a href="statistical-plot-with-ggplot2.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> edugp, <span class="at">y =</span> prob, <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb27-7"><a href="statistical-plot-with-ggplot2.html#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>, <span class="at">span =</span><span class="fl">0.9</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb27-6"><a href="statistical-plot-with-ggplot2.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> {<span class="dv">1</span>}     , <span class="at">y =</span>{<span class="dv">2</span>}    , <span class="at">color =</span> {<span class="dv">2</span>})) <span class="sc">+</span></span>
+<span id="cb27-7"><a href="statistical-plot-with-ggplot2.html#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> {<span class="dv">3</span>}, <span class="at">span =</span><span class="fl">0.9</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb27-8"><a href="statistical-plot-with-ggplot2.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;≤H&quot;</span>, <span class="st">&quot;2&quot;</span> <span class="ot">=</span> <span class="st">&quot;C&quot;</span>,</span>
 <span id="cb27-9"><a href="statistical-plot-with-ggplot2.html#cb27-9" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;3&quot;</span> <span class="ot">=</span> <span class="st">&quot;U&quot;</span>, <span class="st">&quot;4&quot;</span> <span class="ot">=</span> <span class="st">&quot;G&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb27-10"><a href="statistical-plot-with-ggplot2.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb27-11"><a href="statistical-plot-with-ggplot2.html#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Gender&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-11"><a href="statistical-plot-with-ggplot2.html#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> {<span class="dv">4</span>}) <span class="sc">+</span></span>
 <span id="cb27-12"><a href="statistical-plot-with-ggplot2.html#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Job Loss due to COVID19&quot;</span>) <span class="sc">+</span></span>
 <span id="cb27-13"><a href="statistical-plot-with-ggplot2.html#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb27-14"><a href="statistical-plot-with-ggplot2.html#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(country_c <span class="sc">~</span>., <span class="at">nrow =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb27-14"><a href="statistical-plot-with-ggplot2.html#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>({<span class="dv">5</span>})<span class="sc">+</span></span>
 <span id="cb27-15"><a href="statistical-plot-with-ggplot2.html#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>))<span class="sc">+</span></span>
 <span id="cb27-16"><a href="statistical-plot-with-ggplot2.html#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">92</span>, .<span class="dv">1</span>))</span>
 <span id="cb27-17"><a href="statistical-plot-with-ggplot2.html#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -1341,18 +1342,17 @@ The bar chart is one of the best option for distribution visualization.</p>
 <span id="cb27-22"><a href="statistical-plot-with-ggplot2.html#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TotalDepAnx ) <span class="sc">%&gt;%</span></span>
 <span id="cb27-23"><a href="statistical-plot-with-ggplot2.html#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
 <span id="cb27-24"><a href="statistical-plot-with-ggplot2.html#cb27-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TotalDepAnx  <span class="sc">==</span> <span class="dv">1</span>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb27-25"><a href="statistical-plot-with-ggplot2.html#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> edugp, <span class="at">y =</span> prob, <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb27-26"><a href="statistical-plot-with-ggplot2.html#cb27-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>, <span class="at">span =</span><span class="fl">0.9</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb27-27"><a href="statistical-plot-with-ggplot2.html#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;≤H&quot;</span>, <span class="st">&quot;2&quot;</span> <span class="ot">=</span> <span class="st">&quot;C&quot;</span>,</span>
-<span id="cb27-28"><a href="statistical-plot-with-ggplot2.html#cb27-28" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;3&quot;</span> <span class="ot">=</span> <span class="st">&quot;U&quot;</span>, <span class="st">&quot;4&quot;</span> <span class="ot">=</span> <span class="st">&quot;G&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb27-29"><a href="statistical-plot-with-ggplot2.html#cb27-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb27-30"><a href="statistical-plot-with-ggplot2.html#cb27-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Psychological aggravation due to COVID19&quot;</span>) <span class="sc">+</span></span>
-<span id="cb27-31"><a href="statistical-plot-with-ggplot2.html#cb27-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(x<span class="sc">*</span><span class="dv">100</span>, <span class="st">&quot;%&quot;</span>))<span class="sc">+</span></span>
-<span id="cb27-32"><a href="statistical-plot-with-ggplot2.html#cb27-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;H = high school, C = college, U = university, G = graduate &quot;</span>) <span class="sc">+</span></span>
-<span id="cb27-33"><a href="statistical-plot-with-ggplot2.html#cb27-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Gender&quot;</span>) <span class="sc">+</span></span>
-<span id="cb27-34"><a href="statistical-plot-with-ggplot2.html#cb27-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(country_c <span class="sc">~</span>., <span class="at">nrow =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb27-35"><a href="statistical-plot-with-ggplot2.html#cb27-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>))<span class="sc">+</span></span>
-<span id="cb27-36"><a href="statistical-plot-with-ggplot2.html#cb27-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">92</span>, .<span class="dv">1</span>))</span></code></pre></div>
+<span id="cb27-25"><a href="statistical-plot-with-ggplot2.html#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>({<span class="dv">6</span>})) <span class="sc">+</span></span>
+<span id="cb27-26"><a href="statistical-plot-with-ggplot2.html#cb27-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>({<span class="dv">7</span>}) <span class="sc">+</span></span>
+<span id="cb27-27"><a href="statistical-plot-with-ggplot2.html#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>({<span class="dv">8</span>}) <span class="sc">+</span></span>
+<span id="cb27-28"><a href="statistical-plot-with-ggplot2.html#cb27-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb27-29"><a href="statistical-plot-with-ggplot2.html#cb27-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Psychological aggravation due to COVID19&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-30"><a href="statistical-plot-with-ggplot2.html#cb27-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> {<span class="dv">9</span>})<span class="sc">+</span></span>
+<span id="cb27-31"><a href="statistical-plot-with-ggplot2.html#cb27-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;H = high school, C = college, U = university, G = graduate &quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-32"><a href="statistical-plot-with-ggplot2.html#cb27-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Gender&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-33"><a href="statistical-plot-with-ggplot2.html#cb27-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>({<span class="dv">10</span>})<span class="sc">+</span></span>
+<span id="cb27-34"><a href="statistical-plot-with-ggplot2.html#cb27-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>))<span class="sc">+</span></span>
+<span id="cb27-35"><a href="statistical-plot-with-ggplot2.html#cb27-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">92</span>, .<span class="dv">1</span>))</span></code></pre></div>
 <p>save figure</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="statistical-plot-with-ggplot2.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#figtotal3 &lt;- grid.arrange(fig5, fig6, ncol = 1)</span></span>
 <span id="cb28-2"><a href="statistical-plot-with-ggplot2.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">arrangeGrob</span>(fig5, fig6, <span class="at">ncol =</span> <span class="dv">1</span>), <span class="at">file =</span><span class="st">&#39;results/covid/figtotal3.png&#39;</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span><span class="dv">14</span>)</span>
@@ -1362,6 +1362,7 @@ The bar chart is one of the best option for distribution visualization.</p>
 </div>
 <div id="visulization-with-human-develop-index-stratification" class="section level3 hasAnchor" number="11.3.4">
 <h3><span class="header-section-number">11.3.4</span> Visulization with human develop index stratification<a href="statistical-plot-with-ggplot2.html#visulization-with-human-develop-index-stratification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Labelled data visualization need the code of `geom_label_repel’</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="statistical-plot-with-ggplot2.html#cb30-1" aria-hidden="true" tabindex="-1"></a>agu1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;data/covid/covid_agu1.csv&#39;</span>)</span>
 <span id="cb30-2"><a href="statistical-plot-with-ggplot2.html#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="statistical-plot-with-ggplot2.html#cb30-3" aria-hidden="true" tabindex="-1"></a>lab_mm <span class="ot">&lt;-</span> mm4<span class="fl">.0</span> <span class="sc">%&gt;%</span></span>
@@ -1394,6 +1395,11 @@ The bar chart is one of the best option for distribution visualization.</p>
 <span id="cb30-30"><a href="statistical-plot-with-ggplot2.html#cb30-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(gender<span class="sc">~</span>.) <span class="sc">+</span></span>
 <span id="cb30-31"><a href="statistical-plot-with-ggplot2.html#cb30-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="testbook_files/figure-html/human%20develop%20index%20and%20economic%20loss-1.png" width="672" /></p>
+<blockquote>
+<p>Quiz 2,</p>
+</blockquote>
+<p>The Education level may affect the relationship between hdi and economic loss status. please draw following plot, and find the most vulnerable population.</p>
+<p><img src="testbook_files/figure-html/covid_quiz_labelled-1.png" width="960" /></p>
 
 </div>
 </div>
