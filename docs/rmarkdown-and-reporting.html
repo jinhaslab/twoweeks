@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 19 Rmarkdown and reporting | DsPubs with R tutor book</title>
+  <meta name="description" content="Chapter 19 Rmarkdown and reporting | DsPubs with R tutor book" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 19 Rmarkdown and reporting | DsPubs with R tutor book" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 19 Rmarkdown and reporting | DsPubs with R tutor book" />
+  
+  
+  
+
+<meta name="author" content="jinha" />
+
+
+<meta name="date" content="2022-11-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-markdown.html"/>
+<link rel="next" href="google-maps-platform.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://dspubs.org/webapps">DsPubs</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Let’s Start with R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud-and-colab"><i class="fa fa-check"></i><b>2.1</b> Rstudio Cloud, and colab</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1.1</b> Rstudio Cloud</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#colab"><i class="fa fa-check"></i><b>2.1.2</b> Colab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-window-system"><i class="fa fa-check"></i><b>2.2</b> R and R studio on Window system</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-install"><i class="fa fa-check"></i><b>2.2.1</b> R studio install</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-project"><i class="fa fa-check"></i><b>2.2.2</b> R studio project</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-ubuntus"><i class="fa fa-check"></i><b>2.3</b> R and R studio on Ubuntus</a></li>
+</ul></li>
+<li class="part"><span><b>I R</b></span></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#vector-matirx-list"><i class="fa fa-check"></i><b>3.1</b> vector matirx list</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="r-basics.html"><a href="r-basics.html#오브젝트-objects"><i class="fa fa-check"></i><b>3.1.1</b> 오브젝트 (objects)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-basics.html"><a href="r-basics.html#백터-vectors-팩터-factors"><i class="fa fa-check"></i><b>3.1.2</b> 백터 (Vectors), 팩터 (factors)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-basics.html"><a href="r-basics.html#매트릭스-matrix-데이터프래임-data-frame-리스트-list"><i class="fa fa-check"></i><b>3.1.3</b> 매트릭스 (Matrix), 데이터프래임 (data frame), 리스트 (list)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#데이터-생성-저장"><i class="fa fa-check"></i><b>3.2</b> 데이터 생성 저장</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#built-in-data-sets"><i class="fa fa-check"></i><b>3.2.1</b> built-in data sets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-program-basic.html"><a href="r-program-basic.html"><i class="fa fa-check"></i><b>4</b> R program basic</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-program-basic.html"><a href="r-program-basic.html#기초-연산"><i class="fa fa-check"></i><b>4.1</b> 기초 연산</a></li>
+<li class="chapter" data-level="4.2" data-path="r-program-basic.html"><a href="r-program-basic.html#조건부-연산"><i class="fa fa-check"></i><b>4.2</b> 조건부 연산</a></li>
+<li class="chapter" data-level="4.3" data-path="r-program-basic.html"><a href="r-program-basic.html#함수-만들기"><i class="fa fa-check"></i><b>4.3</b> 함수 만들기</a></li>
+<li class="chapter" data-level="4.4" data-path="r-program-basic.html"><a href="r-program-basic.html#반복문-vectorization-functionals"><i class="fa fa-check"></i><b>4.4</b> 반복문, vectorization, functionals</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="r-program-basic.html"><a href="r-program-basic.html#for-loop"><i class="fa fa-check"></i><b>4.4.1</b> for loop</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-program-basic.html"><a href="r-program-basic.html#vectorization-과-apply-구문"><i class="fa fa-check"></i><b>4.4.2</b> vectorization 과 apply 구문</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-program-basic.html"><a href="r-program-basic.html#home-work-and-summary-function"><i class="fa fa-check"></i><b>4.4.3</b> home work and summary function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#dplyr-tidyverse"><i class="fa fa-check"></i><b>5.1</b> dplyr (tidyverse)</a></li>
+<li class="chapter" data-level="5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#실습-데이터-준비"><i class="fa fa-check"></i><b>5.2</b> 실습 데이터 준비</a></li>
+<li class="chapter" data-level="5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#select"><i class="fa fa-check"></i><b>5.3</b> select</a></li>
+<li class="chapter" data-level="5.4" data-path="data-manipulation.html"><a href="data-manipulation.html#filter"><i class="fa fa-check"></i><b>5.4</b> filter</a></li>
+<li class="chapter" data-level="5.5" data-path="data-manipulation.html"><a href="data-manipulation.html#arrange"><i class="fa fa-check"></i><b>5.5</b> arrange</a></li>
+<li class="chapter" data-level="5.6" data-path="data-manipulation.html"><a href="data-manipulation.html#mutate"><i class="fa fa-check"></i><b>5.6</b> mutate</a></li>
+<li class="chapter" data-level="5.7" data-path="data-manipulation.html"><a href="data-manipulation.html#group_by"><i class="fa fa-check"></i><b>5.7</b> group_by</a></li>
+<li class="chapter" data-level="5.8" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-join"><i class="fa fa-check"></i><b>5.8</b> merge, join</a></li>
+</ul></li>
+<li class="part"><span><b>II Visualization</b></span></li>
+<li class="chapter" data-level="6" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html"><i class="fa fa-check"></i><b>6</b> Tables for public health 1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#데이터표-준비"><i class="fa fa-check"></i><b>6.1</b> 데이터표 준비</a></li>
+<li class="chapter" data-level="6.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#central-tendency-mean-median-mode"><i class="fa fa-check"></i><b>6.2</b> Central Tendency (mean, median, mode)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#하나씩-반복"><i class="fa fa-check"></i><b>6.2.1</b> 하나씩 반복</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-summary-and-table-1"><i class="fa fa-check"></i><b>6.2.2</b> Group_by summary and Table 1</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1"><i class="fa fa-check"></i><b>6.2.3</b> Long File and Table 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#count-and-distribution"><i class="fa fa-check"></i><b>6.3</b> Count and Distribution</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#하나씩-반복-1"><i class="fa fa-check"></i><b>6.3.1</b> 하나씩 반복</a></li>
+<li class="chapter" data-level="6.3.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-summary-and-table-1-1"><i class="fa fa-check"></i><b>6.3.2</b> Group_by summary and Table 1</a></li>
+<li class="chapter" data-level="6.3.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1-1"><i class="fa fa-check"></i><b>6.3.3</b> Long File and Table 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#정리-1"><i class="fa fa-check"></i><b>6.4</b> 정리 1</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#과제"><i class="fa fa-check"></i><b>6.4.1</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Tables2.html"><a href="Tables2.html"><i class="fa fa-check"></i><b>7</b> Tables for public health 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Tables2.html"><a href="Tables2.html#데이터-준비"><i class="fa fa-check"></i><b>7.1</b> 데이터 준비</a></li>
+<li class="chapter" data-level="7.2" data-path="Tables2.html"><a href="Tables2.html#분석-주제-선정"><i class="fa fa-check"></i><b>7.2</b> 분석 주제 선정</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Tables2.html"><a href="Tables2.html#근로환경조사와-recode-선택사항"><i class="fa fa-check"></i><b>7.2.1</b> 근로환경조사와 recode (선택사항)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="Tables2.html"><a href="Tables2.html#근로환경조사-기본-변수-생성"><i class="fa fa-check"></i><b>7.2.2</b> 근로환경조사 기본 변수 생성</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Tables2.html"><a href="Tables2.html#근로환경조사-table-1-만들기"><i class="fa fa-check"></i><b>7.3</b> 근로환경조사 Table 1 만들기</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Tables2.html"><a href="Tables2.html#변수-값-요약하기"><i class="fa fa-check"></i><b>7.3.1</b> 변수 값 요약하기</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Tables2.html"><a href="Tables2.html#p-value-구하기."><i class="fa fa-check"></i><b>7.3.2</b> P value 구하기.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Tables2.html"><a href="Tables2.html#table-1-정리하기"><i class="fa fa-check"></i><b>7.4</b> Table 1 정리하기</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Tables2.html"><a href="Tables2.html#htmltable-visulaization"><i class="fa fa-check"></i><b>7.4.1</b> htmlTable visulaization</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Tables2.html"><a href="Tables2.html#kwcsfunction"><i class="fa fa-check"></i><b>7.5</b> 함수만들기</a></li>
+<li class="chapter" data-level="7.6" data-path="Tables2.html"><a href="Tables2.html#quiz"><i class="fa fa-check"></i><b>7.6</b> Quiz</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="Tables2.html"><a href="Tables2.html#quiz1"><i class="fa fa-check"></i><b>7.6.1</b> Quiz1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="Tables2.html"><a href="Tables2.html#quiz-2"><i class="fa fa-check"></i><b>7.6.2</b> Quiz 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html"><i class="fa fa-check"></i><b>8</b> Tables for public health 3</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#데이터-준비-1"><i class="fa fa-check"></i><b>8.1</b> 데이터 준비</a></li>
+<li class="chapter" data-level="8.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#분석-주제-선정-1"><i class="fa fa-check"></i><b>8.2</b> 분석 주제 선정</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#근로환경조사-기본-변수-생성-선택"><i class="fa fa-check"></i><b>8.2.1</b> 근로환경조사 기본 변수 생성 (선택)</a></li>
+<li class="chapter" data-level="8.2.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#함수를-source-file-로-저장하기"><i class="fa fa-check"></i><b>8.2.2</b> 함수를 source file 로 저장하기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#logistic-regression-table"><i class="fa fa-check"></i><b>8.3</b> Logistic Regression Table</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱회귀분석-표-함수-1"><i class="fa fa-check"></i><b>8.3.1</b> 로지스틱회귀분석 표 함수 1</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱-회귀분석-표-2"><i class="fa fa-check"></i><b>8.3.2</b> 로지스틱 회귀분석 표 2</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱-회귀분석-3"><i class="fa fa-check"></i><b>8.3.3</b> 로지스틱 회귀분석 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html"><i class="fa fa-check"></i><b>9</b> Tables for public health summary</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#install-package-from-github"><i class="fa fa-check"></i><b>9.1</b> install package from github</a></li>
+<li class="chapter" data-level="9.2" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#data-import-and-manipulation"><i class="fa fa-check"></i><b>9.2</b> data import and manipulation</a></li>
+<li class="chapter" data-level="9.3" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#select-variables-and-table-1"><i class="fa fa-check"></i><b>9.3</b> select variables, and table 1</a></li>
+<li class="chapter" data-level="9.4" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#logistic-regression-model-and-table-3"><i class="fa fa-check"></i><b>9.4</b> logistic regression model and table 3</a></li>
+<li class="chapter" data-level="9.5" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#quiz-1"><i class="fa fa-check"></i><b>9.5</b> Quiz</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#install-and-load-library-tabf"><i class="fa fa-check"></i><b>9.5.1</b> install and load library tabf</a></li>
+<li class="chapter" data-level="9.5.2" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#data-manipulation-1"><i class="fa fa-check"></i><b>9.5.2</b> data manipulation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html"><i class="fa fa-check"></i><b>10</b> Basic plot with R</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#ggplot-basic"><i class="fa fa-check"></i><b>10.1</b> ggplot basic</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#axis"><i class="fa fa-check"></i><b>10.1.1</b> axis</a></li>
+<li class="chapter" data-level="10.1.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#layer-geom_x"><i class="fa fa-check"></i><b>10.1.2</b> layer, geom_x()</a></li>
+<li class="chapter" data-level="10.1.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_point"><i class="fa fa-check"></i><b>10.1.3</b> geom_point()</a></li>
+<li class="chapter" data-level="10.1.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_smooth"><i class="fa fa-check"></i><b>10.1.4</b> geom_smooth()</a></li>
+<li class="chapter" data-level="10.1.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#faceting"><i class="fa fa-check"></i><b>10.1.5</b> faceting</a></li>
+<li class="chapter" data-level="10.1.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_bar"><i class="fa fa-check"></i><b>10.1.6</b> geom_bar()</a></li>
+<li class="chapter" data-level="10.1.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_density-geom_histogram"><i class="fa fa-check"></i><b>10.1.7</b> geom_density() , geom_histogram()</a></li>
+<li class="chapter" data-level="10.1.8" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_boxplot"><i class="fa fa-check"></i><b>10.1.8</b> geom_boxplot()</a></li>
+<li class="chapter" data-level="10.1.9" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#d-plot"><i class="fa fa-check"></i><b>10.1.9</b> 3d plot</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#visualzation-example-1"><i class="fa fa-check"></i><b>10.2</b> Visualzation example 1</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#simple-machine-learning-decision-tree"><i class="fa fa-check"></i><b>10.2.1</b> simple machine learning decision tree</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#summary"><i class="fa fa-check"></i><b>10.3</b> summary</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html"><i class="fa fa-check"></i><b>11</b> Statistical Plot with ggplot2</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#prerequisite"><i class="fa fa-check"></i><b>11.1</b> Prerequisite</a></li>
+<li class="chapter" data-level="11.2" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#t-test-and-chisq-test-visualization"><i class="fa fa-check"></i><b>11.2</b> T-test and Chisq-test Visualization</a></li>
+<li class="chapter" data-level="11.3" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#odds-ratio-and-95-confidence-interval"><i class="fa fa-check"></i><b>11.3</b> Odds ratio and 95% confidence interval</a></li>
+<li class="chapter" data-level="11.4" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#Labeled"><i class="fa fa-check"></i><b>11.4</b> Multilevel and Labelled Data</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#introduction-1"><i class="fa fa-check"></i><b>11.4.1</b> introduction</a></li>
+<li class="chapter" data-level="11.4.2" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#data-analysis-start"><i class="fa fa-check"></i><b>11.4.2</b> Data analysis start</a></li>
+<li class="chapter" data-level="11.4.3" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#job-loss-psychological-aggravation-according-to-education-level"><i class="fa fa-check"></i><b>11.4.3</b> job loss, psychological aggravation according to Education level</a></li>
+<li class="chapter" data-level="11.4.4" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#visulization-with-human-develop-index-stratification"><i class="fa fa-check"></i><b>11.4.4</b> Visulization with human develop index stratification</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html"><i class="fa fa-check"></i><b>12</b> wave form data visualization example for public health</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html#data-visualization-example-eeg-data"><i class="fa fa-check"></i><b>12.0.1</b> Data Visualization example (EEG data)</a></li>
+<li class="chapter" data-level="12.0.2" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html#introduction-2"><i class="fa fa-check"></i><b>12.0.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.0.3" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html#dataset-and-data-step"><i class="fa fa-check"></i><b>12.0.3</b> Dataset and Data step</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html"><i class="fa fa-check"></i><b>13</b> Data Wrangling- Reshaping</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#동영상"><i class="fa fa-check"></i><b>13.1</b> 동영상</a></li>
+<li class="chapter" data-level="13.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#문제-제기"><i class="fa fa-check"></i><b>13.2</b> 문제 제기</a></li>
+<li class="chapter" data-level="13.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#split"><i class="fa fa-check"></i><b>13.3</b> split</a></li>
+<li class="chapter" data-level="13.4" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#gather-pivot_longer"><i class="fa fa-check"></i><b>13.4</b> gather (pivot_longer)</a></li>
+<li class="chapter" data-level="13.5" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#spread-pivot_wider"><i class="fa fa-check"></i><b>13.5</b> spread (pivot_wider)</a></li>
+<li class="chapter" data-level="13.6" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#stringr"><i class="fa fa-check"></i><b>13.6</b> stringr</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#분진-노출자-찾기"><i class="fa fa-check"></i><b>13.6.1</b> 분진 노출자 찾기</a></li>
+<li class="chapter" data-level="13.6.2" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#특정-문자-변환"><i class="fa fa-check"></i><b>13.6.2</b> 특정 문자 변환</a></li>
+<li class="chapter" data-level="13.6.3" data-path="data-wrangling--reshaping.html"><a href="data-wrangling--reshaping.html#과제-1"><i class="fa fa-check"></i><b>13.6.3</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>14</b> Web Scraping</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="web-scraping.html"><a href="web-scraping.html#issue-of-covid19-in-korea"><i class="fa fa-check"></i><b>14.1</b> issue of COVID19 in Korea</a></li>
+<li class="chapter" data-level="14.2" data-path="web-scraping.html"><a href="web-scraping.html#homework"><i class="fa fa-check"></i><b>14.2</b> homework</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="web-scraping.html"><a href="web-scraping.html#download-cumulative-covid19-death"><i class="fa fa-check"></i><b>14.2.1</b> download Cumulative covid19 death</a></li>
+<li class="chapter" data-level="14.2.2" data-path="web-scraping.html"><a href="web-scraping.html#uk-italy-france-spain-usa-canada"><i class="fa fa-check"></i><b>14.2.2</b> UK, Italy, France, Spain, USA, Canada</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="web-scraping.html"><a href="web-scraping.html#review-of-title-from-google-scholar"><i class="fa fa-check"></i><b>14.3</b> Review of title from google scholar</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="web-scraping.html"><a href="web-scraping.html#googl-scholar"><i class="fa fa-check"></i><b>14.3.1</b> googl scholar</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2"><i class="fa fa-check"></i><b>14.4</b> home work 2</a></li>
+<li class="chapter" data-level="14.5" data-path="web-scraping.html"><a href="web-scraping.html#black-report-2"><i class="fa fa-check"></i><b>14.5</b> Black Report 2</a></li>
+<li class="chapter" data-level="14.6" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2-1"><i class="fa fa-check"></i><b>14.6</b> home work 2</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html"><i class="fa fa-check"></i><b>15</b> WebScraping Example 3: PubMed and R with EndNote</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pubmed-검색-방법"><i class="fa fa-check"></i><b>15.1</b> PubMed 검색 방법</a></li>
+<li class="chapter" data-level="15.2" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#r-에서-pubmed-query-사용"><i class="fa fa-check"></i><b>15.2</b> R 에서 PubMed Query 사용</a></li>
+<li class="chapter" data-level="15.3" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pdf-자동-보고서"><i class="fa fa-check"></i><b>15.3</b> PDF 자동 보고서</a></li>
+<li class="chapter" data-level="15.4" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#원문-pdf-찾기"><i class="fa fa-check"></i><b>15.4</b> 원문 PDF 찾기</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="date-and-time-series.html"><a href="date-and-time-series.html"><i class="fa fa-check"></i><b>16</b> Date and time series</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create"><i class="fa fa-check"></i><b>16.1</b> Date create</a></li>
+<li class="chapter" data-level="16.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#tutor-heat-wave-and-death"><i class="fa fa-check"></i><b>16.2</b> Tutor: heat wave and death</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create-1"><i class="fa fa-check"></i><b>16.2.1</b> date create</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work"><i class="fa fa-check"></i><b>16.3</b> home work</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home0"><i class="fa fa-check"></i><b>16.3.1</b> home0</a></li>
+<li class="chapter" data-level="16.3.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work1"><i class="fa fa-check"></i><b>16.3.2</b> home work1</a></li>
+<li class="chapter" data-level="16.3.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work2"><i class="fa fa-check"></i><b>16.3.3</b> home work2</a></li>
+<li class="chapter" data-level="16.3.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work3"><i class="fa fa-check"></i><b>16.3.4</b> home work3</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis"><i class="fa fa-check"></i><b>16.4</b> Time series data analysis</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#outside-사망에-대해서"><i class="fa fa-check"></i><b>16.4.1</b> outside 사망에 대해서</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis-regression"><i class="fa fa-check"></i><b>16.5</b> Time series data analysis, regression</a></li>
+<li class="chapter" data-level="16.6" data-path="date-and-time-series.html"><a href="date-and-time-series.html#introduction-3"><i class="fa fa-check"></i><b>16.6</b> introduction</a></li>
+<li class="chapter" data-level="16.7" data-path="date-and-time-series.html"><a href="date-and-time-series.html#미세먼지와-심혈관사망"><i class="fa fa-check"></i><b>16.7</b> 미세먼지와 심혈관사망</a></li>
+<li class="chapter" data-level="16.8" data-path="date-and-time-series.html"><a href="date-and-time-series.html#방법-tutor"><i class="fa fa-check"></i><b>16.8</b> 방법 tutor</a></li>
+</ul></li>
+<li class="part"><span><b>IV Repeat and Reproducibility</b></span></li>
+<li class="chapter" data-level="17" data-path="repeated-analysis.html"><a href="repeated-analysis.html"><i class="fa fa-check"></i><b>17</b> Repeated analysis</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#추출"><i class="fa fa-check"></i><b>17.1</b> 추출</a></li>
+<li class="chapter" data-level="17.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#파일-불러오기"><i class="fa fa-check"></i><b>17.2</b> 파일 불러오기</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-2"><i class="fa fa-check"></i><b>17.2.1</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#분석-반복하기-change-point-찾기"><i class="fa fa-check"></i><b>17.3</b> 분석 반복하기 (change point 찾기)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#자료-생성"><i class="fa fa-check"></i><b>17.3.1</b> 자료 생성</a></li>
+<li class="chapter" data-level="17.3.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#가상의-threshold-값-수행해보기"><i class="fa fa-check"></i><b>17.3.2</b> 가상의 threshold 값 수행해보기</a></li>
+<li class="chapter" data-level="17.3.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-3"><i class="fa fa-check"></i><b>17.3.3</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="repeated-analysis.html"><a href="repeated-analysis.html#repeated-analysis-big-data"><i class="fa fa-check"></i><b>17.4</b> Repeated analysis (big data)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-profile"><i class="fa fa-check"></i><b>17.4.1</b> Data profile</a></li>
+<li class="chapter" data-level="17.4.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-handling-start"><i class="fa fa-check"></i><b>17.4.2</b> data handling start</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Communication</b></span></li>
+<li class="chapter" data-level="18" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>18</b> R markdown</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="r-markdown.html"><a href="r-markdown.html#설치"><i class="fa fa-check"></i><b>18.1</b> 설치</a></li>
+<li class="chapter" data-level="18.2" data-path="r-markdown.html"><a href="r-markdown.html#components"><i class="fa fa-check"></i><b>18.2</b> 3 components</a></li>
+<li class="chapter" data-level="18.3" data-path="r-markdown.html"><a href="r-markdown.html#simple-tutor"><i class="fa fa-check"></i><b>18.3</b> simple tutor</a></li>
+<li class="chapter" data-level="18.4" data-path="r-markdown.html"><a href="r-markdown.html#chunck-option"><i class="fa fa-check"></i><b>18.4</b> chunck option</a></li>
+<li class="chapter" data-level="18.5" data-path="r-markdown.html"><a href="r-markdown.html#table-만들기"><i class="fa fa-check"></i><b>18.5</b> Table 만들기</a></li>
+<li class="chapter" data-level="18.6" data-path="r-markdown.html"><a href="r-markdown.html#필독"><i class="fa fa-check"></i><b>18.6</b> 필독!</a></li>
+<li class="chapter" data-level="18.7" data-path="r-markdown.html"><a href="r-markdown.html#동영상-1"><i class="fa fa-check"></i><b>18.7</b> 동영상</a></li>
+<li class="chapter" data-level="18.8" data-path="r-markdown.html"><a href="r-markdown.html#과제-4"><i class="fa fa-check"></i><b>18.8</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html"><i class="fa fa-check"></i><b>19</b> Rmarkdown and reporting</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-word-office-down"><i class="fa fa-check"></i><b>19.1</b> Rmarkdown and Word (office down)</a></li>
+<li class="chapter" data-level="19.2" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-pdf"><i class="fa fa-check"></i><b>19.2</b> Rmarkdown and PDF</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="google-maps-platform.html"><a href="google-maps-platform.html"><i class="fa fa-check"></i><b>20</b> Google Maps Platform</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-tackeout"><i class="fa fa-check"></i><b>20.1</b> Google Tackeout</a></li>
+<li class="chapter" data-level="20.2" data-path="google-maps-platform.html"><a href="google-maps-platform.html#data-visualization"><i class="fa fa-check"></i><b>20.2</b> Data visualization</a></li>
+<li class="chapter" data-level="20.3" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-api"><i class="fa fa-check"></i><b>20.3</b> google API</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>21</b> Map using leaflet</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="leaflet.html"><a href="leaflet.html#leaflet-1"><i class="fa fa-check"></i><b>21.1</b> leaflet</a></li>
+<li class="chapter" data-level="21.2" data-path="leaflet.html"><a href="leaflet.html#위치와-시간표시"><i class="fa fa-check"></i><b>21.2</b> 위치와 시간표시</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="shinyapps.html"><a href="shinyapps.html"><i class="fa fa-check"></i><b>22</b> shinyapps</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="shinyapps.html"><a href="shinyapps.html#설치-1"><i class="fa fa-check"></i><b>22.1</b> 설치</a></li>
+<li class="chapter" data-level="22.2" data-path="shinyapps.html"><a href="shinyapps.html#예제"><i class="fa fa-check"></i><b>22.2</b> 예제</a></li>
+<li class="chapter" data-level="22.3" data-path="shinyapps.html"><a href="shinyapps.html#예제-1-만들기"><i class="fa fa-check"></i><b>22.3</b> 예제 1 만들기</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="shinyapps.html"><a href="shinyapps.html#구조"><i class="fa fa-check"></i><b>22.3.1</b> 구조</a></li>
+<li class="chapter" data-level="22.3.2" data-path="shinyapps.html"><a href="shinyapps.html#input-output"><i class="fa fa-check"></i><b>22.3.2</b> input, output</a></li>
+<li class="chapter" data-level="22.3.3" data-path="shinyapps.html"><a href="shinyapps.html#과제-5"><i class="fa fa-check"></i><b>22.3.3</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="shinyapps.html"><a href="shinyapps.html#지도앱-만들기"><i class="fa fa-check"></i><b>22.4</b> 지도앱 만들기</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DsPubs with R tutor book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmarkdown-and-reporting" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Chapter 19</span> Rmarkdown and reporting<a href="rmarkdown-and-reporting.html#rmarkdown-and-reporting" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rmarkdown-and-word-office-down" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Rmarkdown and Word (office down)<a href="rmarkdown-and-reporting.html#rmarkdown-and-word-office-down" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QLjfHVw6gQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<blockquote>
+<p>DsPub Project 부분</p>
+</blockquote>
+<p>  보고서나 논문을 쉽고 빠르게 작성하는 것도 중요한 부분입니다. 이때 Rmarkdown에 <code>office</code>, <code>officedown</code> 페키지를 사용하여 워드 파일로 변형하는 것을 실습해 보겠습니다. 처음에는 아래와 같이 title, output 부분을 작성해 줍니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="rmarkdown-and-reporting.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb1-2"><a href="rmarkdown-and-reporting.html#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> officedown을 이용한 반복작업</span>
+<span id="cb1-3"><a href="rmarkdown-and-reporting.html#cb1-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb1-4"><a href="rmarkdown-and-reporting.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#html_document: default</span></span>
+<span id="cb1-5"><a href="rmarkdown-and-reporting.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  officedown<span class="sc">::</span>rdocx_document<span class="sc">:</span> </span>
+<span id="cb1-6"><a href="rmarkdown-and-reporting.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#reference_docx: template/templet.docx</span></span>
+<span id="cb1-7"><a href="rmarkdown-and-reporting.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>  필요한 페키지들을 설치해 줍니다. 이때 중요한 것은 설치가 제대로 되는지 살펴 보는 것입니다. erro가 난다면 그 원인을 찾아 고쳐주는 것이 중요합니다.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rmarkdown-and-reporting.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span>
+<span id="cb2-2"><a href="rmarkdown-and-reporting.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readxl)) <span class="fu">install.packages</span>(<span class="st">&#39;readxl&#39;</span>)</span>
+<span id="cb2-3"><a href="rmarkdown-and-reporting.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(purrr)) install.packages(&#39;purrr&#39;)</span></span>
+<span id="cb2-4"><a href="rmarkdown-and-reporting.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(officedown)) <span class="fu">install.packages</span>(<span class="st">&#39;officedown&#39;</span>)</span>
+<span id="cb2-5"><a href="rmarkdown-and-reporting.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(officer)) <span class="fu">install.packages</span>(<span class="st">&#39;officer&#39;</span>)</span>
+<span id="cb2-6"><a href="rmarkdown-and-reporting.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(flextable)) <span class="fu">install.packages</span>(<span class="st">&#39;flextable&#39;</span>)</span>
+<span id="cb2-7"><a href="rmarkdown-and-reporting.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(formattable)) install.packages(&#39;formattable&#39;)</span></span></code></pre></div>
+<p>  여기에는 몇가지 원칙에 따라 산업지대를 나열해 본 것입니다. <code>exp0_long.xlsx</code> 자료를 불러옵니다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rmarkdown-and-reporting.html#cb3-1" aria-hidden="true" tabindex="-1"></a>mm01 <span class="ot">=</span>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;data/exp0_long.xlsx&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="rmarkdown-and-reporting.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">ifelse</span>(variable <span class="sc">==</span><span class="st">&#39;등수&#39;</span>, <span class="st">&#39;관찰우선순위&#39;</span>, variable))</span></code></pre></div>
+<p>  <code>산단이름</code>, <code>산단코드</code>를 나중에 표 <code>caption</code>에 사용하기 위해서 준비합니다. 그리고 표로 만들 데이터를 준비합니다. 여기서는 <code>main_tab</code>이 표가될 데이터 입니다. 다만 총인구점수, 대기오염점수, 유해인자점수, 환경점수는 합산된 점수 이므로 제외하고, 나중에 합쳐줄 생각입니다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="rmarkdown-and-reporting.html#cb4-1" aria-hidden="true" tabindex="-1"></a>CodeList <span class="ot">=</span> mm01 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">산단코드</span><span class="st">`</span>, <span class="st">`</span><span class="at">산단이름</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="rmarkdown-and-reporting.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">산단이름</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_replace</span>(<span class="st">`</span><span class="at">산단이름</span><span class="st">`</span>, <span class="st">&quot; </span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb4-3"><a href="rmarkdown-and-reporting.html#cb4-3" aria-hidden="true" tabindex="-1"></a>main_tab <span class="ot">=</span> mm01 <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="rmarkdown-and-reporting.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>variable <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;총인구점수&#39;</span>, <span class="st">&#39;대기오염점수&#39;</span>, <span class="st">&#39;유해인자점수&#39;</span>, <span class="st">&#39;환경점수&#39;</span>))</span></code></pre></div>
+<p>  데이터를 원하는 모양의 표로 만드는 작업은 <code>Data Reshap</code> 부분에서 다루니, 여기서는 우선 코드를 <code>source()</code>라는 명령어로 불러오겠습니다. <code>envdbframe.R</code>은 제가 원한는 데이터 형식으로 바꿔준 함수가 있는 것으로, 다른 자료로 실습하는 경우 원하는 표 모양을 만들면 되겠습니다.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rmarkdown-and-reporting.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;source/envdbframe.R&#39;</span>)</span>
+<span id="cb5-2"><a href="rmarkdown-and-reporting.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load data reshape function of MakeDataFrame</span></span></code></pre></div>
+<p>  데이트를 원하는 방법대로 가져오는지 보겠습니다. <code>MakeDataFrame</code>에는 앞서 표 caption에 사용할 부분과, 표 body 부분을 만드는 함수 였습니다. 아래처럼 작동합니다.</p>
+<p><code>CodeList %&gt;% nrow() %&gt;%as.numeric()</code> 를 실행해 보세요. 그러면 몇개의 데이터가 있는지 알 수 있습니다. 100개의 데이터가 있는데, 이를 모두 계산해서 list 로 만들어 줍니다.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rmarkdown-and-reporting.html#cb6-1" aria-hidden="true" tabindex="-1"></a>DataList <span class="ot">=</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span> <span class="fu">c</span>(CodeList <span class="sc">%&gt;%</span> <span class="fu">nrow</span>() <span class="sc">%&gt;%</span><span class="fu">as.numeric</span>()), </span>
+<span id="cb6-2"><a href="rmarkdown-and-reporting.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                  MakeDataFrame)</span></code></pre></div>
+<p>잘되었는지 확인해 봅니다. 첫번재 list 속의 첫번째 list는 무엇인가요?, 첫번재 list 속의 두번째 list 는 무엇인가요?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="rmarkdown-and-reporting.html#cb7-1" aria-hidden="true" tabindex="-1"></a>DataList[[<span class="dv">1</span>]][[<span class="dv">1</span>]]</span>
+<span id="cb7-2"><a href="rmarkdown-and-reporting.html#cb7-2" aria-hidden="true" tabindex="-1"></a>DataList[[<span class="dv">1</span>]][[<span class="dv">2</span>]]</span></code></pre></div>
+<p>  중복된 항을 지우고 빈칸으로 만들어 보기 편하게 하겠습니다. 이때는 <code>collapse_row</code>라는 함수를 만들어서 사용할 건데요. 이때 <code>{{ }}</code> 을 보게 됩니다. 이는 문자를 변수로 인식시키기 위해 사용하는 방법입니다. 예전에 <code>quo() - !! quo()</code>를 점도 간단하게 한 것으로 생각하면 됩니다. <code>{{ }}</code> 안에 문자는 <code>data.frame(), tibble()</code>안에 변수(variable)로 인식하게 됩니다. 자동화를 위해서 매우 편한 기능입니다.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="rmarkdown-and-reporting.html#cb8-1" aria-hidden="true" tabindex="-1"></a>collapse_rows <span class="ot">&lt;-</span> <span class="cf">function</span>(df, variable){</span>
+<span id="cb8-2"><a href="rmarkdown-and-reporting.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="rmarkdown-and-reporting.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>({{ variable }}) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="rmarkdown-and-reporting.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">groupRow =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="rmarkdown-and-reporting.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="rmarkdown-and-reporting.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>({{ variable }} <span class="sc">:</span><span class="er">=</span> <span class="fu">ifelse</span>(groupRow <span class="sc">==</span><span class="dv">1</span>, <span class="fu">as.character</span>({{ variable}}), <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="rmarkdown-and-reporting.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(groupRow))</span>
+<span id="cb8-8"><a href="rmarkdown-and-reporting.html#cb8-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>  자 이제 테이블을 만드는 함수를 작성해 보겠습니다. 다른 것보다 <code>flextable()</code>을 주목하면됩니다. <code>flextable()</code>이란 명령어가 워드로 변환했을 때 표로 만들어주는 기능을 하게 됩니다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="rmarkdown-and-reporting.html#cb9-1" aria-hidden="true" tabindex="-1"></a>loop_table <span class="ot">=</span> <span class="cf">function</span>(i){</span>
+<span id="cb9-2"><a href="rmarkdown-and-reporting.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  DataList[[i]][[<span class="dv">2</span>]] <span class="sc">%&gt;%</span> <span class="fu">tibble</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="rmarkdown-and-reporting.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collapse_rows</span>(<span class="st">`</span><span class="at">대분류</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="rmarkdown-and-reporting.html#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collapse_rows</span>(<span class="st">`</span><span class="at">총점수</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="rmarkdown-and-reporting.html#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collapse_rows</span>(<span class="st">`</span><span class="at">중분류 항목</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="rmarkdown-and-reporting.html#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collapse_rows</span>(<span class="st">`</span><span class="at">중분류 점수</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="rmarkdown-and-reporting.html#cb9-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">flextable</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="rmarkdown-and-reporting.html#cb9-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">autofit</span>() <span class="sc">%&gt;%</span> <span class="fu">fit_to_width</span>(<span class="dv">20</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="rmarkdown-and-reporting.html#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fontsize</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb9-10"><a href="rmarkdown-and-reporting.html#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>  하나만 만들어 볼까요?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="rmarkdown-and-reporting.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">loop_table</span>(<span class="dv">1</span>)</span></code></pre></div>
+<p>잘 되는 것을 확인했으니, 100개의 표를 만들어 보겠습니다. 다만, 표를 한 쪽에 2개씩 만드는 작업을 해보겠습니다. caption이라는 파일로 반복적으로 표의 제목이 생성되게 하였습니다. 그리고, autonum 을 이용해서 자동 숫자 입력이 되게 되었습니다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="rmarkdown-and-reporting.html#cb11-1" aria-hidden="true" tabindex="-1"></a>tab_num <span class="ot">&lt;-</span> <span class="fu">run_autonum</span>(<span class="at">seq_id =</span> <span class="st">&quot;표&quot;</span>, <span class="at">pre_label =</span> <span class="st">&quot;표-&quot;</span>, <span class="at">bkm =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb11-2"><a href="rmarkdown-and-reporting.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>){</span>
+<span id="cb11-3"><a href="rmarkdown-and-reporting.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n\\</span><span class="st">pagebreak</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-4"><a href="rmarkdown-and-reporting.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  caption <span class="ot">=</span> <span class="fu">paste0</span>(DataList[[i<span class="sc">*</span><span class="dv">2</span> <span class="sc">-</span><span class="dv">1</span>]][[<span class="dv">1</span>]][,<span class="dv">1</span>],<span class="st">&quot;-&quot;</span>, DataList[[i<span class="sc">*</span><span class="dv">2-1</span>]][[<span class="dv">1</span>]][,<span class="dv">2</span>], <span class="st">&quot;의 점수 요약&quot;</span>)</span>
+<span id="cb11-5"><a href="rmarkdown-and-reporting.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable_to_rmd</span>(<span class="fu">loop_table</span>(i<span class="sc">*</span><span class="dv">2</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="rmarkdown-and-reporting.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">set_caption</span>(<span class="at">caption=</span>caption, <span class="at">autonum =</span> tab_num))</span>
+<span id="cb11-7"><a href="rmarkdown-and-reporting.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n\\</span><span class="st">linebreak</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-8"><a href="rmarkdown-and-reporting.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-9"><a href="rmarkdown-and-reporting.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n\\</span><span class="st">linebreak</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-10"><a href="rmarkdown-and-reporting.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  caption <span class="ot">=</span> <span class="fu">paste0</span>(DataList[[i<span class="sc">*</span><span class="dv">2</span> <span class="sc">-</span><span class="dv">0</span>]][[<span class="dv">1</span>]][,<span class="dv">1</span>],<span class="st">&quot;-&quot;</span>, DataList[[i<span class="sc">*</span><span class="dv">2-1</span>]][[<span class="dv">1</span>]][,<span class="dv">2</span>], <span class="st">&quot;의 점수 요약&quot;</span>)</span>
+<span id="cb11-11"><a href="rmarkdown-and-reporting.html#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable_to_rmd</span>(<span class="fu">loop_table</span>(i<span class="sc">*</span><span class="dv">2</span> <span class="sc">-</span><span class="dv">0</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="rmarkdown-and-reporting.html#cb11-12" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">set_caption</span>(<span class="at">caption=</span>caption, <span class="at">autonum =</span> tab_num))</span>
+<span id="cb11-13"><a href="rmarkdown-and-reporting.html#cb11-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-14"><a href="rmarkdown-and-reporting.html#cb11-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>워드 파일을 열어서 확인해 보면 되겠습니다.</p>
+</div>
+<div id="rmarkdown-and-pdf" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Rmarkdown and PDF<a href="rmarkdown-and-reporting.html#rmarkdown-and-pdf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BFsPWbNfLVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Rmarkdwon 을 word로 만드는 것과 동일한 흐름입니다. 다만, 기본 설정과 flexttable이 아닌 xtable 을 사용한 것만 다릅니다. 동일한 흐름에서 따라 해보세요</p>
+<blockquote>
+<p>latex 설치하기</p>
+</blockquote>
+<p>pdf를 만들기 위한 파일을 설치해 보겠습니다.</p>
+<p>터미널에서 texlive-xetex를 설치해 줍니다.</p>
+<pre><code>$ sudo apt-get install texlive-xetex</code></pre>
+<p>이후 R에서 <code>tinytex</code> 페키지를 설치해 줍니다.</p>
+<pre><code>&gt; install.packages(&#39;tinytex&#39;)
+&gt; tinytex::install_tinytex()
+&gt; tinytex::tlmgr_install()
+&gt; tinytex::latexmk()</code></pre>
+<p>다시 터미널에서</p>
+<pre><code>$ sudo apt-get install -y latexmk</code></pre>
+<p>를 설치해 주고,</p>
+<p>주로 사용할 한글 폰트인 나눔명조를 설치해 봅니다.</p>
+<pre><code>wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
+wget https://github.com/naver/nanumfont/releases/download/VER2.5/NanumGothicCoding-2.5.zip
+unzip NanumFont_TTF_ALL.zip
+unzip NanumGothicCoding-2.5.zip
+
+sudo mkdir -p /usr/share/fonts/truetype/nanum-gothic
+sudo mv *.ttf /usr/share/fonts/truetype/nanum-gothic</code></pre>
+<p>자 이제 rmarkdown 파일을 열고 아래 항목을 따라서 해보겠습니다. 이후 과정은 rmarkdown과 word 부분과 같은 흐름으로 그것을 보고 하시면 되겠습니다.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rmarkdown-and-reporting.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb16-2"><a href="rmarkdown-and-reporting.html#cb16-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;부록 1, 00 00  00 집단에서의 우선순위 점수 요약&quot;</span></span>
+<span id="cb16-3"><a href="rmarkdown-and-reporting.html#cb16-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb16-4"><a href="rmarkdown-and-reporting.html#cb16-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb16-5"><a href="rmarkdown-and-reporting.html#cb16-5" aria-hidden="true" tabindex="-1"></a>header<span class="sc">-</span>includes<span class="sc">:</span></span>
+<span id="cb16-6"><a href="rmarkdown-and-reporting.html#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="sc">-</span> \usepackage{longtable}</span>
+<span id="cb16-7"><a href="rmarkdown-and-reporting.html#cb16-7" aria-hidden="true" tabindex="-1"></a>   <span class="sc">-</span> \usepackage{setspace}\doublespacing</span>
+<span id="cb16-8"><a href="rmarkdown-and-reporting.html#cb16-8" aria-hidden="true" tabindex="-1"></a>   <span class="sc">-</span> \usepackage[labelformat <span class="ot">=</span> empty]{caption}</span>
+<span id="cb16-9"><a href="rmarkdown-and-reporting.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="rmarkdown-and-reporting.html#cb16-10" aria-hidden="true" tabindex="-1"></a>mainfont<span class="sc">:</span> NanumMyeongjo</span>
+<span id="cb16-11"><a href="rmarkdown-and-reporting.html#cb16-11" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb16-12"><a href="rmarkdown-and-reporting.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  pdf_document<span class="sc">:</span></span>
+<span id="cb16-13"><a href="rmarkdown-and-reporting.html#cb16-13" aria-hidden="true" tabindex="-1"></a>    latex_engine<span class="sc">:</span> xelatex</span>
+<span id="cb16-14"><a href="rmarkdown-and-reporting.html#cb16-14" aria-hidden="true" tabindex="-1"></a>   <span class="co">#html_document</span></span>
+<span id="cb16-15"><a href="rmarkdown-and-reporting.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="rmarkdown-and-reporting.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb17-2"><a href="rmarkdown-and-reporting.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-3"><a href="rmarkdown-and-reporting.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlTable)</span>
+<span id="cb17-4"><a href="rmarkdown-and-reporting.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb17-5"><a href="rmarkdown-and-reporting.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb17-6"><a href="rmarkdown-and-reporting.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span>
+<span id="cb17-7"><a href="rmarkdown-and-reporting.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rmarkdown-and-reporting.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#source(&#39;source/header.R&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="rmarkdown-and-reporting.html#cb19-1" aria-hidden="true" tabindex="-1"></a>mm01 <span class="ot">=</span>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;data/exp0_long.xlsx&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="rmarkdown-and-reporting.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">ifelse</span>(variable <span class="sc">==</span><span class="st">&#39;등수&#39;</span>, <span class="st">&#39;관찰우선순위&#39;</span>, variable))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rmarkdown-and-reporting.html#cb20-1" aria-hidden="true" tabindex="-1"></a>CodeList <span class="ot">=</span> mm01 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">산단코드</span><span class="st">`</span>, <span class="st">`</span><span class="at">산단이름</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="rmarkdown-and-reporting.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">산단이름</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_replace</span>(<span class="st">`</span><span class="at">산단이름</span><span class="st">`</span>, <span class="st">&quot; </span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb20-3"><a href="rmarkdown-and-reporting.html#cb20-3" aria-hidden="true" tabindex="-1"></a>main_tab <span class="ot">=</span> mm01 <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="rmarkdown-and-reporting.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>variable <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;총인구점수&#39;</span>, <span class="st">&#39;대기오염점수&#39;</span>, <span class="st">&#39;유해인자점수&#39;</span>, <span class="st">&#39;환경점수&#39;</span>))</span>
+<span id="cb20-5"><a href="rmarkdown-and-reporting.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#CodeList[1,][1] %&gt;% as.character()</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rmarkdown-and-reporting.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;source/envdbframe.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmarkdown-and-reporting.html#cb22-1" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">=</span> <span class="fu">MakeDataFrame</span>(<span class="dv">3</span>)</span>
+<span id="cb22-2"><a href="rmarkdown-and-reporting.html#cb22-2" aria-hidden="true" tabindex="-1"></a>gg2[[<span class="dv">1</span>]]</span>
+<span id="cb22-3"><a href="rmarkdown-and-reporting.html#cb22-3" aria-hidden="true" tabindex="-1"></a>gg2[[<span class="dv">2</span>]]</span>
+<span id="cb22-4"><a href="rmarkdown-and-reporting.html#cb22-4" aria-hidden="true" tabindex="-1"></a>CodeList <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb22-5"><a href="rmarkdown-and-reporting.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(CodeList <span class="sc">%&gt;%</span> <span class="fu">nrow</span>() <span class="sc">%&gt;%</span><span class="fu">as.numeric</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmarkdown-and-reporting.html#cb23-1" aria-hidden="true" tabindex="-1"></a>DataList <span class="ot">=</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span> <span class="fu">c</span>(CodeList <span class="sc">%&gt;%</span> <span class="fu">nrow</span>() <span class="sc">%&gt;%</span><span class="fu">as.numeric</span>()), </span>
+<span id="cb23-2"><a href="rmarkdown-and-reporting.html#cb23-2" aria-hidden="true" tabindex="-1"></a>                  MakeDataFrame)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rmarkdown-and-reporting.html#cb24-1" aria-hidden="true" tabindex="-1"></a>DataList[[<span class="dv">1</span>]][[<span class="dv">1</span>]]</span>
+<span id="cb24-2"><a href="rmarkdown-and-reporting.html#cb24-2" aria-hidden="true" tabindex="-1"></a>DataList[[<span class="dv">1</span>]][[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rmarkdown-and-reporting.html#cb25-1" aria-hidden="true" tabindex="-1"></a>plotTable <span class="ot">=</span> <span class="cf">function</span>(i){<span class="fu">kbl</span>(DataList[[i]][[<span class="dv">2</span>]], <span class="st">&quot;latex&quot;</span>, <span class="at">booktabs =</span> T, </span>
+<span id="cb25-2"><a href="rmarkdown-and-reporting.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="fu">paste0</span>(<span class="st">&#39;표-&#39;</span>, i, <span class="st">&quot;. &quot;</span>, DataList[[i]][[<span class="dv">1</span>]][,<span class="dv">1</span>], </span>
+<span id="cb25-3"><a href="rmarkdown-and-reporting.html#cb25-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;-&quot;</span>, DataList[[i]][[<span class="dv">1</span>]][,<span class="dv">2</span>], <span class="st">&quot;의 점수 요약&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="rmarkdown-and-reporting.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">valign =</span> <span class="st">&quot;top&quot;</span>) <span class="co">#%&gt;%</span></span>
+<span id="cb25-5"><a href="rmarkdown-and-reporting.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#row_spec(14, extra_latex_after = &quot;\\cline{1-5}&quot;)</span></span>
+<span id="cb25-6"><a href="rmarkdown-and-reporting.html#cb25-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rmarkdown-and-reporting.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>){</span>
+<span id="cb26-2"><a href="rmarkdown-and-reporting.html#cb26-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n\\</span><span class="st">pagebreak</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb26-3"><a href="rmarkdown-and-reporting.html#cb26-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="fu">plotTable</span>(i<span class="sc">*</span><span class="dv">2-1</span>))</span>
+<span id="cb26-4"><a href="rmarkdown-and-reporting.html#cb26-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="fu">plotTable</span>(i<span class="sc">*</span><span class="dv">2</span>))</span>
+<span id="cb26-5"><a href="rmarkdown-and-reporting.html#cb26-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">clearpage&quot;</span>)</span>
+<span id="cb26-6"><a href="rmarkdown-and-reporting.html#cb26-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="google-maps-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["testbook.pdf", "testbook.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
