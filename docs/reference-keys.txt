@@ -208,3 +208,4 @@ deploy-shiny-app-local-server
 지도앱-만들기
 data-wrangling--text-handling
 data-wrangling--text-value-handling
+fig:image-ref-for-in-text

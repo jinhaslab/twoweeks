@@ -23,7 +23,7 @@
 <meta name="author" content="jinha" />
 
 
-<meta name="date" content="2022-11-12" />
+<meta name="date" content="2022-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -449,14 +449,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-wrangling--text-value-handling" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">Chapter 13</span> Data Wrangling- Text value Handling<a href="data-wrangling--text-value-handling.html#data-wrangling--text-value-handling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>데이터 시각화 및 데이터 표준화를 위해서 반드시 수행되는 과정입니다. 데이터를 어떻게 사용할 것인가와 최종 사용 양상을 고려해서 이에 맞도로 데이터를 수정하는 과정입니다. 이에 자주 사용하는 방법은 gather, spread, seprate, unite, unique등이 이 있습니다 이에 대한 실습을 수행하겠습니다.
-제가 어떠한 일을 한때 50%는 위의 gather, spread, seprate, unique와 str_()를 사용하게 됩니다.
-추가적 내용은 Garrett Grolemund, Hadley Wickham의 <code>R for Data Science</code>예제와 실습과제를 이용하여 살펴 보시기 바랍니다 .
-<code>stringr</code>을 이용해서 문자 변수를 핸들링하게 되는데 이때 알야될 부분은 <code>Regular Expressions</code>이고 이는 아래 cheat sheet을 살펴보면서 응용하시면 됩니다. 참고로 Rstudio에서 여러 cheat sheet을 제공하는데 (<a href="https://rstudio.com/resources/cheatsheets/" class="uri">https://rstudio.com/resources/cheatsheets/</a>) 필요에 따라 사용하시기 바랍니다.
-우선 Stringr Cheat Sheet는</p>
-<p><embed src="images/strings.pdf" height="800" />
-<img src="images/strings.pdf" width="1200" height = "600">
-[Stringer Cheat Sheet download]:<a href="https://github.com/rstudio/cheatsheets/raw/master/strings.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/strings.pdf</a></p>
+<p>데이터 시각화 및 데이터 표준화를 위해서 반드시 수행되는 과정입니다. 데이터를 어떻게 사용할 것인가와 최종 사용 양상을 고려해서 이에 맞도로 데이터를 수정하는 과정입니다. 이에 자주 사용하는 방법은 gather, spread, seprate, unite, unique등이 이 있습니다 이에 대한 실습을 수행하겠습니다. 제가 어떠한 일을 한때 50%는 위의 pivot_longer, pivot_wider, seprate, unique와 str_()를 사용하게 됩니다. 추가적 내용은 Garrett Grolemund, Hadley Wickham의 <code>R for Data Science</code>예제와 실습과제를 이용하여 살펴 보시기 바랍니다 . <code>stringr</code>을 이용해서 문자 변수를 핸들링하게 되는데 이때 알야될 부분은 <code>Regular Expressions</code>이고 이는 아래 cheat sheet을 살펴보면서 응용하시면 됩니다. 참고로 Rstudio에서 여러 cheat sheet을 제공하는데 (<a href="https://rstudio.com/resources/cheatsheets/" class="uri">https://rstudio.com/resources/cheatsheets/</a>) 필요에 따라 사용하시기 바랍니다. 우선 Stringr Cheat Sheet는 <a href="https://github.com/rstudio/cheatsheets/raw/master/strings.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/strings.pdf</a> 여기서 다운로드받으세요. <br></p>
+<iframe src="images/strings.pdf#view=FitH" style="width: 100%; height: 80vh">
+</iframe>
 <div id="동영상" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> 동영상<a href="data-wrangling--text-value-handling.html#동영상" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ecvW0P3uIN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -469,7 +464,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="data-wrangling--text-value-handling.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="data-wrangling--text-value-handling.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-4"><a href="data-wrangling--text-value-handling.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-wrangling--text-value-handling.html#cb2-1" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&#39;data/exp00.xlsx&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-wrangling--text-value-handling.html#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">&quot;https://dspubs.org/webapps/forum/open_data/exp00.xlsx&quot;</span></span>
+<span id="cb2-2"><a href="data-wrangling--text-value-handling.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">&quot;data/exp00.xlsx&quot;</span>)</span>
+<span id="cb2-3"><a href="data-wrangling--text-value-handling.html#cb2-3" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&#39;data/exp00.xlsx&#39;</span>)</span></code></pre></div>
 <p>아래 데이터를 살펴보면 exposure 변수에 값들이 있고, 이 값들은 <code>,</code>를 이용하여 구분되고 있습니다. 우리가 자주 사용하는 데이터를 입력하는데 있어서 여러 에러를 없애기 위해 상기 방법을 사용하고는 합니다. 그런데 막상 분석을 수행하여 <code>망간</code>에 노출된 사람이 몇명인가를 어떻게 알수 있을까요? 가장 쉬운 방법은 <code>str_detect()</code>를 사용하는 것입니다. 그러나 소음은, 톨루엔은, 분진은, 염화비닐은 이렇게 늘어나는 경우에는 어떻게 하는 것이 좋을 까요 그것은 long form 또는 wide form으로 데이터를 만드는 것입니다.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-wrangling--text-value-handling.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp1<span class="sc">$</span>exposure)</span></code></pre></div>
 <pre><code>## [1] &quot;망간및그무기화합물함유제제,산화아연(흄)함유제제,크롬과그무기화합물(수용성 6가크롬),소음,용접흄&quot;                                
@@ -526,16 +523,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-2"><a href="data-wrangling--text-value-handling.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="data-wrangling--text-value-handling.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na_if</span>(., <span class="st">&quot;&quot;</span>)</span>
 <span id="cb9-4"><a href="data-wrangling--text-value-handling.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(<span class="fu">head</span>(exp.m[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]))</span></code></pre></div>
-<div id="htmlwidget-1e940911c22376b4dc28" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1e940911c22376b4dc28">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"],["소음","소음","산화철분진과흄함유제제","산화철분진과흄함유제제",null,"방사선"],["용접흄","용접흄","크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n      <th>V4<\/th>\n      <th>V5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a03dec8379486e7d8508" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a03dec8379486e7d8508">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"],["소음","소음","산화철분진과흄함유제제","산화철분진과흄함유제제",null,"방사선"],["용접흄","용접흄","크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n      <th>V4<\/th>\n      <th>V5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
 <p>이렇게 만들어 진 파을 처음 파일과 합치도록 하겠습니다.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling--text-value-handling.html#cb10-1" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(exp1, exp.m) </span>
 <span id="cb10-2"><a href="data-wrangling--text-value-handling.html#cb10-2" aria-hidden="true" tabindex="-1"></a>exp3 <span class="ot">&lt;-</span> exp2 <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="data-wrangling--text-value-handling.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>exposure)</span>
 <span id="cb10-4"><a href="data-wrangling--text-value-handling.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="data-wrangling--text-value-handling.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(<span class="fu">head</span>(exp3[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]) )</span></code></pre></div>
-<div id="htmlwidget-f93391f3171164b1178e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f93391f3171164b1178e">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],[48064,48065,62526,62527,174043,306072],["2008-03-21","2008-03-21","2008-07-02","2008-07-02","2011-12-22","2014-12-09"],[1,1,1,1,2,3],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vo<\/th>\n      <th>sdate<\/th>\n      <th>id<\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-105b7c44afbb0ad5f3c9" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-105b7c44afbb0ad5f3c9">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],[48064,48065,62526,62527,174043,306072],["2008-03-21","2008-03-21","2008-07-02","2008-07-02","2011-12-22","2014-12-09"],[1,1,1,1,2,3],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vo<\/th>\n      <th>sdate<\/th>\n      <th>id<\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="gather-pivot_longer" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">13.4</span> gather (pivot_longer)<a href="data-wrangling--text-value-handling.html#gather-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -623,7 +620,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 2008-03-21     1                      0
 ## 3 2008-07-02     1                      1
 ## 4 2008-07-02     1                      1</code></pre>
-<p>저는 데이터 클리닝과 visualization에서는 주로 long form을 데이터 분석에서는 wide form을 사용하고 있습니다. 참고로 common data model을 만들때 long form 데이터를 사용하지 않고서는 표준화가 불가능하다고 할 수 도 있습니다.</p>
+<p>저는 데이터 클리닝과 visualization에서는 주로 long form을 데이터 분석에서는 wide form을 사용하고 있습니다.</p>
 </div>
 <div id="stringr" class="section level2 hasAnchor" number="13.6">
 <h2><span class="header-section-number">13.6</span> stringr<a href="data-wrangling--text-value-handling.html#stringr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -672,10 +669,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="과제-1" class="section level3 hasAnchor" number="13.6.3">
 <h3><span class="header-section-number">13.6.3</span> 과제<a href="data-wrangling--text-value-handling.html#과제-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>R 코드를 제출하세요</p>
+<p>R 코드를 작성해 보세요</p>
 <ol style="list-style-type: decimal">
-<li>“납”의 노출 종류는 몇가지 인가요? 힌트
-<code>long %&gt;% filter(str_detect(??, ??)) %&gt;% pull(??) %&gt;% unique()</code></li>
+<li>“납”의 노출 종류는 몇가지 인가요? 힌트 <code>long %&gt;% filter(str_detect(??, ??)) %&gt;% pull(??) %&gt;% unique()</code></li>
 </ol>
 <pre><code>## [1] &quot;납(연)및그무기화합물함유제제&quot; &quot;납(연)및그무기화합물&quot;        
 ## [3] &quot;납.납화합물&quot;</code></pre>
