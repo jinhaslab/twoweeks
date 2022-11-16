@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Data Wrangling- Text Handling | DsPubs with R tutor book</title>
+  <meta name="description" content="Chapter 13 Data Wrangling- Text Handling | DsPubs with R tutor book" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Data Wrangling- Text Handling | DsPubs with R tutor book" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Data Wrangling- Text Handling | DsPubs with R tutor book" />
+  
+  
+  
+
+<meta name="author" content="jinha" />
+
+
+<meta name="date" content="2022-11-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="wave-form-data-visualization-example-for-public-health.html"/>
+<link rel="next" href="web-scraping.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://dspubs.org/webapps">DsPubs</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Let’s Start with R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud-and-colab"><i class="fa fa-check"></i><b>2.1</b> Rstudio Cloud, and colab</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1.1</b> Rstudio Cloud</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#colab"><i class="fa fa-check"></i><b>2.1.2</b> Colab</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-window-system"><i class="fa fa-check"></i><b>2.2</b> R and R studio on Window system</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-install"><i class="fa fa-check"></i><b>2.2.1</b> R studio install</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-studio-project"><i class="fa fa-check"></i><b>2.2.2</b> R studio project</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lets-start-with-r-and-r-studio.html"><a href="lets-start-with-r-and-r-studio.html#r-and-r-studio-on-ubuntus"><i class="fa fa-check"></i><b>2.3</b> R and R studio on Ubuntus</a></li>
+</ul></li>
+<li class="part"><span><b>I R</b></span></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#vector-matirx-list"><i class="fa fa-check"></i><b>3.1</b> vector matirx list</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="r-basics.html"><a href="r-basics.html#오브젝트-objects"><i class="fa fa-check"></i><b>3.1.1</b> 오브젝트 (objects)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-basics.html"><a href="r-basics.html#백터-vectors-팩터-factors"><i class="fa fa-check"></i><b>3.1.2</b> 백터 (Vectors), 팩터 (factors)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-basics.html"><a href="r-basics.html#매트릭스-matrix-데이터프래임-data-frame-리스트-list"><i class="fa fa-check"></i><b>3.1.3</b> 매트릭스 (Matrix), 데이터프래임 (data frame), 리스트 (list)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#데이터-생성-저장"><i class="fa fa-check"></i><b>3.2</b> 데이터 생성 저장</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#built-in-data-sets"><i class="fa fa-check"></i><b>3.2.1</b> built-in data sets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-program-basic.html"><a href="r-program-basic.html"><i class="fa fa-check"></i><b>4</b> R program basic</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-program-basic.html"><a href="r-program-basic.html#기초-연산"><i class="fa fa-check"></i><b>4.1</b> 기초 연산</a></li>
+<li class="chapter" data-level="4.2" data-path="r-program-basic.html"><a href="r-program-basic.html#조건부-연산"><i class="fa fa-check"></i><b>4.2</b> 조건부 연산</a></li>
+<li class="chapter" data-level="4.3" data-path="r-program-basic.html"><a href="r-program-basic.html#함수-만들기"><i class="fa fa-check"></i><b>4.3</b> 함수 만들기</a></li>
+<li class="chapter" data-level="4.4" data-path="r-program-basic.html"><a href="r-program-basic.html#반복문-vectorization-functionals"><i class="fa fa-check"></i><b>4.4</b> 반복문, vectorization, functionals</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="r-program-basic.html"><a href="r-program-basic.html#for-loop"><i class="fa fa-check"></i><b>4.4.1</b> for loop</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-program-basic.html"><a href="r-program-basic.html#vectorization-과-apply-구문"><i class="fa fa-check"></i><b>4.4.2</b> vectorization 과 apply 구문</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-program-basic.html"><a href="r-program-basic.html#home-work-and-summary-function"><i class="fa fa-check"></i><b>4.4.3</b> home work and summary function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#dplyr-tidyverse"><i class="fa fa-check"></i><b>5.1</b> dplyr (tidyverse)</a></li>
+<li class="chapter" data-level="5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#실습-데이터-준비"><i class="fa fa-check"></i><b>5.2</b> 실습 데이터 준비</a></li>
+<li class="chapter" data-level="5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#select"><i class="fa fa-check"></i><b>5.3</b> select</a></li>
+<li class="chapter" data-level="5.4" data-path="data-manipulation.html"><a href="data-manipulation.html#filter"><i class="fa fa-check"></i><b>5.4</b> filter</a></li>
+<li class="chapter" data-level="5.5" data-path="data-manipulation.html"><a href="data-manipulation.html#arrange"><i class="fa fa-check"></i><b>5.5</b> arrange</a></li>
+<li class="chapter" data-level="5.6" data-path="data-manipulation.html"><a href="data-manipulation.html#mutate"><i class="fa fa-check"></i><b>5.6</b> mutate</a></li>
+<li class="chapter" data-level="5.7" data-path="data-manipulation.html"><a href="data-manipulation.html#group_by"><i class="fa fa-check"></i><b>5.7</b> group_by</a></li>
+<li class="chapter" data-level="5.8" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-join"><i class="fa fa-check"></i><b>5.8</b> merge, join</a></li>
+</ul></li>
+<li class="part"><span><b>II Visualization</b></span></li>
+<li class="chapter" data-level="6" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html"><i class="fa fa-check"></i><b>6</b> Tables for public health 1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#데이터표-준비"><i class="fa fa-check"></i><b>6.1</b> 데이터표 준비</a></li>
+<li class="chapter" data-level="6.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#central-tendency-mean-median-mode"><i class="fa fa-check"></i><b>6.2</b> Central Tendency (mean, median, mode)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#하나씩-반복"><i class="fa fa-check"></i><b>6.2.1</b> 하나씩 반복</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-summary-and-table-1"><i class="fa fa-check"></i><b>6.2.2</b> Group_by summary and Table 1</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1"><i class="fa fa-check"></i><b>6.2.3</b> Long File and Table 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#count-and-distribution"><i class="fa fa-check"></i><b>6.3</b> Count and Distribution</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#하나씩-반복-1"><i class="fa fa-check"></i><b>6.3.1</b> 하나씩 반복</a></li>
+<li class="chapter" data-level="6.3.2" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#group_by-summary-and-table-1-1"><i class="fa fa-check"></i><b>6.3.2</b> Group_by summary and Table 1</a></li>
+<li class="chapter" data-level="6.3.3" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#long-file-and-table-1-1"><i class="fa fa-check"></i><b>6.3.3</b> Long File and Table 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#정리-1"><i class="fa fa-check"></i><b>6.4</b> 정리 1</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="tables-for-public-health-1.html"><a href="tables-for-public-health-1.html#과제"><i class="fa fa-check"></i><b>6.4.1</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Tables2.html"><a href="Tables2.html"><i class="fa fa-check"></i><b>7</b> Tables for public health 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="Tables2.html"><a href="Tables2.html#데이터-준비"><i class="fa fa-check"></i><b>7.1</b> 데이터 준비</a></li>
+<li class="chapter" data-level="7.2" data-path="Tables2.html"><a href="Tables2.html#분석-주제-선정"><i class="fa fa-check"></i><b>7.2</b> 분석 주제 선정</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="Tables2.html"><a href="Tables2.html#근로환경조사와-recode-선택사항"><i class="fa fa-check"></i><b>7.2.1</b> 근로환경조사와 recode (선택사항)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="Tables2.html"><a href="Tables2.html#근로환경조사-기본-변수-생성"><i class="fa fa-check"></i><b>7.2.2</b> 근로환경조사 기본 변수 생성</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="Tables2.html"><a href="Tables2.html#근로환경조사-table-1-만들기"><i class="fa fa-check"></i><b>7.3</b> 근로환경조사 Table 1 만들기</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="Tables2.html"><a href="Tables2.html#변수-값-요약하기"><i class="fa fa-check"></i><b>7.3.1</b> 변수 값 요약하기</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Tables2.html"><a href="Tables2.html#p-value-구하기."><i class="fa fa-check"></i><b>7.3.2</b> P value 구하기.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="Tables2.html"><a href="Tables2.html#table-1-정리하기"><i class="fa fa-check"></i><b>7.4</b> Table 1 정리하기</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="Tables2.html"><a href="Tables2.html#htmltable-visulaization"><i class="fa fa-check"></i><b>7.4.1</b> htmlTable visulaization</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="Tables2.html"><a href="Tables2.html#kwcsfunction"><i class="fa fa-check"></i><b>7.5</b> 함수만들기</a></li>
+<li class="chapter" data-level="7.6" data-path="Tables2.html"><a href="Tables2.html#quiz"><i class="fa fa-check"></i><b>7.6</b> Quiz</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="Tables2.html"><a href="Tables2.html#quiz1"><i class="fa fa-check"></i><b>7.6.1</b> Quiz1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="Tables2.html"><a href="Tables2.html#quiz-2"><i class="fa fa-check"></i><b>7.6.2</b> Quiz 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html"><i class="fa fa-check"></i><b>8</b> Tables for public health 3</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#데이터-준비-1"><i class="fa fa-check"></i><b>8.1</b> 데이터 준비</a></li>
+<li class="chapter" data-level="8.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#분석-주제-선정-1"><i class="fa fa-check"></i><b>8.2</b> 분석 주제 선정</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#근로환경조사-기본-변수-생성-선택"><i class="fa fa-check"></i><b>8.2.1</b> 근로환경조사 기본 변수 생성 (선택)</a></li>
+<li class="chapter" data-level="8.2.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#함수를-source-file-로-저장하기"><i class="fa fa-check"></i><b>8.2.2</b> 함수를 source file 로 저장하기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#logistic-regression-table"><i class="fa fa-check"></i><b>8.3</b> Logistic Regression Table</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱회귀분석-표-함수-1"><i class="fa fa-check"></i><b>8.3.1</b> 로지스틱회귀분석 표 함수 1</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱-회귀분석-표-2"><i class="fa fa-check"></i><b>8.3.2</b> 로지스틱 회귀분석 표 2</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tables-for-public-health-3.html"><a href="tables-for-public-health-3.html#로지스틱-회귀분석-3"><i class="fa fa-check"></i><b>8.3.3</b> 로지스틱 회귀분석 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html"><i class="fa fa-check"></i><b>9</b> Tables for public health summary</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#install-package-from-github"><i class="fa fa-check"></i><b>9.1</b> install package from github</a></li>
+<li class="chapter" data-level="9.2" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#data-import-and-manipulation"><i class="fa fa-check"></i><b>9.2</b> data import and manipulation</a></li>
+<li class="chapter" data-level="9.3" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#select-variables-and-table-1"><i class="fa fa-check"></i><b>9.3</b> select variables, and table 1</a></li>
+<li class="chapter" data-level="9.4" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#logistic-regression-model-and-table-3"><i class="fa fa-check"></i><b>9.4</b> logistic regression model and table 3</a></li>
+<li class="chapter" data-level="9.5" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#quiz-1"><i class="fa fa-check"></i><b>9.5</b> Quiz</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#install-and-load-library-tabf"><i class="fa fa-check"></i><b>9.5.1</b> install and load library tabf</a></li>
+<li class="chapter" data-level="9.5.2" data-path="tables-for-public-health-summary.html"><a href="tables-for-public-health-summary.html#data-manipulation-1"><i class="fa fa-check"></i><b>9.5.2</b> data manipulation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html"><i class="fa fa-check"></i><b>10</b> Basic plot with R</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#ggplot-basic"><i class="fa fa-check"></i><b>10.1</b> ggplot basic</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#axis"><i class="fa fa-check"></i><b>10.1.1</b> axis</a></li>
+<li class="chapter" data-level="10.1.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#layer-geom_x"><i class="fa fa-check"></i><b>10.1.2</b> layer, geom_x()</a></li>
+<li class="chapter" data-level="10.1.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_point"><i class="fa fa-check"></i><b>10.1.3</b> geom_point()</a></li>
+<li class="chapter" data-level="10.1.4" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_smooth"><i class="fa fa-check"></i><b>10.1.4</b> geom_smooth()</a></li>
+<li class="chapter" data-level="10.1.5" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#faceting"><i class="fa fa-check"></i><b>10.1.5</b> faceting</a></li>
+<li class="chapter" data-level="10.1.6" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_bar"><i class="fa fa-check"></i><b>10.1.6</b> geom_bar()</a></li>
+<li class="chapter" data-level="10.1.7" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_density-geom_histogram"><i class="fa fa-check"></i><b>10.1.7</b> geom_density() , geom_histogram()</a></li>
+<li class="chapter" data-level="10.1.8" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#geom_boxplot"><i class="fa fa-check"></i><b>10.1.8</b> geom_boxplot()</a></li>
+<li class="chapter" data-level="10.1.9" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#d-plot"><i class="fa fa-check"></i><b>10.1.9</b> 3d plot</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#visualzation-example-1"><i class="fa fa-check"></i><b>10.2</b> Visualzation example 1</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#simple-machine-learning-decision-tree"><i class="fa fa-check"></i><b>10.2.1</b> simple machine learning decision tree</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="basic-plot-with-r.html"><a href="basic-plot-with-r.html#summary"><i class="fa fa-check"></i><b>10.3</b> summary</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html"><i class="fa fa-check"></i><b>11</b> Statistical Plot with ggplot2</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#prerequisite"><i class="fa fa-check"></i><b>11.1</b> Prerequisite</a></li>
+<li class="chapter" data-level="11.2" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#t-test-and-chisq-test-visualization"><i class="fa fa-check"></i><b>11.2</b> T-test and Chisq-test Visualization</a></li>
+<li class="chapter" data-level="11.3" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#odds-ratio-and-95-confidence-interval"><i class="fa fa-check"></i><b>11.3</b> Odds ratio and 95% confidence interval</a></li>
+<li class="chapter" data-level="11.4" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#Labeled"><i class="fa fa-check"></i><b>11.4</b> Multilevel and Labelled Data</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#introduction-1"><i class="fa fa-check"></i><b>11.4.1</b> introduction</a></li>
+<li class="chapter" data-level="11.4.2" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#data-analysis-start"><i class="fa fa-check"></i><b>11.4.2</b> Data analysis start</a></li>
+<li class="chapter" data-level="11.4.3" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#job-loss-psychological-aggravation-according-to-education-level"><i class="fa fa-check"></i><b>11.4.3</b> job loss, psychological aggravation according to Education level</a></li>
+<li class="chapter" data-level="11.4.4" data-path="statistical-plot-with-ggplot2.html"><a href="statistical-plot-with-ggplot2.html#visulization-with-human-develop-index-stratification"><i class="fa fa-check"></i><b>11.4.4</b> Visulization with human develop index stratification</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html"><i class="fa fa-check"></i><b>12</b> wave form data visualization example for public health</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html#data-visualization-example-eeg-data"><i class="fa fa-check"></i><b>12.0.1</b> Data Visualization example (EEG data)</a></li>
+<li class="chapter" data-level="12.0.2" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html#introduction-2"><i class="fa fa-check"></i><b>12.0.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.0.3" data-path="wave-form-data-visualization-example-for-public-health.html"><a href="wave-form-data-visualization-example-for-public-health.html#dataset-and-data-step"><i class="fa fa-check"></i><b>12.0.3</b> Dataset and Data step</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html"><i class="fa fa-check"></i><b>13</b> Data Wrangling- Text Handling</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#동영상"><i class="fa fa-check"></i><b>13.1</b> 동영상</a></li>
+<li class="chapter" data-level="13.2" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#문제-제기"><i class="fa fa-check"></i><b>13.2</b> 문제 제기</a></li>
+<li class="chapter" data-level="13.3" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#split"><i class="fa fa-check"></i><b>13.3</b> split</a></li>
+<li class="chapter" data-level="13.4" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#gather-pivot_longer"><i class="fa fa-check"></i><b>13.4</b> gather (pivot_longer)</a></li>
+<li class="chapter" data-level="13.5" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#spread-pivot_wider"><i class="fa fa-check"></i><b>13.5</b> spread (pivot_wider)</a></li>
+<li class="chapter" data-level="13.6" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#stringr"><i class="fa fa-check"></i><b>13.6</b> stringr</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#분진-노출자-찾기"><i class="fa fa-check"></i><b>13.6.1</b> 분진 노출자 찾기</a></li>
+<li class="chapter" data-level="13.6.2" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#특정-문자-변환"><i class="fa fa-check"></i><b>13.6.2</b> 특정 문자 변환</a></li>
+<li class="chapter" data-level="13.6.3" data-path="data-wrangling--text-handling.html"><a href="data-wrangling--text-handling.html#과제-1"><i class="fa fa-check"></i><b>13.6.3</b> 과제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>14</b> Web Scraping</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="web-scraping.html"><a href="web-scraping.html#issue-of-covid19-in-korea"><i class="fa fa-check"></i><b>14.1</b> issue of COVID19 in Korea</a></li>
+<li class="chapter" data-level="14.2" data-path="web-scraping.html"><a href="web-scraping.html#homework"><i class="fa fa-check"></i><b>14.2</b> homework</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="web-scraping.html"><a href="web-scraping.html#download-cumulative-covid19-death"><i class="fa fa-check"></i><b>14.2.1</b> download Cumulative covid19 death</a></li>
+<li class="chapter" data-level="14.2.2" data-path="web-scraping.html"><a href="web-scraping.html#uk-italy-france-spain-usa-canada"><i class="fa fa-check"></i><b>14.2.2</b> UK, Italy, France, Spain, USA, Canada</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="web-scraping.html"><a href="web-scraping.html#review-of-title-from-google-scholar"><i class="fa fa-check"></i><b>14.3</b> Review of title from google scholar</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="web-scraping.html"><a href="web-scraping.html#googl-scholar"><i class="fa fa-check"></i><b>14.3.1</b> googl scholar</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2"><i class="fa fa-check"></i><b>14.4</b> home work 2</a></li>
+<li class="chapter" data-level="14.5" data-path="web-scraping.html"><a href="web-scraping.html#black-report-2"><i class="fa fa-check"></i><b>14.5</b> Black Report 2</a></li>
+<li class="chapter" data-level="14.6" data-path="web-scraping.html"><a href="web-scraping.html#home-work-2-1"><i class="fa fa-check"></i><b>14.6</b> home work 2</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html"><i class="fa fa-check"></i><b>15</b> WebScraping Example 3: PubMed and R with EndNote</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pubmed-검색-방법"><i class="fa fa-check"></i><b>15.1</b> PubMed 검색 방법</a></li>
+<li class="chapter" data-level="15.2" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#r-에서-pubmed-query-사용"><i class="fa fa-check"></i><b>15.2</b> R 에서 PubMed Query 사용</a></li>
+<li class="chapter" data-level="15.3" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#pdf-자동-보고서"><i class="fa fa-check"></i><b>15.3</b> PDF 자동 보고서</a></li>
+<li class="chapter" data-level="15.4" data-path="webscraping-example-3-pubmed-and-r-with-endnote.html"><a href="webscraping-example-3-pubmed-and-r-with-endnote.html#원문-pdf-찾기"><i class="fa fa-check"></i><b>15.4</b> 원문 PDF 찾기</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="date-and-time-series.html"><a href="date-and-time-series.html"><i class="fa fa-check"></i><b>16</b> Date and time series</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create"><i class="fa fa-check"></i><b>16.1</b> Date create</a></li>
+<li class="chapter" data-level="16.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#tutor-heat-wave-and-death"><i class="fa fa-check"></i><b>16.2</b> Tutor: heat wave and death</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#date-create-1"><i class="fa fa-check"></i><b>16.2.1</b> date create</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work"><i class="fa fa-check"></i><b>16.3</b> home work</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home0"><i class="fa fa-check"></i><b>16.3.1</b> home0</a></li>
+<li class="chapter" data-level="16.3.2" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work1"><i class="fa fa-check"></i><b>16.3.2</b> home work1</a></li>
+<li class="chapter" data-level="16.3.3" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work2"><i class="fa fa-check"></i><b>16.3.3</b> home work2</a></li>
+<li class="chapter" data-level="16.3.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#home-work3"><i class="fa fa-check"></i><b>16.3.4</b> home work3</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis"><i class="fa fa-check"></i><b>16.4</b> Time series data analysis</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="date-and-time-series.html"><a href="date-and-time-series.html#outside-사망에-대해서"><i class="fa fa-check"></i><b>16.4.1</b> outside 사망에 대해서</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="date-and-time-series.html"><a href="date-and-time-series.html#time-series-data-analysis-regression"><i class="fa fa-check"></i><b>16.5</b> Time series data analysis, regression</a></li>
+<li class="chapter" data-level="16.6" data-path="date-and-time-series.html"><a href="date-and-time-series.html#introduction-3"><i class="fa fa-check"></i><b>16.6</b> introduction</a></li>
+<li class="chapter" data-level="16.7" data-path="date-and-time-series.html"><a href="date-and-time-series.html#미세먼지와-심혈관사망"><i class="fa fa-check"></i><b>16.7</b> 미세먼지와 심혈관사망</a></li>
+<li class="chapter" data-level="16.8" data-path="date-and-time-series.html"><a href="date-and-time-series.html#방법-tutor"><i class="fa fa-check"></i><b>16.8</b> 방법 tutor</a></li>
+</ul></li>
+<li class="part"><span><b>IV Repeat and Reproducibility</b></span></li>
+<li class="chapter" data-level="17" data-path="repeated-analysis.html"><a href="repeated-analysis.html"><i class="fa fa-check"></i><b>17</b> Repeated analysis</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#추출"><i class="fa fa-check"></i><b>17.1</b> 추출</a></li>
+<li class="chapter" data-level="17.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#파일-불러오기"><i class="fa fa-check"></i><b>17.2</b> 파일 불러오기</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-2"><i class="fa fa-check"></i><b>17.2.1</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#분석-반복하기-change-point-찾기"><i class="fa fa-check"></i><b>17.3</b> 분석 반복하기 (change point 찾기)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#자료-생성"><i class="fa fa-check"></i><b>17.3.1</b> 자료 생성</a></li>
+<li class="chapter" data-level="17.3.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#가상의-threshold-값-수행해보기"><i class="fa fa-check"></i><b>17.3.2</b> 가상의 threshold 값 수행해보기</a></li>
+<li class="chapter" data-level="17.3.3" data-path="repeated-analysis.html"><a href="repeated-analysis.html#과제-3"><i class="fa fa-check"></i><b>17.3.3</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="repeated-analysis.html"><a href="repeated-analysis.html#repeated-analysis-big-data"><i class="fa fa-check"></i><b>17.4</b> Repeated analysis (big data)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-profile"><i class="fa fa-check"></i><b>17.4.1</b> Data profile</a></li>
+<li class="chapter" data-level="17.4.2" data-path="repeated-analysis.html"><a href="repeated-analysis.html#data-handling-start"><i class="fa fa-check"></i><b>17.4.2</b> data handling start</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Communication</b></span></li>
+<li class="chapter" data-level="18" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>18</b> R markdown</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="r-markdown.html"><a href="r-markdown.html#설치"><i class="fa fa-check"></i><b>18.1</b> 설치</a></li>
+<li class="chapter" data-level="18.2" data-path="r-markdown.html"><a href="r-markdown.html#components"><i class="fa fa-check"></i><b>18.2</b> 3 components</a></li>
+<li class="chapter" data-level="18.3" data-path="r-markdown.html"><a href="r-markdown.html#simple-tutor"><i class="fa fa-check"></i><b>18.3</b> simple tutor</a></li>
+<li class="chapter" data-level="18.4" data-path="r-markdown.html"><a href="r-markdown.html#chunck-option"><i class="fa fa-check"></i><b>18.4</b> chunck option</a></li>
+<li class="chapter" data-level="18.5" data-path="r-markdown.html"><a href="r-markdown.html#table-만들기"><i class="fa fa-check"></i><b>18.5</b> Table 만들기</a></li>
+<li class="chapter" data-level="18.6" data-path="r-markdown.html"><a href="r-markdown.html#필독"><i class="fa fa-check"></i><b>18.6</b> 필독!</a></li>
+<li class="chapter" data-level="18.7" data-path="r-markdown.html"><a href="r-markdown.html#동영상-1"><i class="fa fa-check"></i><b>18.7</b> 동영상</a></li>
+<li class="chapter" data-level="18.8" data-path="r-markdown.html"><a href="r-markdown.html#과제-4"><i class="fa fa-check"></i><b>18.8</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html"><i class="fa fa-check"></i><b>19</b> Rmarkdown and reporting</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-word-office-down"><i class="fa fa-check"></i><b>19.1</b> Rmarkdown and Word (office down)</a></li>
+<li class="chapter" data-level="19.2" data-path="rmarkdown-and-reporting.html"><a href="rmarkdown-and-reporting.html#rmarkdown-and-pdf"><i class="fa fa-check"></i><b>19.2</b> Rmarkdown and PDF</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="google-maps-platform.html"><a href="google-maps-platform.html"><i class="fa fa-check"></i><b>20</b> Google Maps Platform</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-tackeout"><i class="fa fa-check"></i><b>20.1</b> Google Tackeout</a></li>
+<li class="chapter" data-level="20.2" data-path="google-maps-platform.html"><a href="google-maps-platform.html#data-visualization"><i class="fa fa-check"></i><b>20.2</b> Data visualization</a></li>
+<li class="chapter" data-level="20.3" data-path="google-maps-platform.html"><a href="google-maps-platform.html#google-api"><i class="fa fa-check"></i><b>20.3</b> google API</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>21</b> Map using leaflet</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="leaflet.html"><a href="leaflet.html#leaflet-1"><i class="fa fa-check"></i><b>21.1</b> leaflet</a></li>
+<li class="chapter" data-level="21.2" data-path="leaflet.html"><a href="leaflet.html#위치와-시간표시"><i class="fa fa-check"></i><b>21.2</b> 위치와 시간표시</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="shinyapps.html"><a href="shinyapps.html"><i class="fa fa-check"></i><b>22</b> shinyapps</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="shinyapps.html"><a href="shinyapps.html#설치-1"><i class="fa fa-check"></i><b>22.1</b> 설치</a></li>
+<li class="chapter" data-level="22.2" data-path="shinyapps.html"><a href="shinyapps.html#예제"><i class="fa fa-check"></i><b>22.2</b> 예제</a></li>
+<li class="chapter" data-level="22.3" data-path="shinyapps.html"><a href="shinyapps.html#예제-1-만들기"><i class="fa fa-check"></i><b>22.3</b> 예제 1 만들기</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="shinyapps.html"><a href="shinyapps.html#구조"><i class="fa fa-check"></i><b>22.3.1</b> 구조</a></li>
+<li class="chapter" data-level="22.3.2" data-path="shinyapps.html"><a href="shinyapps.html#input-output"><i class="fa fa-check"></i><b>22.3.2</b> input, output</a></li>
+<li class="chapter" data-level="22.3.3" data-path="shinyapps.html"><a href="shinyapps.html#과제-5"><i class="fa fa-check"></i><b>22.3.3</b> 과제</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="shinyapps.html"><a href="shinyapps.html#지도앱-만들기"><i class="fa fa-check"></i><b>22.4</b> 지도앱 만들기</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DsPubs with R tutor book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-wrangling--text-handling" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Data Wrangling- Text Handling<a href="data-wrangling--text-handling.html#data-wrangling--text-handling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>데이터 시각화 및 데이터 표준화를 위해서 반드시 수행되는 과정입니다. 데이터를 어떻게 사용할 것인가와 최종 사용 양상을 고려해서 이에 맞도로 데이터를 수정하는 과정입니다. 이에 자주 사용하는 방법은 gather, spread, seprate, unite, unique등이 이 있습니다 이에 대한 실습을 수행하겠습니다.
+제가 어떠한 일을 한때 50%는 위의 gather, spread, seprate, unique와 str_()를 사용하게 됩니다.
+추가적 내용은 Garrett Grolemund, Hadley Wickham의 <code>R for Data Science</code>예제와 실습과제를 이용하여 살펴 보시기 바랍니다 .
+<code>stringr</code>을 이용해서 문자 변수를 핸들링하게 되는데 이때 알야될 부분은 <code>Regular Expressions</code>이고 이는 아래 cheat sheet을 살펴보면서 응용하시면 됩니다. 참고로 Rstudio에서 여러 cheat sheet을 제공하는데 (<a href="https://rstudio.com/resources/cheatsheets/" class="uri">https://rstudio.com/resources/cheatsheets/</a>) 필요에 따라 사용하시기 바랍니다.
+우선 Stringr Cheat Sheet는</p>
+<p><embed src="images/strings.pdf" style="width:100.0%" />
+[Stringer Cheat Sheet download]:<a href="https://github.com/rstudio/cheatsheets/raw/master/strings.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/strings.pdf</a></p>
+<div id="동영상" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> 동영상<a href="data-wrangling--text-handling.html#동영상" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ecvW0P3uIN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="문제-제기" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> 문제 제기<a href="data-wrangling--text-handling.html#문제-제기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>아래와 같은 파일을 불러와 봅시다. 자료는 google classroom에 기타공지 Data Wrangling example에 있습니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-wrangling--text-handling.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="data-wrangling--text-handling.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="data-wrangling--text-handling.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="data-wrangling--text-handling.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-wrangling--text-handling.html#cb2-1" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&#39;data/exp00.xlsx&#39;</span>)</span></code></pre></div>
+<p>아래 데이터를 살펴보면 exposure 변수에 값들이 있고, 이 값들은 <code>,</code>를 이용하여 구분되고 있습니다. 우리가 자주 사용하는 데이터를 입력하는데 있어서 여러 에러를 없애기 위해 상기 방법을 사용하고는 합니다. 그런데 막상 분석을 수행하여 <code>망간</code>에 노출된 사람이 몇명인가를 어떻게 알수 있을까요? 가장 쉬운 방법은 <code>str_detect()</code>를 사용하는 것입니다. 그러나 소음은, 톨루엔은, 분진은, 염화비닐은 이렇게 늘어나는 경우에는 어떻게 하는 것이 좋을 까요 그것은 long form 또는 wide form으로 데이터를 만드는 것입니다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-wrangling--text-handling.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp1<span class="sc">$</span>exposure)</span></code></pre></div>
+<pre><code>## [1] &quot;망간및그무기화합물함유제제,산화아연(흄)함유제제,크롬과그무기화합물(수용성 6가크롬),소음,용접흄&quot;                                
+## [2] &quot;망간및그무기화합물함유제제,산화아연(흄)함유제제,크롬과그무기화합물(수용성 6가크롬),소음,용접흄&quot;                                
+## [3] &quot;일반검진,망간및그무기화합물함유제제,산화아연(흄)함유제제,산화철분진과흄함유제제,크롬과그무기화합물(수용성 6가크롬),소음,용접흄&quot;
+## [4] &quot;일반검진,망간및그무기화합물함유제제,산화아연(흄)함유제제,산화철분진과흄함유제제,크롬과그무기화합물(수용성 6가크롬),소음,용접흄&quot;
+## [5] &quot;일반검진&quot;                                                                                                                      
+## [6] &quot;일반검진,메틸알코올,포름알데히드,방사선&quot;</code></pre>
+<p>우선 한 변수 안에 여러 변수값(value)가 <code>,</code>로 구분되어 있는 것을 여러 변수 또는 여러 독립된 변수값으로 변형해 보겠습니다.</p>
+</div>
+<div id="split" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> split<a href="data-wrangling--text-handling.html#split" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>split</code>를 사용하여 <code>,</code>로 이루어진 변수를 나누어 보겠습니다. <code>split</code>는 문자를 다룰 때 가장 많이 사용하는 명령문 중 하나입니다. 이번 시간에는 <code>tidyverse</code> 패키지와의 통일을 위해 <code>str_split</code>을 사용하겠습니다. fruits에 <code>사과와 딸기와 오렌지</code>라는 문장이 있고, 이때 <code>와</code>를 기준으로 단어를 나누어 보겠습니다.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-wrangling--text-handling.html#cb5-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-2"><a href="data-wrangling--text-handling.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;사과와 딸기와 오렌지 &quot;</span></span>
+<span id="cb5-3"><a href="data-wrangling--text-handling.html#cb5-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-4"><a href="data-wrangling--text-handling.html#cb5-4" aria-hidden="true" tabindex="-1"></a>split_sentence <span class="ot">&lt;-</span> <span class="fu">str_split</span>(fruits, <span class="st">&quot;와&quot;</span> )</span>
+<span id="cb5-5"><a href="data-wrangling--text-handling.html#cb5-5" aria-hidden="true" tabindex="-1"></a>split_sentence</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;사과&quot;     &quot; 딸기&quot;    &quot; 오렌지 &quot;</code></pre>
+<p>같은 방법으로 위 <code>exposure</code>자료를 <code>,</code>를 기준으로 나누어 보겠습니다. 아래에서 <code>,</code> 를 기준으로 나누었을때 첫번째 항이 <code>일반검진</code>과 <code>망간(분진및 그화합물)</code>로 나누어 진것을 볼 수 있습니다.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-wrangling--text-handling.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(exp1<span class="sc">$</span>exposure, <span class="st">&quot;,&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="data-wrangling--text-handling.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##      [,1]                         [,2]                        
+## [1,] &quot;망간및그무기화합물함유제제&quot; &quot;산화아연(흄)함유제제&quot;      
+## [2,] &quot;망간및그무기화합물함유제제&quot; &quot;산화아연(흄)함유제제&quot;      
+## [3,] &quot;일반검진&quot;                   &quot;망간및그무기화합물함유제제&quot;
+## [4,] &quot;일반검진&quot;                   &quot;망간및그무기화합물함유제제&quot;
+## [5,] &quot;일반검진&quot;                   &quot;&quot;                          
+## [6,] &quot;일반검진&quot;                   &quot;메틸알코올&quot;                
+##      [,3]                                 [,4]                    
+## [1,] &quot;크롬과그무기화합물(수용성 6가크롬)&quot; &quot;소음&quot;                  
+## [2,] &quot;크롬과그무기화합물(수용성 6가크롬)&quot; &quot;소음&quot;                  
+## [3,] &quot;산화아연(흄)함유제제&quot;               &quot;산화철분진과흄함유제제&quot;
+## [4,] &quot;산화아연(흄)함유제제&quot;               &quot;산화철분진과흄함유제제&quot;
+## [5,] &quot;&quot;                                   &quot;&quot;                      
+## [6,] &quot;포름알데히드&quot;                       &quot;방사선&quot;                
+##      [,5]                                 [,6]   [,7]     [,8] [,9] [,10] [,11]
+## [1,] &quot;용접흄&quot;                             &quot;&quot;     &quot;&quot;       &quot;&quot;   &quot;&quot;   &quot;&quot;    &quot;&quot;   
+## [2,] &quot;용접흄&quot;                             &quot;&quot;     &quot;&quot;       &quot;&quot;   &quot;&quot;   &quot;&quot;    &quot;&quot;   
+## [3,] &quot;크롬과그무기화합물(수용성 6가크롬)&quot; &quot;소음&quot; &quot;용접흄&quot; &quot;&quot;   &quot;&quot;   &quot;&quot;    &quot;&quot;   
+## [4,] &quot;크롬과그무기화합물(수용성 6가크롬)&quot; &quot;소음&quot; &quot;용접흄&quot; &quot;&quot;   &quot;&quot;   &quot;&quot;    &quot;&quot;   
+## [5,] &quot;&quot;                                   &quot;&quot;     &quot;&quot;       &quot;&quot;   &quot;&quot;   &quot;&quot;    &quot;&quot;   
+## [6,] &quot;&quot;                                   &quot;&quot;     &quot;&quot;       &quot;&quot;   &quot;&quot;   &quot;&quot;    &quot;&quot;   
+##      [,12] [,13] [,14]
+## [1,] &quot;&quot;    &quot;&quot;    &quot;&quot;   
+## [2,] &quot;&quot;    &quot;&quot;    &quot;&quot;   
+## [3,] &quot;&quot;    &quot;&quot;    &quot;&quot;   
+## [4,] &quot;&quot;    &quot;&quot;    &quot;&quot;   
+## [5,] &quot;&quot;    &quot;&quot;    &quot;&quot;   
+## [6,] &quot;&quot;    &quot;&quot;    &quot;&quot;</code></pre>
+<p>다만 몇가지 NA가 보이고 있습니다. NA는 문자이므로 ““를 통해 빈칸으로 만들어 주겠습니다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-wrangling--text-handling.html#cb9-1" aria-hidden="true" tabindex="-1"></a>exp.m <span class="ot">&lt;-</span><span class="fu">str_split</span>(exp1<span class="sc">$</span>exposure, <span class="st">&quot;,&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="data-wrangling--text-handling.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="data-wrangling--text-handling.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na_if</span>(., <span class="st">&quot;&quot;</span>)</span>
+<span id="cb9-4"><a href="data-wrangling--text-handling.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(<span class="fu">head</span>(exp.m[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]))</span></code></pre></div>
+<div id="htmlwidget-111bec7aa9219ff9ce34" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-111bec7aa9219ff9ce34">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"],["소음","소음","산화철분진과흄함유제제","산화철분진과흄함유제제",null,"방사선"],["용접흄","용접흄","크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n      <th>V4<\/th>\n      <th>V5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<p>이렇게 만들어 진 파을 처음 파일과 합치도록 하겠습니다.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling--text-handling.html#cb10-1" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(exp1, exp.m) </span>
+<span id="cb10-2"><a href="data-wrangling--text-handling.html#cb10-2" aria-hidden="true" tabindex="-1"></a>exp3 <span class="ot">&lt;-</span> exp2 <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="data-wrangling--text-handling.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>exposure)</span>
+<span id="cb10-4"><a href="data-wrangling--text-handling.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="data-wrangling--text-handling.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(<span class="fu">head</span>(exp3[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]) )</span></code></pre></div>
+<div id="htmlwidget-0289ad8af6cc3ad57907" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0289ad8af6cc3ad57907">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],[48064,48065,62526,62527,174043,306072],["2008-03-21","2008-03-21","2008-07-02","2008-07-02","2011-12-22","2014-12-09"],[1,1,1,1,2,3],["망간및그무기화합물함유제제","망간및그무기화합물함유제제","일반검진","일반검진","일반검진","일반검진"],["산화아연(흄)함유제제","산화아연(흄)함유제제","망간및그무기화합물함유제제","망간및그무기화합물함유제제",null,"메틸알코올"],["크롬과그무기화합물(수용성 6가크롬)","크롬과그무기화합물(수용성 6가크롬)","산화아연(흄)함유제제","산화아연(흄)함유제제",null,"포름알데히드"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vo<\/th>\n      <th>sdate<\/th>\n      <th>id<\/th>\n      <th>V1<\/th>\n      <th>V2<\/th>\n      <th>V3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="gather-pivot_longer" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> gather (pivot_longer)<a href="data-wrangling--text-handling.html#gather-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>visiting occurrence</code>,<code>data</code>, <code>id</code>에 대해서 long form 데이터를 만들어 분석하기 쉽게 하도록 하겠습니다. 무언가 좀더 자주 보는 모양의 데이터가 되었습니다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-wrangling--text-handling.html#cb11-1" aria-hidden="true" tabindex="-1"></a>exp4 <span class="ot">&lt;-</span> exp3 <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="data-wrangling--text-handling.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span><span class="fu">c</span>(vo, sdate, id), </span>
+<span id="cb11-3"><a href="data-wrangling--text-handling.html#cb11-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">names_to =</span> <span class="st">&#39;Vs&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;exposure&#39;</span>) </span>
+<span id="cb11-4"><a href="data-wrangling--text-handling.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp4)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##      vo sdate         id Vs    exposure                          
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                             
+## 1 48064 2008-03-21     1 V1    망간및그무기화합물함유제제        
+## 2 48064 2008-03-21     1 V2    산화아연(흄)함유제제              
+## 3 48064 2008-03-21     1 V3    크롬과그무기화합물(수용성 6가크롬)
+## 4 48064 2008-03-21     1 V4    소음                              
+## 5 48064 2008-03-21     1 V5    용접흄                            
+## 6 48064 2008-03-21     1 V6    &lt;NA&gt;</code></pre>
+<p>이때 발생된 NA는 빈칸을 억지로 가져오면서 생긴 것이기 때문에 필요가 없고, <code>Vs</code> 또한 필요한 부분이 아닙니다. 따라서 <code>na.omit()</code>을 이용하여 지우도록 하겠습니다.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-wrangling--text-handling.html#cb13-1" aria-hidden="true" tabindex="-1"></a>exp4 <span class="ot">&lt;-</span> exp3 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="data-wrangling--text-handling.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span><span class="fu">c</span>(vo,sdate,id), </span>
+<span id="cb13-3"><a href="data-wrangling--text-handling.html#cb13-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">names_to =</span> <span class="st">&#39;Vs&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;exposure&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="data-wrangling--text-handling.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Vs) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="data-wrangling--text-handling.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb13-6"><a href="data-wrangling--text-handling.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp4)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##      vo sdate         id exposure                          
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                             
+## 1 48064 2008-03-21     1 망간및그무기화합물함유제제        
+## 2 48064 2008-03-21     1 산화아연(흄)함유제제              
+## 3 48064 2008-03-21     1 크롬과그무기화합물(수용성 6가크롬)
+## 4 48064 2008-03-21     1 소음                              
+## 5 48064 2008-03-21     1 용접흄                            
+## 6 48065 2008-03-21     1 망간및그무기화합물함유제제</code></pre>
+<p>자 이제 ID가 1인 사람을 관찰해 보겠습니다. 2008년 3월과 2008년 7월에 용접흄에 노출되었네요. 좀 보기 편해졌습니다.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-wrangling--text-handling.html#cb15-1" aria-hidden="true" tabindex="-1"></a>exp4 <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="data-wrangling--text-handling.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(id <span class="sc">==</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 24 × 4
+##       vo sdate         id exposure                          
+##    &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                             
+##  1 48064 2008-03-21     1 망간및그무기화합물함유제제        
+##  2 48064 2008-03-21     1 산화아연(흄)함유제제              
+##  3 48064 2008-03-21     1 크롬과그무기화합물(수용성 6가크롬)
+##  4 48064 2008-03-21     1 소음                              
+##  5 48064 2008-03-21     1 용접흄                            
+##  6 48065 2008-03-21     1 망간및그무기화합물함유제제        
+##  7 48065 2008-03-21     1 산화아연(흄)함유제제              
+##  8 48065 2008-03-21     1 크롬과그무기화합물(수용성 6가크롬)
+##  9 48065 2008-03-21     1 소음                              
+## 10 48065 2008-03-21     1 용접흄                            
+## # … with 14 more rows</code></pre>
+</div>
+<div id="spread-pivot_wider" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> spread (pivot_wider)<a href="data-wrangling--text-handling.html#spread-pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>이를 wide form으로 만들어 보겠습니다 .</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-wrangling--text-handling.html#cb17-1" aria-hidden="true" tabindex="-1"></a>exp5<span class="ot">&lt;-</span>exp4 <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="data-wrangling--text-handling.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">values =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="data-wrangling--text-handling.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> exposure, </span>
+<span id="cb17-4"><a href="data-wrangling--text-handling.html#cb17-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> values, </span>
+<span id="cb17-5"><a href="data-wrangling--text-handling.html#cb17-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_fill =</span> <span class="dv">0</span>)</span>
+<span id="cb17-6"><a href="data-wrangling--text-handling.html#cb17-6" aria-hidden="true" tabindex="-1"></a>exp5 <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 76
+##       vo sdate       id 망간및그무기화… `산화아연(흄)함…` `크롬과그무기…`  소음
+##    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
+## 1  48064 2008-03…     1               1                 1               1     1
+## 2  48065 2008-03…     1               1                 1               1     1
+## 3  62526 2008-07…     1               1                 1               1     1
+## 4  62527 2008-07…     1               1                 1               1     1
+## 5 174043 2011-12…     2               0                 0               0     0
+## 6 306072 2014-12…     3               0                 0               0     0
+## # … with 69 more variables: 용접흄 &lt;dbl&gt;, 일반검진 &lt;dbl&gt;,
+## #   산화철분진과흄함유제제 &lt;dbl&gt;, 메틸알코올 &lt;dbl&gt;, 포름알데히드 &lt;dbl&gt;,
+## #   방사선 &lt;dbl&gt;, 기타광물성분진 &lt;dbl&gt;, `니켈(불용성무기화합물)` &lt;dbl&gt;,
+## #   `주석(금속)` &lt;dbl&gt;, 염화수소 &lt;dbl&gt;, 질산 &lt;dbl&gt;, 황산 &lt;dbl&gt;, 자외선 &lt;dbl&gt;,
+## #   기타금속가공유 &lt;dbl&gt;, 생애검진 &lt;dbl&gt;, 아크릴아미드 &lt;dbl&gt;, 엑스선 &lt;dbl&gt;,
+## #   IPA &lt;dbl&gt;, `염화수소(염산)` &lt;dbl&gt;, 망간및그무기화합물 &lt;dbl&gt;,
+## #   `메틸에틸케톤(MEK)` &lt;dbl&gt;, 메틸에틸케톤 &lt;dbl&gt;, 톨루엔 &lt;dbl&gt;, …</code></pre>
+<p>이제 id 1인 근로자의 산화철분진 노출을 관찰해 보겠습니다. id 1인 근로자는 언제 부터 산화철 분진에 노출되었나요? 2008년 7월부터 입니다.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-wrangling--text-handling.html#cb19-1" aria-hidden="true" tabindex="-1"></a>exp5 <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="data-wrangling--text-handling.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sdate, id, <span class="fu">contains</span>(<span class="st">&quot;산화철분진&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="data-wrangling--text-handling.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(id <span class="sc">==</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   sdate         id 산화철분진과흄함유제제
+##   &lt;chr&gt;      &lt;dbl&gt;                  &lt;dbl&gt;
+## 1 2008-03-21     1                      0
+## 2 2008-03-21     1                      0
+## 3 2008-07-02     1                      1
+## 4 2008-07-02     1                      1</code></pre>
+<p>저는 데이터 클리닝과 visualization에서는 주로 long form을 데이터 분석에서는 wide form을 사용하고 있습니다. 참고로 common data model을 만들때 long form 데이터를 사용하지 않고서는 표준화가 불가능하다고 할 수 도 있습니다.</p>
+</div>
+<div id="stringr" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> stringr<a href="data-wrangling--text-handling.html#stringr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>Stringr</code>부분은 강의한다기 보다는 필요한 시기에 cheat를 찾아서 실행해 본다가 맞는 것 같습니다. 다만 여기서 몇가지 실습을 통해 익히고, 앞서 이야기한 cheat를 사용해서 필요한 경우 사용하면 되겠습니다.</p>
+<div id="분진-노출자-찾기" class="section level3 hasAnchor" number="13.6.1">
+<h3><span class="header-section-number">13.6.1</span> 분진 노출자 찾기<a href="data-wrangling--text-handling.html#분진-노출자-찾기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>여러 분진에 노출되는 근로자를 찾아보고 싶습니다. 어떤 데이터에서 찾으면 좋을 까요? 이때 사용할 코드는 <code>str_detect</code>입니다. 구별을 위해 long 과 wide 파일을 만들겠습니다.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-wrangling--text-handling.html#cb21-1" aria-hidden="true" tabindex="-1"></a>long <span class="ot">&lt;-</span>exp4</span>
+<span id="cb21-2"><a href="data-wrangling--text-handling.html#cb21-2" aria-hidden="true" tabindex="-1"></a>wide <span class="ot">&lt;-</span>exp5</span></code></pre></div>
+<p>str_detect는 어떤 변수에 특정 문장이 있으면 TRUE, 아니면 FALSE를 돌려주는 함수 입니다.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-wrangling--text-handling.html#cb22-1" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banna&#39;</span>, <span class="st">&#39;apple-banna&#39;</span>)</span>
+<span id="cb22-2"><a href="data-wrangling--text-handling.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruit, <span class="st">&#39;apple&#39;</span>)</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data-wrangling--text-handling.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruit, <span class="st">&#39;-&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+<p>이를 이용해서 long form에서 찾아 보겠습니다. 10명이 노출되고 있네요.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-wrangling--text-handling.html#cb26-1" aria-hidden="true" tabindex="-1"></a>long <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="data-wrangling--text-handling.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(exposure, <span class="st">&quot;분진&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="data-wrangling--text-handling.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(id) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="data-wrangling--text-handling.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="data-wrangling--text-handling.html#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>()</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>그럼 어떤 분진인지 보겠습니다. 산화철분진, 광물성분진이었네요.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-wrangling--text-handling.html#cb28-1" aria-hidden="true" tabindex="-1"></a>long <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="data-wrangling--text-handling.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(exposure, <span class="st">&quot;분진&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="data-wrangling--text-handling.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(exposure) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="data-wrangling--text-handling.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() </span></code></pre></div>
+<pre><code>## [1] &quot;산화철분진과흄함유제제&quot; &quot;기타광물성분진&quot;</code></pre>
+</div>
+<div id="특정-문자-변환" class="section level3 hasAnchor" number="13.6.2">
+<h3><span class="header-section-number">13.6.2</span> 특정 문자 변환<a href="data-wrangling--text-handling.html#특정-문자-변환" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>찾아보니 <code>기타</code>라는 단어가 있어 혼란이 있네요, 그리고 <code>함유제제</code>와 <code>화합물</code>이라는 것은 필요 없는 단어라고 판단됩니다. 이를 찾아서 지워보겠습니다. str_replace_all을 이용합니다.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-wrangling--text-handling.html#cb30-1" aria-hidden="true" tabindex="-1"></a>long <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="data-wrangling--text-handling.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">exposure2=</span><span class="fu">str_replace_all</span>(exposure, <span class="st">&quot;기타|함유제제|화합물|및그무기&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="data-wrangling--text-handling.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(exposure, <span class="st">&#39;납|분진&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="data-wrangling--text-handling.html#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(exposure, exposure2) <span class="sc">%&gt;%</span></span>
+<span id="cb30-5"><a href="data-wrangling--text-handling.html#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   exposure                     exposure2     
+##   &lt;chr&gt;                        &lt;chr&gt;         
+## 1 산화철분진과흄함유제제       산화철분진과흄
+## 2 기타광물성분진               광물성분진    
+## 3 납(연)및그무기화합물함유제제 납(연)        
+## 4 납(연)및그무기화합물         납(연)        
+## 5 납.납화합물                  납.납</code></pre>
+</div>
+<div id="과제-1" class="section level3 hasAnchor" number="13.6.3">
+<h3><span class="header-section-number">13.6.3</span> 과제<a href="data-wrangling--text-handling.html#과제-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R 코드를 제출하세요</p>
+<ol style="list-style-type: decimal">
+<li>“납”의 노출 종류는 몇가지 인가요? 힌트
+<code>long %&gt;% filter(str_detect(??, ??)) %&gt;% pull(??) %&gt;% unique()</code></li>
+</ol>
+<pre><code>## [1] &quot;납(연)및그무기화합물함유제제&quot; &quot;납(연)및그무기화합물&quot;        
+## [3] &quot;납.납화합물&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>납 노출이 일어난 날짜(<code>sdate</code>)를 찾으세요</li>
+</ol>
+<pre><code>## [1] &quot;2007-07-19&quot; &quot;2009-07-13&quot; &quot;2010-07-12&quot; &quot;2011-04-14&quot; &quot;2012-05-07&quot;
+## [6] &quot;2013-05-27&quot; &quot;2014-05-26&quot; &quot;2015-04-27&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>id 별 소음에 노출된 횟수를 구하고 이를 <code>ggplot(aes(x=n)) + geom_bar()</code>를 이용해 그리세요.</li>
+</ol>
+<p><img src="testbook_files/figure-html/noise%20bar-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>숫자가 포함된 인자를 찾아보세요, 숫자는 <code>\\d</code>로 표기합니다. d 는 digit이란 뜻이고 <code>\\</code>는 그 뒤에 오는 것이 문자가 아니라 약속된 기호라는 뜻입니다. 예를 들면 아래와 같습니다. <code>^</code>가 의미하는 것은 무엇일까요?. <code>$</code>가 뜻하는 것은 무엇일까요. 아래와 같습니다.</li>
+</ol>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-wrangling--text-handling.html#cb34-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;apple2&#39;</span>, <span class="st">&#39;apple&#39;</span>, <span class="st">&#39;a4ple&#39;</span>, <span class="st">&#39;4apple&#39;</span>, <span class="st">&#39;b4ple&#39;</span>)</span>
+<span id="cb34-2"><a href="data-wrangling--text-handling.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruits, <span class="st">&#39;</span><span class="sc">\\</span><span class="st">d&#39;</span>)</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-wrangling--text-handling.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruits, <span class="st">&#39;^</span><span class="sc">\\</span><span class="st">d&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-wrangling--text-handling.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruits, <span class="st">&#39;</span><span class="sc">\\</span><span class="st">d$&#39;</span>)</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-wrangling--text-handling.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruits, <span class="st">&#39;a</span><span class="sc">\\</span><span class="st">d&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>자 그럼 숫자가 포함된 유해 물질을 찾아 봅시다. 이렇게 결과가 나오게 해보세요!. 아직 1이 있는 사람이 있나요? 숫자만 혼자 있는 경우도 지워보세요.</li>
+</ol>
+<pre><code>## # A tibble: 6 × 1
+##   exposure                          
+##   &lt;chr&gt;                             
+## 1 크롬과그무기화합물(수용성 6가크롬)
+## 2 야간작업(월평균4회)               
+## 3 크롬과그무기화합물(불용성 6가크롬)
+## 4 2-부톡시에탄올                    
+## 5 3-부타디엔                        
+## 6 크롬(6가)화합물(불용성무기화합물)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>숫자로 시작되는 유해물질을 찾아보세요</li>
+</ol>
+<pre><code>## # A tibble: 2 × 1
+##   exposure      
+##   &lt;chr&gt;         
+## 1 2-부톡시에탄올
+## 2 3-부타디엔</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="wave-form-data-visualization-example-for-public-health.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="web-scraping.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["testbook.pdf", "testbook.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

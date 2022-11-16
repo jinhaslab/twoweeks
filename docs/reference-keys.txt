@@ -206,3 +206,5 @@ input-output
 deploy-shiny-app-local-server
 과제-6
 지도앱-만들기
+data-wrangling--text-handling
+data-wrangling--text-value-handling
