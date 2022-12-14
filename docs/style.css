@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+ /*------------- Whole Document---------------- */
+
+body {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 19px;
+}
+
+/*----------------- links ---------------------*/
+
+a { 
+  color: #4e89bf;
+}
+
+a:hover {
+    color: #396892; /* darker color when hovering */
+}
+  
 p.caption {
   color: #777;
   margin-top: 10px;
