@@ -23,7 +23,7 @@
 <meta name="author" content="윤진하(flyinyou@yonsei.ac.k)" />
 
 
-<meta name="date" content="2023-03-22" />
+<meta name="date" content="2023-10-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -213,76 +213,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-3"><a href="표만들기.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;tidyverse&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
 <span id="cb1-4"><a href="표만들기.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;htmlTable&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;htmlTable&quot;</span>)</span>
 <span id="cb1-5"><a href="표만들기.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;broom&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;broom&quot;</span>)</span>
-<span id="cb1-6"><a href="표만들기.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># packages from github</span></span>
-<span id="cb1-7"><a href="표만들기.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb1-8"><a href="표만들기.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb1-9"><a href="표만들기.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;jinhaslab/tabf&quot;</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## ── R CMD build ─────────────────────────────────────────────────────────────────
-##   
-   checking for file ‘/tmp/Rtmp5PFFmF/remotes14586e2c86797a/jinhaslab-tabf-22d2a76/DESCRIPTION’ ...
-  
-✔  checking for file ‘/tmp/Rtmp5PFFmF/remotes14586e2c86797a/jinhaslab-tabf-22d2a76/DESCRIPTION’
-## 
-  
-─  preparing ‘tabf’:
-##    checking DESCRIPTION meta-information ...
-  
-✔  checking DESCRIPTION meta-information
-## 
-  
-─  checking for LF line-endings in source and make files and shell scripts
-## 
-  
-─  checking for empty or unneeded directories
-## ─  building ‘tabf_0.0.0.9000.tar.gz’
-## 
-  
-   
-## </code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="표만들기.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabf)</span></code></pre></div>
+<span id="cb1-6"><a href="표만들기.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;labelled&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;labelled&quot;</span>)</span>
+<span id="cb1-7"><a href="표만들기.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># packages from github</span></span>
+<span id="cb1-8"><a href="표만들기.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-9"><a href="표만들기.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-10"><a href="표만들기.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;jinhaslab/tabf&quot;</span>, <span class="at">force =</span> <span class="cn">TRUE</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="표만들기.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabf)</span></code></pre></div>
 </div>
 <div id="자료" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> 자료<a href="표만들기.html#자료" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>실습할 근로환경조사 중에 몇몇만 모아 놓은 것을 다운로드 하겠습니다. <a href="https://sehnr.org/apps/download/"> sehnr.org’s open data </a>. 에 자료를 올려놓았습니다.
 <code>tutorKWCS.rds</code> 를 사용할 것입니다 rds 라는 파일 형태로 저장하고 불러올 것 입니다.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="표만들기.html#cb4-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://sehnr.org/apps/download/tutorKWCS.rds&quot;</span></span>
-<span id="cb4-2"><a href="표만들기.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">&quot;tutorKWCS.rds&quot;</span>)</span>
-<span id="cb4-3"><a href="표만들기.html#cb4-3" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&quot;tutorKWCS.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="표만들기.html#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://sehnr.org/apps/download/tutorKWCS.rds&quot;</span></span>
+<span id="cb2-2"><a href="표만들기.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">&quot;tutorKWCS.rds&quot;</span>)</span>
+<span id="cb2-3"><a href="표만들기.html#cb2-3" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&quot;tutorKWCS.rds&quot;</span>)</span></code></pre></div>
 <p><strong>Data Manipulation</strong> 이라는 매우 중요한 과정이 있는데요, 이것은 <a href="https://jinhaslab.github.io/dspubs_tutorbook/data-manipulation.html"> 데이터 변환 참고 </a>를 참고해 주시고, 오늘은 바로 표를 만들어 보겠습니다.</p>
 </div>
 <div id="변수-선정-그리고-표-1" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> 변수 선정 그리고 표 1<a href="표만들기.html#변수-선정-그리고-표-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>변수는 종속변수, 독립변수로 나눌수 있고, 독립변수는 성격에 따라 연속변수와 명목변수로 나눌 수 있습니다. 그렇게 구별해 보겠습니다.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="표만들기.html#cb5-1" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
-<span id="cb5-2"><a href="표만들기.html#cb5-2" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , <span class="st">&quot;njob&quot;</span>, <span class="st">&quot;sexgp&quot;</span>,  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span>)</span>
-<span id="cb5-3"><a href="표만들기.html#cb5-3" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="표만들기.html#cb3-1" aria-hidden="true" tabindex="-1"></a>stratas  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sleepgp&quot;</span>)</span>
+<span id="cb3-2"><a href="표만들기.html#cb3-2" aria-hidden="true" tabindex="-1"></a>catVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;wwa1gp&quot;</span>, <span class="st">&quot;shortReturn&quot;</span>,<span class="st">&quot;shiftWork&quot;</span> , <span class="st">&quot;njob&quot;</span>, <span class="st">&quot;sexgp&quot;</span>,  <span class="st">&quot;edugp&quot;</span>, <span class="st">&quot;empgp&quot;</span>)</span>
+<span id="cb3-3"><a href="표만들기.html#cb3-3" aria-hidden="true" tabindex="-1"></a>conVars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;AGE&quot;</span>,<span class="st">&quot;satisfaction&quot;</span>)</span></code></pre></div>
 <p><code>tabf()</code> 은 우리가 설정한 것에 따라 표1을 만들어 줍니다. <code>htmlTable()</code>은 붙여 넣기 좋게 화면에 출력해 줍니다.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="표만들기.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">tabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span>
-<span id="cb6-2"><a href="표만들기.html#cb6-2" aria-hidden="true" tabindex="-1"></a>tab1</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="표만들기.html#cb4-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">=</span> <span class="fu">tabf</span>(<span class="at">dat1=</span>dat1, <span class="at">stratas =</span> stratas, <span class="at">catVars =</span> catVars, <span class="at">conVars =</span> conVars)</span>
+<span id="cb4-2"><a href="표만들기.html#cb4-2" aria-hidden="true" tabindex="-1"></a>tab1</span></code></pre></div>
 <pre><code>## # A tibble: 22 × 5
-##    variables      values             `0.non distrubance` 1.sleep distu…¹ p.value
-##    &lt;chr&gt;          &lt;chr&gt;              &lt;chr&gt;               &lt;chr&gt;           &lt;chr&gt;  
-##  1 &quot;AGE&quot;          &quot;&quot;                 46.8±12.4           49.7±11.9       &quot;&lt;0.00…
-##  2 &quot;wwa1gp&quot;       &quot;Never&quot;            12222 (94.7%)       684 (5.3%)      &quot;&lt;0.00…
-##  3 &quot;&quot;             &quot;Rarely&quot;           12316 (94.5%)       714 (5.5%)      &quot;&quot;     
-##  4 &quot;&quot;             &quot;Sometimes&quot;        9112 (90.3%)        981 (9.7%)      &quot;&quot;     
-##  5 &quot;&quot;             &quot;Often&quot;            3456 (82.8%)        717 (17.2%)     &quot;&quot;     
-##  6 &quot;&quot;             &quot;Always&quot;           634 (70.0%)         272 (30.0%)     &quot;&quot;     
-##  7 &quot;satisfaction&quot; &quot;&quot;                 2.1±0.5             2.4±0.6         &quot;&lt;0.00…
-##  8 &quot;shortReturn&quot;  &quot;non short return&quot; 36183 (92.5%)       2927 (7.5%)     &quot;&lt;0.00…
-##  9 &quot;&quot;             &quot;short return&quot;     1557 (77.9%)        441 (22.1%)     &quot;&quot;     
-## 10 &quot;shiftWork&quot;    &quot;non shift work&quot;   35056 (91.9%)       3073 (8.1%)     &quot;&lt;0.00…
-## # … with 12 more rows, and abbreviated variable name ¹​`1.sleep disturbance`</code></pre>
+##    variables      values       `0.non distrubance` `1.sleep disturbance` p.value
+##    &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;               &lt;chr&gt;                 &lt;chr&gt;  
+##  1 &quot;AGE&quot;          &quot;&quot;           46.8±12.4           49.7±11.9             &quot;&lt;0.00…
+##  2 &quot;wwa1gp&quot;       &quot;Never&quot;      12222 (94.7%)       684 (5.3%)            &quot;&lt;0.00…
+##  3 &quot;&quot;             &quot;Rarely&quot;     12316 (94.5%)       714 (5.5%)            &quot;&quot;     
+##  4 &quot;&quot;             &quot;Sometimes&quot;  9112 (90.3%)        981 (9.7%)            &quot;&quot;     
+##  5 &quot;&quot;             &quot;Often&quot;      3456 (82.8%)        717 (17.2%)           &quot;&quot;     
+##  6 &quot;&quot;             &quot;Always&quot;     634 (70.0%)         272 (30.0%)           &quot;&quot;     
+##  7 &quot;satisfaction&quot; &quot;&quot;           2.1±0.5             2.4±0.6               &quot;&lt;0.00…
+##  8 &quot;shortReturn&quot;  &quot;non short … 36183 (92.5%)       2927 (7.5%)           &quot;&lt;0.00…
+##  9 &quot;&quot;             &quot;short retu… 1557 (77.9%)        441 (22.1%)           &quot;&quot;     
+## 10 &quot;shiftWork&quot;    &quot;non shift … 35056 (91.9%)       3073 (8.1%)           &quot;&lt;0.00…
+## # ℹ 12 more rows</code></pre>
 <p>htmlTable()을 이용해서 보기 좋게 만들어 보겠습니다.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="표만들기.html#cb8-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="표만들기.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;Disturbance&quot;</span>, <span class="st">&quot;P value&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="표만들기.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(</span>
-<span id="cb8-4"><a href="표만들기.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cgroup =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>,  <span class="st">&quot;Sleep disturbance&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
-<span id="cb8-5"><a href="표만들기.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.cgroup =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
-<span id="cb8-6"><a href="표만들기.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tfoot =</span> <span class="st">&quot;P value calculated by Chisq-Test and T-Test&quot;</span>, </span>
-<span id="cb8-7"><a href="표만들기.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rnames =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb8-8"><a href="표만들기.html#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Basic Characteristics according to Sleep disturbance&quot;</span></span>
-<span id="cb8-9"><a href="표만들기.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="표만들기.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="표만들기.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;Disturbance&quot;</span>, <span class="st">&quot;P value&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="표만들기.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">htmlTable</span>(</span>
+<span id="cb6-4"><a href="표만들기.html#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cgroup =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>,  <span class="st">&quot;Sleep disturbance&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
+<span id="cb6-5"><a href="표만들기.html#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.cgroup =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
+<span id="cb6-6"><a href="표만들기.html#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tfoot =</span> <span class="st">&quot;P value calculated by Chisq-Test and T-Test&quot;</span>, </span>
+<span id="cb6-7"><a href="표만들기.html#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rnames =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb6-8"><a href="표만들기.html#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Basic Characteristics according to Sleep disturbance&quot;</span></span>
+<span id="cb6-9"><a href="표만들기.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
 <thead>
 <tr>
@@ -819,17 +798,17 @@ P value calculated by Chisq-Test and T-Test
 <div id="로지스틱-회귀-분석" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> 로지스틱 회귀 분석<a href="표만들기.html#로지스틱-회귀-분석" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>로지스틱 회귀 분석은 오즈비와 95% 신뢰구간을 구하는데 사용합니다. 여기서는 수면장애의 오즈를 “일을 하지 않을 때에도 걱정하는” 정도에 따라 분석해 보겠습니다. 첫번째 모델을 걱정 변수만 넣어서, 두번째 모델은 연령, 성별, 근무 만족도를 넣어서, 3번째는 교대 근무와, n-job 여부를 넣어서 분석하겠습니다.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="표만들기.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="표만들기.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span>  </span>
-<span id="cb9-3"><a href="표만들기.html#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp)</span>
-<span id="cb9-4"><a href="표만들기.html#cb9-4" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href="표만들기.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
-<span id="cb9-6"><a href="표만들기.html#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction)</span>
-<span id="cb9-7"><a href="표만들기.html#cb9-7" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="표만들기.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
-<span id="cb9-9"><a href="표만들기.html#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction <span class="sc">+</span> shiftWork <span class="sc">+</span> njob)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="표만들기.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="표만들기.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span>  </span>
+<span id="cb7-3"><a href="표만들기.html#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp)</span>
+<span id="cb7-4"><a href="표만들기.html#cb7-4" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="표만들기.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
+<span id="cb7-6"><a href="표만들기.html#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction)</span>
+<span id="cb7-7"><a href="표만들기.html#cb7-7" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">=</span> dat1 <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="표만들기.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(<span class="at">data=</span>.,<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="at">formula =</span> sleepgp <span class="sc">==</span> <span class="st">&quot;1.sleep disturbance&quot;</span></span>
+<span id="cb7-9"><a href="표만들기.html#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> wwa1gp <span class="sc">+</span> AGE <span class="sc">+</span> sexgp <span class="sc">+</span>satisfaction <span class="sc">+</span> shiftWork <span class="sc">+</span> njob)</span></code></pre></div>
 <p>각 모델이 잘 이루어졌는지 확인해 봅니다 . 로지스틱 회귀분서의 자세한 내용은 통계학 강의를 꼭 참고해 주세요!.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="표만들기.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="표만들기.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = sleepgp == &quot;1.sleep disturbance&quot; ~ wwa1gp, family = &quot;binomial&quot;, 
@@ -857,7 +836,7 @@ P value calculated by Chisq-Test and T-Test
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p><code>oddsf()</code> 라는 함수로 결과를 확인해 보겠습니다 .</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="표만들기.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsf</span>(mod1, mod2, mod3) <span class="sc">%&gt;%</span> <span class="fu">htmlTable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="표만들기.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsf</span>(mod1, mod2, mod3) <span class="sc">%&gt;%</span> <span class="fu">htmlTable</span>()</span></code></pre></div>
 <table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
 <thead>
 <tr>
@@ -1130,7 +1109,7 @@ njob
 </tbody>
 </table>
 <p>예상한대로 결과가 나왔다면 <code>oddsTabf()</code>를 이용해서 복사 붙여 넣기를 하겠습니다.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="표만들기.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsTabf</span>(mod1, mod2, mod3)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="표만들기.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsTabf</span>(mod1, mod2, mod3)</span></code></pre></div>
 <p><img src="images/logisticTable1.png"></p>
 
 </div>
